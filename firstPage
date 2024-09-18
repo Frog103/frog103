@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>StickyBell Portfolio</title>
+  <style>
+    body {
+      background-color: #bc733e;
+      font-family: Helvetica;
+    }
+    .custom-font {
+      color: #333333;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    footer {
+      margin-top: 20px;
+    }
+    a:hover {
+      color: #FF6347;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <img src="https://i.ibb.co/L63Qj9k/Frog-Bee.png" height="100" width="100" alt="Logo">
+    <h1>@StickyBell</h1>
+    <p class="custom-font">I make cool stuff.</p>
+    <h2>About Me</h2>
+    <img src="https://i.ibb.co/3yJqQKP/Narwhal.png" height="250" width="250" alt="Narwhal Art">
+    <p class="custom-font">#
+      <h3>Links</h3>
+      <a href="https://www.instagram.com/p/C-YRHFgpqp5/">My Instagram</a>
+      <p>Copyright &copy; All Rights Reserved 2012</p>
+    </footer>
+  </center>
+</body>
+</html>
