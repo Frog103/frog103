@@ -1,56 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>StickyBell Portfolio</title>
-  <style>
-    body {
-      background-color: #bc733e;
-      background-image: url('#');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      font-family: Helvetica;
-    }
-    /* Text styling */
-    .custom-font {
-      color: #333333;
-    }
-
-    h1 {
-      color: #4CAF50;
-    }
-
-    footer {
-      margin-top: 20px;
-    }
-
-    a:hover {
-      color: #84d6ff;
-    }
-  </style>
+    <title>Homepage</title>
+    <style>
+        body {
+            background-color: #c9c9c9;
+            font-family:Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: rgb(184, 184, 184);
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header h3 {
+            margin: 5px 0 0;
+            font-size: 1.5rem;
+            color: #555;
+        }
+        nav {
+            background-color: rgb(239, 239, 239);
+            border-radius: 5px;
+            padding: 10px 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            padding: 40px 55px;
+            font-size: 1rem;
+            line-height: 90px;
+            border-radius: 5px;
+            transition: color 0.3s, font-size 0.3s, background-color 0.5s;
+        }
+        nav ul li a:hover {
+            color: rgb(236, 0, 0);
+            font-size: 2.1rem;
+            border-radius: 5px;
+        }
+        .splash-container {
+            margin: 20px auto;
+            padding: 10px;
+            max-width: 1200px;
+            background-color: rgb(167, 167, 167);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .splash-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: rgb(92, 92, 92);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
+        @media (max-width: 1008px) {
+            nav ul {
+                flex-direction: column;
+                row-gap: 15px;
+                text-align: center;
+            }
+            nav ul li a {
+                padding: 40px 80px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <center>
-    <!-- Current class tags: Title, quote, logo, button1, button2, copyright-->
-    <h1 class="title">@stickybell09</h1>
-    <p class="quote"> "I make cool stuff."</p>
 
-    <img src="https://i.ibb.co/L63Qj9k/Frog-Bee.png" height="250" width="250" class="logo" alt="Frog & Bee Icon">
+<!--Title Header-->
+<header>       
+    <h1>Frog103</h1>
+    <h3>I make cool stuff.</h3>
+</header>
 
-    <!-- Links to the gallery and Instagram page -->
-    <p>
-      <a href="Gallery.html" class="button1"> Gallery
-      </a>
-    
-      <a href="https://www.instagram.com/" class="button2"> Instagram
-      </a>
-    </p>
-    <footer>
-      <p class="copyright">Copyright &copy; All Rights Reserved 2024.</p>
-    </footer>
-  </center>
+<!--Navigation Content-->
+<nav>
+    <ul>
+        <li><a href="About.html">About Me</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="GalleryTopic.html">Gallery</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<!--Splash Image-->
+<div class="splash-container">
+    <img src="images/Splashing2.PNG" alt="Splash Image">
+</div>
+
+<!--Footer-->
+<footer>
+    Copyright &copy; 2024 Frog103. All Rights Reserved.
+</footer>
+
 </body>
 </html>
+
 
