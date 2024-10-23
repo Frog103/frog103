@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Me</title>
+  <style>
+  body {
+  background-color: #ffffff;
+  font-family: 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-image: linear-gradient(white,gray);
+ }
+ .header {
+  background-color: rgb(184, 184, 184);
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-radius: 5x;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+nav {
+background-color: rgb(239, 239, 239);
+border-radius: 5px;
+padding: 10px 0;
+}
+footer {
+            background-color: rgb(92, 92, 92);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
+nav ul {
+display: flex;
+justify-content: space-around;
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+nav ul li {
+margin: 0;
+}
+nav ul li a {
+color: black;
+text-decoration: none;
+padding: 40px 55px;
+font-size: 1rem;
+line-height: 90px;
+border-radius: 5px;
+transition: color 0.3s, font-size 0.3s, background-color 0.5s;
+}
+nav ul li a:hover {
+color: rgb(255, 0, 0);
+font-size: 1.35rem;
+border-radius: 5px;
+}
+@media (max-width: 1008px) {
+  nav ul {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                row-gap: 15px;
+                text-align: center;
+            }
+            nav ul li a {
+                padding: 40px 15px;
+                font-size: 1.2rem;
+            }
+            footer {
+                height: 100%;
+                padding-bottom: 85px;
+            }
+}
+.column {
+  margin-top: 15px;
+  float: left;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.column.side {
+  width: 25%;
+  z-index: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.column.middle {
+background-color: rgba(0, 0, 0, 0.1);
+width: 45%;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+z-index: -1;
+border-radius: 5px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+    
+  }
+}
+</style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Resume</h1>
+      </div>
+      
+      <nav>
+        <ul>
+        <!--Homepage-->
+        <li> <a href="Index.html">Homepage</a>
+        
+        <!--Projects-->
+        <li> <a href="Projects.html">Projects</a>
+        
+        <!--Gallery-->
+        <li> <a href="GalleryTopic.html">Gallery</a>
+        
+        <!--Resume-->
+        <li> <a href="About.html">About Me</a>
+        
+        <!--Contact-->
+        <li> <a href="#">Blog</a>
+        
+        <!--Blog-->
+        <li> <a href="Contact.html">Contact</a>
+        </ul>  
+      </nav>
+      
+      <div class="row">
+        <div class="column side">
+          <h2>Side</h2>
+          <p>Image goes here.</p>
+        </div>
+        
+        <div class="column middle">
+          <h2>Resume</h2>
+          <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Sollicitudin gravida venenatis per taciti rhoncus? Dapibus tortor feugiat tortor gravida lobortis viverra ut eu lacus. 
+            Amet mattis dictumst taciti venenatis velit consectetur sem torquent.
+            <p>Metus eleifend pharetra parturient congue purus bibendum egestas taciti. Cubilia at in habitant habitasse mattis bibendum a feugiat.
+            Taciti dui velit pretium rutrum suspendisse. Fermentum efficitur maecenas interdum cubilia aliquet sed ipsum maecenas. Nulla vivamus hendrerit lacus mattis orci consectetur. 
+            <p>Metus leo dignissim tristique mattis hendrerit cras ex. Turpis eleifend phasellus himenaeos hendrerit, elit mattis natoque. Varius eget sociosqu etiam natoque potenti tristique mus id. Facilisi varius magna phasellus magna ut sagittis. 
+            Faucibus facilisi molestie curabitur odio ultricies sollicitudin eu. Molestie sollicitudin hendrerit ullamcorper, duis hendrerit dui. Condimentum ex risus porta diam himenaeos consequat.
+            <p>Taciti vulputate fusce aliquet nostra fermentum lacus adipiscing nulla hac. Lacus mus lacus in bibendum consectetur. Phasellus sodales vehicula tincidunt nascetur a nullam? Turpis ex aenean hendrerit; dictum proin faucibus netus. 
+            Pharetra pulvinar arcu viverra sodales eros sodales nam. Netus ipsum lobortis primis adipiscing; ullamcorper pharetra cras. Quisque nulla viverra pharetra habitant quisque eu mattis. Dis gravida sodales per aenean orci tincidunt.
+            Adipiscing auctor dictum inceptos consectetur ultrices odio. Maximus montes proin ac eleifend feugiat metus feugiat cras. Vitae velit ad feugiat; tortor imperdiet senectus phasellus viverra. Nullam vulputate volutpat efficitur scelerisque sed id. 
+            <p>Nisi malesuada quam ut accumsan maximus. Massa erat hendrerit efficitur lorem felis litora dui. Nullam sapien viverra cras enim mi efficitur consectetur.
+            Quisque potenti litora dapibus netus fames ut. Ante interdum consectetur aenean sit maximus integer. Dui lacinia donec fames fringilla lacus ligula dictum. Amet risus ipsum nostra eu mi; taciti mi. Ac nec adipiscing potenti praesent porttitor vulputate. 
+            Efficitur felis eget commodo, tempor ut eros turpis.
+          </p>
+        </div>
+        
+        <div class="column side">
+          <h2>Side#2</h2>
+          <p>Resume Download link here:</p>
+        </div>
+      </div>
+      <footer>
+        Copyright &copy; 2024 Frog103. All Rights Reserved.
+    </footer>
+</body>
+</html>
