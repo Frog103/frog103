@@ -14,9 +14,6 @@
             line-height: 1.6;
             color: #ffffff;
         }
-        main {
-            flex:1
-        }
         .header-nav-container {
             background-image: linear-gradient(rgb(31, 81, 132),rgba(32, 50, 32, 0));
             align-items: center;
@@ -95,16 +92,23 @@
             background-size: contain;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border: solid white 1px;
         }
         .splash-container img {
+            border: solid yellowgreen 3px;
             width: 100%;
-            height: auto;
+            max-height: 539px;
             border-radius: 2px;
         }
-
+        .fade {
+            animation-name: fade;
+            animation-duration: 2.5s;
+        }
+        @keyframes fade {
+            from {opacity: .1}
+            to {opacity: 1}
+        }
         footer {
-            position: sticky;
-            bottom: 0;
             height: 35px;
             border-top: 2px solid white ;
             background-color: rgba(50, 61, 51, 0.751);
@@ -136,7 +140,6 @@
     </style>
 </head>
 <body>
-
 <div class="header-nav-container">
     <header>       
         <div class="icon">
@@ -158,13 +161,34 @@
         </ul>
     </nav>
 </div>
-<div class="splash-container">
-    <img src="images/Splashing2.PNG" alt="Splash Image">
-</div>
 
+<div class="splash-container">
+    <div class = "mySlides fade">
+    <img src="images/Splashing2.PNG" alt="Splash Image">
+    </div>
+    <div class = "mySlides fade">
+        <img src="images/splashing3.JPG" alt="Splash Image2">
+        </div>
+</div>
 <footer>
     Copyright &copy; 2024 Frog103. All Rights Reserved.
 </footer>
+<script>
+    let slideIndex = 0;
 
+    function showSlides() {
+        let slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { 
+            slideIndex = 1; 
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 5000);
+    }
+    showSlides();
+</script>
 </body>
 </html>
