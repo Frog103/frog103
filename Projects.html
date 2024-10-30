@@ -4,36 +4,53 @@
     <title>Projects</title>
     <style>
         body {
-            background-color: #c9c9c9;
+            background-image: url(images/background.jpeg);
+            background-size:cover ;
+            background-attachment: fixed;
             font-family: Helvetica, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-image: linear-gradient(white,gray);
+            color: #ffffff;
+        }
+        .header-nav-container {
+            background-image: linear-gradient(rgb(31, 81, 132),rgba(32, 50, 32, 0));
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            transition: all 0.4 ease;
         }
         header {
-            background-color: rgb(184, 184, 184);
-            padding: 20px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1;
             border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin:  auto;
+            margin-bottom: 0px;
         }
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
         }
         header h3 {
             margin: 5px 0 0;
             font-size: 1.5rem;
-            color: #555;
+            font-weight: 300;
+            color: #cfcfcf;
+        }
+        .icon img{
+            max-height: 100px; 
+            max-width: 100px;
         }
         nav {
-            background-color: rgb(239, 239, 239);
-            border-radius: 5px;
+            background-color: rgba(102, 126, 104, 0.873);
             padding: 10px 0;
+            border-bottom: 1px solid white;
+            transition: all 0.4 ease;
         }
         nav ul {
             display: flex;
@@ -41,29 +58,45 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         nav ul li {
             margin: 0;
         }
         nav ul li a {
-            color: black;
+            display: block;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
             text-decoration: none;
-            padding: 40px 55px;
+            padding: 5px 30px;
             font-size: 1rem;
-            line-height: 90px;
+            line-height: 40px;
             border-radius: 5px;
             transition: color 0.3s, font-size 0.3s, background-color 0.5s;
         }
         nav ul li a:hover {
-            color: rgb(236, 0, 0);
-            font-size: 1.35rem;
+            color: rgb(204, 255, 0);
+            font-size: 1.5rem;
             border-radius: 5px;
         }
-
+        footer {
+            position: sticky;
+            bottom: 0;
+            height: 35px;
+            border-top: 2px solid white ;
+            background-color: rgba(50, 61, 51, 0.751);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+            border-radius: 3px;
+            transition: all 0.5 ease;
+        }
         .gallery-topics {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 5px;
             padding: 60px;
             margin: 0 auto;
             max-width: 1200px;
@@ -71,14 +104,13 @@
         .gallery-topic {
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .gallery-topic:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform:scale(110%)
         }
         .gallery-topic img {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             width: 100%;
             height: auto;
             display: block;
@@ -97,12 +129,17 @@
         }
 
         footer {
-            background-color: rgb(92, 92, 92);
+            position: sticky;
+            bottom: 0;
+            height: 35px;
+            border-top: 2px solid white ;
+            background-color: rgba(50, 61, 51, 0.751);
             padding: 20px;
             text-align: center;
             color: white;
             font-size: 0.9rem;
-            border-radius: 5px;
+            border-radius: 3px;
+            transition: all 0.5 ease;
         }
         @media (max-width: 1008px) {
             nav ul {
@@ -135,13 +172,16 @@
 </head>
 <body>
 
-<!--Title Header-->
-<header>       
-    <h1>Projects</h1>
-    <h3>#</h3>
-</header>
-
-<!--Nav Bar-->
+    <div class="header-nav-container">
+        <header>       
+            <div class="icon">
+                <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+            </div>
+            <div>
+                <h1>Frog103</h1>
+                <h3>Projects</h3>
+            </div>
+        </header>
 <nav>
     <ul>
         <li><a href="Index.html">Homepage</a></li>
@@ -152,14 +192,14 @@
         <li><a href="Contact.html">Contact</a></li>
     </ul>
 </nav>
-
+</div>
 <!--Gallery Topics-->
 <div class="gallery-topics">
     <!-- Topic 1: Project 1 -->
     <div class="gallery-topic">
-        <a href="Unite.html">
+        <a href="#">
             <img src="images/Unite.PNG" alt="Project 3 Image">
-            <p>#</p>
+            <p>Coming Soon!</p>
         </a>
     </div>
         </a>
