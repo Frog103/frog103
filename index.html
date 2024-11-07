@@ -23,15 +23,25 @@
     max-height: 539px;
     border-radius: 2px;
 }
-.fade {
-    animation-name: fade;
-    animation-duration: 2.5s;
+@media (max-width: 1008px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+        text-align: center;
+    }
+    nav ul li a {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+    footer {
+        align-items: center;
+        height: 100%;
+        padding-bottom: 50px;
+    }
 }
-@keyframes fade {
-    from {opacity: .1}
-    to {opacity: 1}
-}
-    </style>
+</style>
 </head>
 <body class="fade-out">
 <div class="page-container">
@@ -85,34 +95,7 @@
     </footer>
 </div>
 <script src="snowstorm.js"></script>
-<script>
-    let slideIndex = 0;
-    function showSlides() {
-        let slides = document.getElementsByClassName("mySlides");
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { 
-            slideIndex = 1; 
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 3500);
-    }
-    showSlides();
-
-document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const href = this.getAttribute('href');
-        
-        document.body.classList.add('hidden');
-
-        setTimeout(() => {
-            window.location.href = href;
-        }, 800);
-    });
-});
-</script>
+<script src="scripts.js"></script>
+<script src="slideShow.js"></script>
 </body>
 </html>
