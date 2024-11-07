@@ -2,97 +2,8 @@
 <html>
 <head>
   <title>Resume</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
- body {
-            background-image: url(images/background.jpeg);
-            background-size:cover ;
-            background-attachment: fixed;
-            font-family: Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #ffffff;
-        }
-        .header-nav-container {
-            background-image: linear-gradient(rgb(31, 81, 132),rgba(32, 50, 32, 0));
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            transition: all 0.4 ease;
-        }
-        header {
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content:center;
-            padding: 20px 40px;
-            max-width: 1200px;
-            margin:  auto;
-            margin-bottom: 0px;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        header h3 {
-            margin: 5px 0 0;
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: #cfcfcf;
-        }
-        .icon img{
-            max-height: 100px; 
-            max-width: 100px;
-        }
-        nav {
-            background-color: rgba(102, 126, 104, 0.873);
-            padding: 10px 0;
-            border-bottom: 1px solid white;
-            transition: all 0.4 ease;
-        }
-        nav ul {
-            display: flex;
-            justify-content: space-around;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        nav ul li {
-            margin: 0;
-        }
-        nav ul li a {
-            display: block;
-            color: rgb(255, 255, 255);
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 5px 30px;
-            font-size: 1rem;
-            line-height: 40px;
-            border-radius: 5px;
-            transition: color 0.3s, font-size 0.3s, background-color 0.5s;
-        }
-        nav ul li a:hover {
-            color: rgb(204, 255, 0);
-            font-size: 1.5rem;
-            border-radius: 5px;
-        }
-        footer {
-            height: 35px;
-            border-top: 2px solid white ;
-            background-color: rgba(50, 61, 51, 0.751);
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-size: 0.9rem;
-            border-radius: 3px;
-            transition: all 0.5 ease;
-        }
 @media (max-width: 1008px) {
   nav ul {
                 display: grid;
@@ -129,7 +40,6 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 z-index: -1;
 border-radius: 5px;
 }
-
 .row::after {
   content: "";
   display: table;
@@ -143,12 +53,12 @@ border-radius: 5px;
 }
 </style>
 </head>
-<body>
-
-  <div class="header-nav-container">
-    <header>       
+<body class="fade-out">
+  <div class="page-container">
+    <div class="header-nav-container">
+      <header>       
         <div class="icon">
-            <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+          <img src="images/frogBeeIcon.PNG" alt="Website Icon">
         </div>
         <div>
             <h1>Frog103</h1>
@@ -158,13 +68,14 @@ border-radius: 5px;
     <nav>
         <ul>
             <li><a href="index.html">Homepage</a></li>
+            <li><a href="About.html">About Me</a></li>
             <li><a href="Projects.html">Projects</a></li>
             <li><a href="GalleryTopic.html">Gallery</a></li>
-            <li><a href="About.html">About Me</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="Contact.html">Contact</a></li>
         </ul>
     </nav>
+</div>
 </div>
       <div class="row">
         <div class="column side">
@@ -198,5 +109,7 @@ border-radius: 5px;
       <footer>
         Copyright &copy; 2024 Frog103. All Rights Reserved.
     </footer>
+    <script src="snowstorm.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
