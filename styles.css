@@ -101,7 +101,7 @@ opacity: 0;
 footer {
     height: 35px;
     border-top: 2px solid white;
-    background-color: rgba(50, 61, 51, 0.751);
+    background-color: rgba(50, 61,51, 0.751);
     padding: 20px;
     text-align: center;
     color: white;
@@ -150,24 +150,6 @@ footer {
 .gallery-topic img:hover {
     outline: double white 2px;
 }
-@media (max-width: 1008px) {
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 15px;
-        text-align: center;
-    }
-    nav ul li a {
-        padding: 10px 20px;
-        font-size: 1.1rem;
-    }
-    footer {
-        align-items: center;
-        height: 100%;
-        padding-bottom: 50px;
-    }
-}
 
 /*Gallery Topic CSS*/
 
@@ -212,30 +194,39 @@ footer {
 }
 @media (max-width: 1008px) {
     nav ul {
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        row-gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
         text-align: center;
     }
     nav ul li a {
-        padding: 30px 8px;
-        font-size: 1.3rem;
+        padding: 10px 20px;
+        font-size: 1.1rem;
     }
     footer {
+        align-items: center;
         height: 100%;
-        padding-bottom: 85px;
+        padding-bottom: 50px;
     }
-@media (max-width: 1000px) {
     .gallery-pictures {
         grid-template-columns: repeat(2, 1fr);
     }
+    .gallery-topics {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+    width: 100%;
+    }
     .gallery-pictures {
         grid-template-columns: repeat(2,1fr);
         height: 70%;
         width: 80%;
     }
-}
-}
+    .gallery-topics {
+        grid-template-columns: 1fr;
+    }
+
+    }
