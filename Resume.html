@@ -4,52 +4,52 @@
   <title>Resume</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-@media (max-width: 1008px) {
-  nav ul {
-                display: grid;
-                grid-template-columns: repeat(3,1fr);
-                row-gap: 15px;
-                text-align: center;
-            }
-            nav ul li a {
-                padding: 40px 15px;
-                font-size: 1.2rem;
-            }
-            footer {
-                height: 100%;
-                padding-bottom: 85px;
-            }
+.textBox {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px white solid;
 }
 .column {
-  color: black;
-  margin-top: 15px;
-  float: left;
-  padding: 5px;
-  margin-bottom: 10px;
+text-align: center;
+color: rgb(0, 0, 0);
+margin-top: 15px;
+float: left;
+padding: 10px;
+margin-bottom: 10px;
 }
 .column.side {
-  width: 25%;
-  z-index: 1;
-  margin-left: 5px;
-  margin-right: 5px;
+background-image: url(images/textureOne.jpeg);
+background-size: cover;
+border-radius: 5px;
+border: solid white 1px;
+width: 20%;
+z-index: 1;
+margin-left: 5px;
+margin-right: 5px;
 }
 .column.middle {
+background-image: url(images/textureOne.jpeg);
+background-size: cover;
+border: solid white 1px;
 background-color: rgba(0, 0, 0, 0.1);
-width: 45%;
+width: 52%;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 z-index: -1;
 border-radius: 5px;
+}
+@media (max-width: 1090px) {
+    .column.side {
+        width:95%
+    }
+    .column.middle {
+        width:95%;
+    }
 }
 .row::after {
   content: "";
   display: table;
   clear: both;
-}
-@media screen and (max-width: 600px) {
-  .column.side, .column.middle {
-    width: 100%;
-    
-  }
 }
 </style>
 </head>
@@ -79,11 +79,14 @@ border-radius: 5px;
 </div>
       <div class="row">
         <div class="column side">
+          <div class ="textBox">
           <h2>Side</h2>
-          <p>Image goes here.</p>
+          <p>Picture and Resume Download link here:</p>
+        </div>
         </div>
         
         <div class="column middle">
+          <div class ="textBox">
           <h2>Resume</h2>
           <p>
             Lorem ipsum odor amet, consectetuer adipiscing elit. Sollicitudin gravida venenatis per taciti rhoncus? Dapibus tortor feugiat tortor gravida lobortis viverra ut eu lacus. 
@@ -100,10 +103,6 @@ border-radius: 5px;
             Efficitur felis eget commodo, tempor ut eros turpis.
           </p>
         </div>
-        
-        <div class="column side">
-          <h2>Side#2</h2>
-          <p>Resume Download link here:</p>
         </div>
       </div>
       <footer>
