@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Post</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .post-container {
+        background-image: url(images/textureOne.jpeg);
+        background-size: cover;
+        outline: solid white 1px;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr; 
+      gap: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-details-box {
+        background-color: rgba(255, 255, 255, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-details-box h1 {
+      font-size: 2.5rem;
+      color: #2a5b2b;
+      margin-bottom: 10px;
+    }
+
+    .post-details-box p {
+      font-size: 1rem;
+      color: #000000;
+    }
+
+    .description {
+      margin-top: 20px;
+      background-color: rgba(50, 61, 51, 0.75);
+      color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      line-height: 1.6;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    
+    .media-gallery {
+      display: flex;
+      flex-direction: column; 
+      gap: 15px;
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .media-gallery img {
+      width: 100%; 
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .media-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+   
+    @media (max-width: 1000px) {
+      .post-container {
+        grid-template-columns: 1fr;
+      }
+
+      .media-gallery img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .post-details-box h1 {
+        font-size: 2rem;
+      }
+
+      .description {
+        font-size: 0.9rem;
+      }
+
+      .media-gallery img {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="header-nav-container">
+      <header>
+        <div class="icon">
+          <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+        </div>
+        <div>
+          <h1>Frog103</h1>
+          <h3>Blog Post</h3>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Homepage</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="GalleryTopic.html">Gallery</a></li>
+          <li><a href="Resume.html">Resume</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Post Content Section -->
+    <div class="post-container">
+      <!-- Left Column: Post Details and Description -->
+      <div class="post-details-box">
+        <h1 id="post-title">Loading...</h1>
+        <p id="post-date">Published on: Loading...</p>
+        <div class="description" id="post-content">
+          <p>Loading...</p>
+        </div>
+      </div>
+
+      <!-- Right Column: Media Gallery -->
+      <div class="media-gallery" id="post-media">
+        <!-- Dynamic images or videos will load here -->
+      </div>
+    </div>
+
+    <footer>
+      Copyright &copy; 2024 Frog103. All Rights Reserved.
+    </footer>
+
+    <script>
+// Fetch the post data from the JSON file
+fetch('posts.json')
+  .then(response => response.json())
+  .then(data => {
+    const postId = new URLSearchParams(window.location.search).get('id');
+    const post = data.posts.find(p => p.id === parseInt(postId));
+
+    if (post) {
+      // Set the post title and date
+      document.getElementById('post-title').textContent = post.title;
+      document.getElementById('post-date').textContent = `Published on: ${post.date}`;
+
+      // Render the post content
+      const contentContainer = document.getElementById('post-content');
+      contentContainer.innerHTML = ''; // Clear any previous content
+
+      post.content.forEach(paragraph => {
+        if (paragraph === '---') {
+          // Render a page break
+          const pageBreak = document.createElement('hr');
+          contentContainer.appendChild(pageBreak);
+        } else {
+          // Render a paragraph
+          const para = document.createElement('p');
+          para.textContent = paragraph;
+          contentContainer.appendChild(para);
+        }
+      });
+
+      // Render the media gallery
+      const mediaGallery = document.getElementById('post-media');
+      mediaGallery.innerHTML = ''; // Clear any previous media
+
+      if (post.media && post.media.length > 0) {
+        post.media.forEach(mediaUrl => {
+          const img = document.createElement('img');
+          img.src = mediaUrl;
+          img.alt = `${post.title} Media`;
+          img.classList.add('media-item');
+          mediaGallery.appendChild(img);
+        });
+      } else {
+        // Fallback for posts with no media
+        const noMediaMessage = document.createElement('p');
+        noMediaMessage.textContent = 'No related media available.';
+        mediaGallery.appendChild(noMediaMessage);
+      }
+    } else {
+      document.getElementById('post-content').textContent = 'Post not found.';
+    }
+  })
+  .catch(error => console.error('Error fetching post data:', error));
+    </script>
+        <script src="snowstorm.js"></script>
+        <script src="scripts.js"></script>
+  </div>
+</body>
+</html>

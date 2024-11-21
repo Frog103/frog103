@@ -1,0 +1,41 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "title": "My First Blog Post",
+        "date": "2024-11-18",
+        "tags": ["Announcement","Artwork","Project","Update"],
+        "excerpt": "My thoughts on this website, and what's next.",
+        "image": "images/captainNarwhal.png",
+        "content": [
+        "Lorem ipsum dolor sit amet, nec appetere invenire dissentiet ex, his no ferri reque.",
+        "His choro eruditi ea, sed veri efficiantur et. Alia mentitum menandri ne ius, ad vero porro periculis nec, eu verterem posidonium vis. Eam ea altera meliore. Dictas vivendum ut sit, his ei verterem abhorreant.",
+        "Lorem ipsum dolor sit amet, nec appetere invenire dissentiet ex, his no ferri reque. His choro eruditi ea, sed veri efficiantur et. Alia mentitum menandri ne ius, ad vero porro periculis nec, eu verterem posidonium vis.",
+        "Eam ea altera meliore. Dictas vivendum ut sit, his ei verterem abhorreant."],
+        "media": [
+            "images/splashing3.JPG",
+            "images/splashing4.JPG",
+            "images/splashing5.JPG",
+            "images/splashing6.JPG"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Another Blog Post",
+        "date": "2024-11-19",
+        "tags":["Artwork"],
+        "excerpt": "Just a test post.",
+        "image": "images/frogBeeIcon.png",
+        "content":[
+        "This post doesn't have anything of substance to say. It's really only here to display the functionality of this website.",
+        "Maybe try taking a look around somewhere else?"],
+        "media": [
+            "images/splashing3.JPG",
+            "images/splashing4.JPG",
+            "images/splashing5.JPG",
+            "images/splashing6.JPG"
+        ]
+      }
+    ]
+  }
+  
