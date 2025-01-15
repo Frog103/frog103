@@ -1,0 +1,22 @@
+{
+    "reels": [
+        {
+            "id": "1",
+            "media_url": "images/timelapses/ardere.mp4",
+            "thumbnail_url": "images/thumbnails/ardere.jpg",
+            "caption": "Artwork timelapse of an original character."
+        },
+        {
+            "id": "2",
+            "media_url": "images/timelapses/ainee.mp4",
+            "thumbnail_url": "images/thumbnails/ainee.jpg",
+            "caption": "Artwork timelapse of an original character design."
+        },
+        {
+            "id": "3",
+            "media_url": "images/timelapses/neon.mp4",
+            "thumbnail_url": "images/thumbnails/neon.jpg",
+            "caption": "Fanart timelapse of Neon, from Nikke: Goddess of Victory."
+        }
+    ]
+}
