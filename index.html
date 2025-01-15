@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Frog103 - Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+    <style>
+        .homepage-container {
+            background-color: rgba(240, 248, 255, 0.285);
+            border: solid 1px white;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-areas: 
+                "instagram slideshow"
+                "blog slideshow";
+            grid-template-columns: 1fr 1.5fr; /* Changed from 2fr to 1.5fr */
+            grid-template-rows: minmax(400px, 2fr) minmax(0, 1fr); /* Adjusted row sizing for taller Instagram section */
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            max-height: 90vh; /* Added max height constraint */
+            height: 85vh; /* Increased container height */
+        }
+        .boxed-by-po {
+            background-image: url(images/textureOne.jpeg);
+            background-size: contain;
+            border: solid 1px white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .boxed-by-ninja {
+            margin-top: 55px; /* Reduced from 55px */
+            background-image: url(images/textureOne.jpeg);
+            background-size: contain;
+            border: solid 1px white;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        .postbox {
+            text-align: center;
+            background-color: rgba(102, 126, 104, 0.873);
+            color: white;
+            padding: 12px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .random-reel {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1;
+        }
+        .slideshow-container {
+            grid-area: slideshow;
+            background: rgba(255, 255, 255, 0.601);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: solid 1px white;
+            max-height: 80vh; /* Added max height */
+        }
+
+        .splash-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-height: calc(80vh - 60px); /* Subtract header height */
+            overflow: hidden;
+        }
+
+        .slideshow-header {
+            text-align: center;
+            background-color: rgba(102, 126, 104, 0.873);
+            color: white;
+            padding: 12px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom: solid 1px rgb(255, 255, 255);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: -15px -15px 15px -15px;
+        }
+
+        .slideshow-header h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .slideshow-container img {
+            border-radius: 5px;
+            border: solid 1px rgba(255, 255, 255, 0.3);
+            max-width: 100%;
+            max-height: 100%; /* Added max height */
+            width: auto; /* Allow width to adjust */
+            height: auto;
+            object-fit: contain; /* Changed from cover to contain */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #slideshow-error {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .instagram-feed {
+            grid-area: instagram;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 500px; /* Increased height for vertical rectangle */
+            border: solid 1px white;
+            aspect-ratio: 9/16; /* Common vertical video aspect ratio */
+            min-width: 280px; /* Minimum width to maintain readability */
+        }
+
+        .instagram-account-card {
+            background-color: rgba(102, 126, 104, 0.873);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin: -15px -15px 15px -15px;
+            flex-shrink: 0; /* Prevent header from shrinking */
+        }
+
+        #random-reel {
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #random-reel video {
+            width: 100%;
+            height: calc(100% - 40px); /* Account for caption space */
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        #random-reel p {
+            margin-top: 10px;
+            text-align: center;
+            color: black;
+            padding: 5px;
+            font-size: 0.9em;
+        }
+
+        .recent-posts {
+            margin: 0px;
+            grid-area: blog;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border: solid 1px white;
+            border-radius: 9px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 160px; /* Added minimum height to show at least 2 posts */
+            max-height: 100%; /* Limit height */
+            overflow: hidden;
+        }
+
+        .recent-posts ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+            overflow-y: auto; /* Enable vertical scrolling */
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: rgba(102, 126, 104, 0.5) transparent; /* Firefox */
+        }
+
+        /* Webkit scrollbar styling */
+        .recent-posts ul::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .recent-posts ul::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .recent-posts ul::-webkit-scrollbar-thumb {
+            background-color: rgba(102, 126, 104, 0.5);
+            border-radius: 3px;
+        }
+
+        .recent-posts ul li {
+            margin: 0;
+            padding: 6px 12px; /* Slightly reduced padding */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-size: 0.9em; /* Slightly smaller font */
+            min-height: 45px; /* Set minimum height for list items */
+        }
+
+        .recent-posts ul li:last-child {
+            border-bottom: none;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .recent-posts ul li:hover {
+            background: rgba(100, 138, 108, 0.3);
+            transform:scale(1.02);
+        }
+
+        .recent-posts ul li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            display: block;
+            font-size: 0.95em;
+        }
+
+        .recent-posts .post-date {
+            font-size: 0.75em; /* Smaller date text */
+            color: rgba(0, 0, 0, 0.7);
+            margin-top: 2px; /* Reduced margin */
+        }
+
+        .postbox h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body class="fade-out">
+    <div class="page-container">
+        <div class="header-nav-container">
+            <header>       
+                <div class="icon">
+                    <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+                </div>
+                <div>
+                    <h1>Frog103</h1>
+                    <h3>Homepage</h3>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="Projects.html">Projects</a></li>
+                    <li><a href="GalleryTopic.html">Gallery</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    <div class="boxed-by-po">
+        <main class="homepage-container">
+            <!-- Instagram Feed -->
+            <div class="instagram-feed">
+                <div class="instagram-account-card">
+                    <h3>@stickybell</h3>
+                </div>
+                <div id="random-reel" style="text-align: center;">
+                    <p>Loading a reel...</p>
+                </div>
+            </div>
+
+            <!-- Slideshow -->
+            <div class="slideshow-container">
+                <div class="slideshow-header">
+                    <h3>Gallery Highlights</h3>
+                </div>
+                <div class="splash-container">
+                    <!-- Existing slideshow content -->
+                    <div class="mySlides fade">
+                        <img src="images/splashing4.JPG" alt="Splash Image2">
+                    </div>
+                </div>
+                <div id="slideshow-error" style="display: none;">
+                    Unable to load slideshow images. Please try refreshing the page.
+                </div>
+            </div>
+
+            <!-- Recent Blog Posts -->
+             <div class="boxed-by-ninja">
+            <div class="recent-posts">
+                <div class="postbox">
+                <h3>Recent Blog Posts</h3>
+                </div>
+                <ul id="recent-post-list">
+                    <li>Loading recent posts...</li>
+                </ul>
+            </div>
+        </main>
+        </div>
+</div>
+        <footer>
+            Copyright &copy; 2024 Frog103. All Rights Reserved.
+            <p>For usage or licensing, please contact me.</p>
+        </footer>
+    </div>
+    <script src="slideshow.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        async function loadRandomReel() {
+            try {
+                // Fetch the JSON file
+                const response = await fetch('timelapses.json');
+                const data = await response.json();
+
+                // Store the reels and initialize index
+                const reels = data.reels;
+                let currentReelIndex = 0;
+
+                // Get the reel container
+                const reelContainer = document.getElementById('random-reel');
+
+                // Function to display a reel
+                function displayReel(index) {
+                    const reel = reels[index];
+                    const nextReel = reels[(index + 1) % reels.length];
+                    // Preload next video if media_url is defined
+                    if (nextReel && nextReel.media_url) {
+                        const preloadVideo = document.createElement('video');
+                        preloadVideo.src = nextReel.media_url;
+                    }
+
+                    const posterAttr = reel.thumbnail_url ? `poster="${reel.thumbnail_url}"` : '';
+                    reelContainer.innerHTML = `<video id="reel-video" autoplay muted loop width="100%" ${posterAttr} style="pointer-events: none;"><source src="${reel.media_url}" type="video/mp4">Your browser does not support the video tag.</video><p>${reel.caption}</p>`;
+                    setTimeout(() => {
+                        currentReelIndex = (currentReelIndex + 1) % reels.length;
+                        displayReel(currentReelIndex);
+                    }, 34000); // Adjust the duration here, 30000 = 30 seconds
+                }
+
+                // Start with the first reel
+                displayReel(currentReelIndex);
+            } catch (error) {
+                console.error('Error loading reels:', error);
+                const reelContainer = document.getElementById('random-reel');
+                reelContainer.innerHTML = '<p>Error loading reel.</p>';
+            }
+        }
+
+        // Fetch and display recent blog posts
+        async function loadRecentPosts() {
+            try {
+                const response = await fetch('posts.json');
+                const data = await response.json();
+                const posts = data.posts.slice(0, 5); // The 5 most recent posts
+
+                const postList = document.getElementById('recent-post-list');
+                postList.innerHTML = '';
+                posts.forEach(post => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                    <a href="post.html?id=${post.id}">
+                        ${post.title}
+                        <div class="post-date">${new Date(post.date).toLocaleDateString()}</div>
+                    </a>`;
+                    postList.appendChild(listItem);
+                });
+            } catch (error) {
+                console.error('Error loading recent posts:', error);
+                document.getElementById('recent-post-list').innerHTML = '<li style="color: white; text-align: center;">Error loading posts.</li>';
+            }
+        }
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadRecentPosts();
+            loadRandomReel();
+        });
+    </script>
+    <script src="particles.js"></script>
+</body>
+</html>
