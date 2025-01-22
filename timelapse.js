@@ -22,7 +22,7 @@ async function loadRandomReel() {
             }
 
             const posterAttr = reel.thumbnail_url ? `poster="${reel.thumbnail_url}"` : '';
-            reelContainer.innerHTML = `<video id="reel-video" autoplay muted loop width="100%" ${posterAttr} style="pointer-events: none;"><source src="${reel.media_url}" type="video/mp4">Your browser does not support the video tag.</video><p>${reel.caption}</p>`;
+            reelContainer.innerHTML = `<video id="reel-video" autoplay muted playsinline loop width="100%" ${posterAttr} style="pointer-events: none;"><source src="${reel.media_url}" type="video/mp4">Your browser does not support the video tag.</video><p>${reel.caption}</p>`;
             setTimeout(() => {
                 currentReelIndex = (currentReelIndex + 1) % reels.length;
                 displayReel(currentReelIndex);
