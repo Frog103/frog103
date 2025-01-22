@@ -6,7 +6,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/tungstenLotus.PNG",
             "date": "2024-11-01",
-            "tags": ["Digital", "Character"]
+            "tags": ["Digital", "Character"],
+            "showcase": "true"
         },
         {
             "id": 2,
@@ -14,7 +15,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/ainee.JPG",
             "date": "2024-11-20",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "true"
         },
         {
             "id": 3,
@@ -22,7 +24,8 @@
             "description": "An character piece of Nonetto created for the contact page of this website.",
             "image": "images/galleryImages/otherArt/nonettoMail.JPG",
             "date": "2024-12-05",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "true"
         },
         {
             "id": 4,
@@ -30,7 +33,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/frogbeeGirl.JPG",
             "date": "2024-10-17",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "true"
         },
         {
             "id": 5,
@@ -38,7 +42,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/neon.JPG",
             "date": "2024-10-09",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "true"
         },
         {
             "id": 6,
@@ -46,7 +51,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/juno.JPG",
             "date": "2024-09-11",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 7,
@@ -54,7 +60,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/uniteGirl.JPG",
             "date": "2024-08-08",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 8,
@@ -62,7 +69,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/melica.JPG",
             "date": "2024-05-27",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 9,
@@ -70,7 +78,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/tenlaem.JPG",
             "date": "2024-06-04",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 10,
@@ -78,7 +87,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/constance.JPG",
             "date": "2024-06-02",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "true"
         },
         {
             "id": 11,
@@ -86,7 +96,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/melica2.JPG",
             "date": "2024-05-27",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 12,
@@ -94,7 +105,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/elodie.JPG",
             "date": "2024-05-23",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 13,
@@ -102,7 +114,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/elodie2.JPG",
             "date": "2024-07-20",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 14,
@@ -110,7 +123,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/nonetto2.JPG",
             "date": "2024-07-09",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 15,
@@ -118,7 +132,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/lakesideSketch.JPG",
             "date": "2024-05-04",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 16,
@@ -126,7 +141,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/lbpSketch.JPG",
             "date": "2024-05-03",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 17,
@@ -134,7 +150,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/codSketch.JPG",
             "date": "2024-05-02",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         },
         {
             "id": 18,
@@ -142,7 +159,8 @@
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/clothSketch.JPG",
             "date": "2024-04-29",
-            "tags": ["Character", "Digital"]
+            "tags": ["Character", "Digital"],
+            "showcase": "false"
         }
     ]
 }
