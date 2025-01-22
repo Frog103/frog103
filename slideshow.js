@@ -16,8 +16,6 @@ async function initializeSlideshow() {
             })
             .map(item => item.image);
         
-        console.log('Filtered images:', galleryImages);
-
         if (!galleryImages || galleryImages.length === 0) {
             throw new Error('No showcase images available');
         }
