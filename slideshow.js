@@ -6,12 +6,13 @@ async function initializeSlideshow() {
     try {
         const response = await fetch('otherArtGallery.json');
         const data = await response.json();
-        galleryImages = data.items.map(item => item.image);
+        galleryImages = data.items
+            .filter(item => item.showcase === true)
+            .map(item => item.image);
         
         if (!galleryImages || galleryImages.length === 0) {
-            throw new Error('No images available');
+            throw new Error('No showcase images available');
         }
-        
         const slidesContainer = document.querySelector('.splash-container');
         const errorElement = document.getElementById('slideshow-error');
         
@@ -55,7 +56,7 @@ function createSlide(imageSrc, index) {
             errorElement.style.display = 'block';
             errorElement.textContent = 'Some images failed to load. Please try refreshing the page.';
         }
-        img.src = 'images/fallback-image.jpg'; // Add a fallback image
+        img.src = 'images/splashing3.JPG'; // Add a fallback image
     };
 
     // Add load event listener to handle image sizing
@@ -122,7 +123,7 @@ function showSlides() {
     // Show current slide
     slides[slideIndex - 1].style.display = "block";
 
-    // Update image for next slide (for smooth transitions)
+    // Update image for next slide
     const nextIndex = slideIndex % slides.length;
     const nextSlide = slides[nextIndex];
     if (nextSlide) {
