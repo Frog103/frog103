@@ -6,10 +6,18 @@ async function initializeSlideshow() {
     try {
         const response = await fetch('otherArtGallery.json');
         const data = await response.json();
+        console.log('Received data:', data);
+
+        // showcase check
         galleryImages = data.items
-            .filter(item => item.showcase === true)
+            .filter(item => {
+                console.log('Item showcase value:', item.showcase);
+                return item.showcase === true || item.showcase === 'true';
+            })
             .map(item => item.image);
         
+        console.log('Filtered images:', galleryImages);
+
         if (!galleryImages || galleryImages.length === 0) {
             throw new Error('No showcase images available');
         }
@@ -56,7 +64,7 @@ function createSlide(imageSrc, index) {
             errorElement.style.display = 'block';
             errorElement.textContent = 'Some images failed to load. Please try refreshing the page.';
         }
-        img.src = 'images/splashing3.JPG'; // Add a fallback image
+        img.src = 'images/splashing3.JPG'; // fallback image
     };
 
     // Add load event listener to handle image sizing
@@ -123,7 +131,7 @@ function showSlides() {
     // Show current slide
     slides[slideIndex - 1].style.display = "block";
 
-    // Update image for next slide
+    // Update image for next slide (for smooth transitions)
     const nextIndex = slideIndex % slides.length;
     const nextSlide = slides[nextIndex];
     if (nextSlide) {
