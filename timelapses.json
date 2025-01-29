@@ -8,15 +8,21 @@
         },
         {
             "id": "2",
-            "media_url": "images/timelapses/ainee.mp4",
-            "thumbnail_url": "images/thumbnails/ainee.jpg",
-            "caption": "Artwork timelapse of an original character design."
-        },
+            "media_url": "images/timelapses/ether.mp4",
+            "thumbnail_url": "images/thumbnails/ether.jpg",
+            "caption": "Fanart timelapse of Ether, from Nikke: Goddess of Victory."
+            },
         {
             "id": "3",
             "media_url": "images/timelapses/neon.mp4",
             "thumbnail_url": "images/thumbnails/neon.jpg",
             "caption": "Fanart timelapse of Neon, from Nikke: Goddess of Victory."
+        },
+        {
+            "id": "4",
+            "media_url": "images/timelapses/ainee.mp4",
+            "thumbnail_url": "images/thumbnails/ainee.jpg",
+            "caption": "Artwork timelapse of an original character design."
         }
     ]
 }
