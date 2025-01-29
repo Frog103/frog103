@@ -161,6 +161,15 @@
             "date": "2024-04-29",
             "tags": ["Character", "Digital"],
             "showcase": "false"
+        },
+        {
+            "id": 19,
+            "title": "",
+            "description": "Character artwork",
+            "image": "images/galleryImages/otherArt/ether.jpg",
+            "date": "2025-01-27",
+            "tags": ["Character", "Digital"],
+            "showcase": "true"
         }
     ]
 }
