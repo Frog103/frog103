@@ -23,6 +23,12 @@
             "media_url": "images/timelapses/ainee.mp4",
             "thumbnail_url": "images/thumbnails/ainee.jpg",
             "caption": "Artwork timelapse of an original character design."
+        },
+        {
+            "id": "5",
+            "media_url": "images/timelapses/larunia.mp4",
+            "thumbnail_url": "images/thumbnails/larunia.jpg",
+            "caption": "Artwork timelapse of an original character design."
         }
     ]
 }
