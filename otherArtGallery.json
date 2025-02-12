@@ -170,6 +170,15 @@
             "date": "2025-01-27",
             "tags": ["Character", "Digital"],
             "showcase": "true"
+        },
+        {
+            "id": 20,
+            "title": "",
+            "description":"Character artwork",
+            "image": "images/galleryImages/otherArt/larunia.jpg",
+            "date": "2025-02-11",
+            "tags": ["Digital"],
+            "showcase": "true"
         }
     ]
 }
