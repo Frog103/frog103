@@ -1,3 +1,4 @@
+/* -- Global Styles -- */
 :root {
     --primary-color: rgb(31, 81, 132);
     --secondary-color: rgb(102, 126, 104);
@@ -28,6 +29,8 @@ body {
     opacity: 0;
     animation: fadeIn 0.7s ease-in-out forwards;
 }
+
+/* -- Header and Navigation -- */
 .header-nav-container {
     background-image: linear-gradient(var(--primary-color), rgba(32, 50, 32, 0));
     align-items: center;
@@ -97,7 +100,95 @@ nav ul li a:hover {
     color: rgb(204, 255, 0);
     transform: scale(1.5);
 }
-/*Animations*/
+
+/* -- Gallery and Content Sections -- */
+.gallery-topics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.gallery-topic {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, linear-gradient 1.3s;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gallery-topic:hover {
+    transform: scale(110%);
+    background: linear-gradient(rgba(3, 134, 8, 0.5),rgba(255, 255, 255, 0.01));
+}
+.gallery-topic img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+.gallery-topic a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+}
+.gallery-topic a:hover {
+    color: rgb(4, 103, 4);
+}
+.gallery-topic img:hover {
+    outline: double white 2px;
+}
+
+.gallery-pictures {
+    text-align: center;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+.gallery-picture {
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.gallery-picture:hover {
+    transform: scale(110%);
+    background: linear-gradient(rgba(3, 134, 8, 0.5),rgba(255, 255, 255, 0.01));
+}
+.gallery-picture img:hover{
+    outline: double white 1px;
+}
+.gallery-picture img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+.gallery-picture p {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+}
+.gallery-picture p:hover {
+    color: rgb(4, 103, 4);
+}
+
+/* -- Animations and Effects -- */
 .fade {
     animation: fadeIn 1.0s ease-in-out;
 }
@@ -148,95 +239,7 @@ footer {
     border-top: 1px solid var(--text-light);
 }
 
-/*Gallery Front Page CSS*/
-
-.gallery-topics {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 40px;
-    margin: 0 auto;
-    max-width: 1200px;
-}
-.gallery-topic {
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s, linear-gradient 1.3s;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.gallery-topic:hover {
-    transform: scale(110%);
-    background: linear-gradient(rgba(3, 134, 8, 0.5),rgba(255, 255, 255, 0.01));
-}
-.gallery-topic img {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 5px;
-}
-.gallery-topic a {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: black;
-}
-.gallery-topic a:hover {
-    color: rgb(4, 103, 4);
-}
-.gallery-topic img:hover {
-    outline: double white 2px;
-}
-
-/*Gallery Topic CSS*/
-
-.gallery-pictures {
-    text-align: center;
-    display:grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 30px;
-    padding: 40px;
-    margin: 0 auto;
-    max-width: 1000px;
-}
-.gallery-picture {
-    padding: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.gallery-picture:hover {
-    transform: scale(110%);
-    background: linear-gradient(rgba(3, 134, 8, 0.5),rgba(255, 255, 255, 0.01));
-}
-.gallery-picture img:hover{
-    outline: double white 1px;
-}
-.gallery-picture img {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 5px;
-}
-.gallery-picture p {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: black;
-}
-.gallery-picture p:hover {
-    color: rgb(4, 103, 4);
-}
+/* -- Responsive Rules -- */
 @media (max-width: 1008px) {
     nav ul {
         display: flex;
@@ -284,62 +287,6 @@ footer {
         grid-auto-rows: auto;
     }
 }
-
-
-.gallery-topic, .gallery-picture {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-
-:focus {
-    outline: 3px solid #4CAF50;
-    outline-offset: 2px;
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1a1a1a;
-    }
-    
-    .textBox {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-}
-
-
-img {
-    content-visibility: auto;
-    contain: content;
-    will-change: transform;
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-main {
-    transition: padding 0.3s ease;
-    padding: 20px 0;
-    margin-top: 0;
-}
-
 
 @media (max-width: 768px) {
     .header-nav-container, footer {
@@ -424,9 +371,59 @@ main {
     opacity: 1;
 }
 
-
 html, body {
     overflow-x: hidden;
     position: relative;
     height: 100%;
+}
+
+.gallery-topic, .gallery-picture {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+:focus {
+    outline: 3px solid #4CAF50;
+    outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+    }
+    
+    .textBox {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+img {
+    content-visibility: auto;
+    contain: content;
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+main {
+    transition: padding 0.3s ease;
+    padding: 20px 0;
+    margin-top: 0;
 }
