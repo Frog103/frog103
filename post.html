@@ -273,32 +273,6 @@ fetch('posts.json')
             });
           });
         </script>
-    <script>
-      function forceMobileImageSize() {
-    // Detect specific mobile devices
-    const mobileDevices = /(iPhone|iPod|Android)/i;
-    if (mobileDevices.test(navigator.userAgent)) {
-        // Force images in the media gallery to 336px by 136px
-        const mediaImages = document.querySelectorAll('.media-gallery img');
-        mediaImages.forEach(img => {
-            img.style.width = '336px';
-            img.style.height = '136px';
-        });
-    }
-}
-
-// Run on first load
-document.addEventListener('DOMContentLoaded', () => {
-    forceMobileImageSize();
-});
-
-// Also run when the page is restored from cache (Safari)
-window.addEventListener('pageshow', event => {
-    if (event.persisted) {
-        forceMobileImageSize();
-    }
-});
-    </script>
   </div>
 </body>
 </html>
