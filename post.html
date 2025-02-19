@@ -3,8 +3,8 @@
 <head>
   <!-- Meta, Title, and CSS -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
   <style>
@@ -51,8 +51,6 @@
       line-height: 1.6;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
-    
     .media-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -62,11 +60,28 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       align-items: start;
+      max-height: 800px;
       overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(102, 126, 104, 0.5) transparent;
     }
+
+    .media-gallery::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .media-gallery::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .media-gallery::-webkit-scrollbar-thumb {
+      background-color: rgba(102, 126, 104, 0.5);
+      border-radius: 3px;
+    }
+
     .media-item {
       position: relative;
-      /*aspect-ratio: 1;*/
+      aspect-ratio: 1;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
