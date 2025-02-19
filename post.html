@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta, Title, and CSS -->
   <meta charset="UTF-8">
   <title>Blog Post</title>
   <link rel="stylesheet" href="styles.css">
@@ -81,7 +82,6 @@
 
     .media-item {
       position: relative;
-      width: 100%;
       aspect-ratio: 1;
       overflow: hidden;
       border-radius: 10px;
@@ -144,24 +144,16 @@
         max-height: 600px;
       }
     }
-
-    @media (max-width: 600px) {
-      .media-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 10px;
-        padding: 10px;
-        max-height: 136px;
-        max-width: 336px;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="page-container">
+    <!-- Header & Navigation -->
     <div class="header-nav-container">
       <header>
         <div class="icon">
-          <img src="images/frogBeeIcon.png" alt="Website Icon"> </div>
+          <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+        </div>
         <div>
           <h1>Frog103</h1>
           <h3>Blog Post</h3>
@@ -176,11 +168,11 @@
           <li><a href="Contact.html">Contact</a></li>
         </ul>
       </nav>
-  </div>
+    </div>
 
     <!-- Post Content Section -->
     <div class="post-container">
-      <!-- Left Column: Post Details and Description -->
+      <!-- Post Details Column -->
       <div class="post-details-box">
         <h1 id="post-title">Loading...</h1>
         <p id="post-date">Published on: Loading...</p>
@@ -189,16 +181,18 @@
         </div>
       </div>
 
-      <!-- Right Column: Media Gallery -->
+      <!-- Media Gallery Column -->
       <div class="media-gallery" id="post-media">
         <!-- Dynamic images or videos will load here -->
       </div>
     </div>
 
+    <!-- Footer -->
     <footer>
       Copyright &copy; 2024 Frog103. All Rights Reserved.
     </footer>
-
+    <!-- Scripts -->
+    <script src="particles.js"></script>
     <script>
 // Fetch the post data from the JSON file
 fetch('posts.json')
@@ -252,27 +246,23 @@ fetch('posts.json')
     }
   })
   .catch(error => console.error('Error fetching post data:', error));
+    </script>   
+    <script src="scripts.js"></script>
+    <script>
+      // Disable right-click on images and enable media click
+      document.addEventListener('contextmenu', (event) => {
+        if (event.target.tagName === 'IMG') {
+          event.preventDefault();
+        }
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.media-gallery').addEventListener('click', (e) => {
+          if (e.target.tagName === 'IMG') {
+            window.open(e.target.src, '_blank');
+          }
+        });
+      });
     </script>
-        
-        <script src="scripts.js"></script>
-        <script>
-          document.addEventListener('contextmenu', (event) => {
-            if (event.target.tagName === 'IMG') {
-              event.preventDefault();
-            }
-          });
-        </script>
-
-        <script>
-          // Add this after your existing post loading script
-          document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.media-gallery').addEventListener('click', (e) => {
-              if (e.target.tagName === 'IMG') {
-                window.open(e.target.src, '_blank');
-              }
-            });
-          });
-        </script>
   </div>
 </body>
 </html>
