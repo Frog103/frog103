@@ -285,8 +285,6 @@ footer {
         gap: 10px;
         padding: 10px;
         grid-auto-rows: auto;
-        max-height: 350px;
-        max-width: 150px;
     }
 }
 
