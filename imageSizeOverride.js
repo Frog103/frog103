@@ -11,6 +11,14 @@ function forceMobileImageSize() {
     }
 }
 
+// Run on first load
 document.addEventListener('DOMContentLoaded', () => {
     forceMobileImageSize();
+});
+
+// Also run when the page is restored from cache (Safari)
+window.addEventListener('pageshow', event => {
+    if (event.persisted) {
+        forceMobileImageSize();
+    }
 });
