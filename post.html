@@ -22,6 +22,7 @@
       gap: 20px;
       border-radius: 10px;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
 
     .post-details-box {
@@ -65,6 +66,8 @@
     .media-gallery img {
       width: 100%;
       height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -73,6 +76,20 @@
     .media-gallery img:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .media-gallery a {
+      background-color: #4CAF50;
+      display: block;
+      text-align: center;
+      margin-top: 5px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .media-gallery a:hover {
+      text-decoration: underline;
     }
 
     .post-tags {
@@ -213,6 +230,12 @@
           const img = document.createElement('img');
           img.src = media;
           mediaContainer.appendChild(img);
+
+          const link = document.createElement('a');
+          link.href = media;
+          link.target = '_blank';
+          link.textContent = 'View Full Size';
+          mediaContainer.appendChild(link);
         });
 
         const tagsContainer = document.getElementById('post-tags');
