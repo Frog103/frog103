@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta, Title, and CSS -->
   <meta charset="UTF-8">
-  <title>Blog Post</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frog103 Blog Post">
+  <title>Blog Post</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
   <style>
@@ -18,14 +18,14 @@
       margin-bottom: 30px;
       padding: 20px;
       display: grid;
-      grid-template-columns: 2fr 1fr; 
+      grid-template-columns: 2fr 1fr;
       gap: 20px;
       border-radius: 10px;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     }
 
     .post-details-box {
-        background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.5);
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -38,76 +38,67 @@
     }
 
     .post-details-box p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #ffffff;
     }
 
     .description {
       margin-top: 20px;
-      background-color: rgba(50, 61, 51, 0.714);
+      background-color: rgba(50, 61, 51, 0.75);
       color: #fff;
       padding: 15px;
       border-radius: 10px;
       line-height: 1.6;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
     .media-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
       background-color: rgba(255, 255, 255, 0.3);
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      align-items: start;
-      max-height: 800px;
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(102, 126, 104, 0.5) transparent;
-    }
-
-    .media-gallery::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .media-gallery::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .media-gallery::-webkit-scrollbar-thumb {
-      background-color: rgba(102, 126, 104, 0.5);
-      border-radius: 3px;
-    }
-
-    .media-item {
-      position: relative;
-      aspect-ratio: 1;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     .media-gallery img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       border-radius: 10px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .media-gallery img:hover {
       transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
-   
+    .post-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .tag {
+      background: #4CAF50;
+      color: rgb(255, 255, 255);
+      padding: 8px 15px;
+      border-radius: 10px;
+      font-size: 0.9em;
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      background: #388E3C;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 1000px) {
       .post-container {
         grid-template-columns: 1fr;
-      }
-
-      .media-gallery img {
-        width: 100%;
       }
     }
 
@@ -118,29 +109,6 @@
 
       .description {
         font-size: 0.9rem;
-      }
-
-      .media-gallery img {
-        margin-bottom: 10px;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .post-container {
-        grid-template-columns: 1.5fr 1fr;
-        gap: 15px;
-        padding: 15px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .post-container {
-        grid-template-columns: 1fr;
-      }
-
-      .media-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        max-height: 600px;
       }
     }
   </style>
@@ -163,104 +131,84 @@
           <li><a href="index.html">Homepage</a></li>
           <li><a href="Projects.html">Projects</a></li>
           <li><a href="GalleryTopic.html">Gallery</a></li>
-          <li><a href="Blog.html">Blog</a></li>
           <li><a href="Contact.html">Contact</a></li>
+          <li><a href="Blog.html">Blog</a></li>
         </ul>
       </nav>
     </div>
 
-    <!-- Post Content Section -->
-    <div class="post-container">
-      <!-- Post Details Column -->
-      <div class="post-details-box">
-        <h1 id="post-title">Loading...</h1>
-        <p id="post-date">Published on: Loading...</p>
-        <div class="description" id="post-content">
-          <p>Loading...</p>
+    <!-- Main Post Container -->
+    <main class="content-wrap">
+      <div class="post-container" id="post-container">
+        <div class="post-details-box">
+          <h1 id="post-title">Loading...</h1>
+          <p id="post-date">Date: Loading...</p>
+          <div class="description" id="post-description">
+            <p>Loading...</p>
+          </div>
+          <div id="post-tags" class="post-tags"></div>
+        </div>
+
+        <div class="media-gallery" id="post-media">
+          <!-- Media content will load here dynamically -->
         </div>
       </div>
-
-      <!-- Media Gallery Column -->
-      <div class="media-gallery" id="post-media">
-        <!-- Dynamic images or videos will load here -->
-      </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>
       Copyright &copy; 2024 Frog103. All Rights Reserved.
     </footer>
-    <!-- Scripts -->
-    <script src="particles.js"></script>
-    <script>
-// Fetch the post data from the JSON file
-fetch('posts.json')
-  .then(response => response.json())
-  .then(data => {
-    const postId = new URLSearchParams(window.location.search).get('id');
-    const post = data.posts.find(p => p.id === parseInt(postId));
 
-    if (post) {
-      // Set the post title and date
-      document.getElementById('post-title').textContent = post.title;
-      document.getElementById('post-date').textContent = `Published on: ${post.date}`;
+    <!-- Scripts -->
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get('id');
+      let post;
+
+      // Fetch the post data
+      fetch('posts.json')
+        .then(response => response.json())
+        .then(data => {
+          post = data.posts.find(p => p.id == postId);
+          if (post) {
+            renderPost(post);
+          } else {
+            document.getElementById('post-description').innerHTML = '<p>Post not found.</p>';
+          }
+        })
+        .catch(error => console.error('Error fetching post:', error));
 
       // Render the post content
-      const contentContainer = document.getElementById('post-content');
-      contentContainer.innerHTML = ''; // Clear any previous content
+      function renderPost(post) {
+        document.getElementById('post-title').textContent = post.title;
+        document.getElementById('post-date').textContent = `Published on: ${post.date}`;
 
-      post.content.forEach(paragraph => {
-        if (paragraph === '---') {
-          // Render a page break
-          const pageBreak = document.createElement('hr');
-          contentContainer.appendChild(pageBreak);
-        } else {
-          // Render a paragraph
-          const para = document.createElement('p');
-          para.textContent = paragraph;
-          contentContainer.appendChild(para);
-        }
-      });
+        const descriptionContainer = document.getElementById('post-description');
+        descriptionContainer.innerHTML = '';
+        post.content.forEach(paragraph => {
+          const p = document.createElement('p');
+          p.textContent = paragraph;
+          descriptionContainer.appendChild(p);
+        });
 
-      // Render the media gallery
-      const mediaGallery = document.getElementById('post-media');
-      mediaGallery.innerHTML = ''; // Clear any previous media
-
-      if (post.media && post.media.length > 0) {
-        post.media.forEach(mediaUrl => {
+        const mediaContainer = document.getElementById('post-media');
+        mediaContainer.innerHTML = '';
+        post.media.forEach(media => {
           const img = document.createElement('img');
-          img.src = mediaUrl;
-          img.alt = `${post.title} Media`;
-          img.classList.add('media-item');
-          mediaGallery.appendChild(img);
+          img.src = media;
+          mediaContainer.appendChild(img);
         });
-      } else {
-        // Fallback for posts with no media
-        const noMediaMessage = document.createElement('p');
-        noMediaMessage.textContent = 'No related media available.';
-        mediaGallery.appendChild(noMediaMessage);
+
+        const tagsContainer = document.getElementById('post-tags');
+        tagsContainer.innerHTML = '';
+        post.tags.forEach(tag => {
+          const tagElement = document.createElement('span');
+          tagElement.textContent = tag;
+          tagElement.classList.add('tag');
+          tagsContainer.appendChild(tagElement);
+        });
       }
-    } else {
-      document.getElementById('post-content').textContent = 'Post not found.';
-    }
-  })
-  .catch(error => console.error('Error fetching post data:', error));
-    </script>   
-    <script src="scripts.js"></script>
-    <script>
-      // Disable right-click on images and enable media click
-      document.addEventListener('contextmenu', (event) => {
-        if (event.target.tagName === 'IMG') {
-          event.preventDefault();
-        }
-      });
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelector('.media-gallery').addEventListener('click', (e) => {
-          if (e.target.tagName === 'IMG') {
-            window.open(e.target.src, '_blank');
-          }
-        });
-      });
     </script>
   </div>
 </body>
