@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frog103 Viewer Page">
+  <title>Chapter Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="comicfetch.js" defer></script>
+  <style>
+    /* Basic styling for viewer content */
+    .viewer-container { margin: 20px auto; max-width: 800px; padding: 20px; }
+    .chapter-images img { max-width: 200px; margin: 5px; }
+    
+    /* Additional Viewer Styling */
+    .viewer-container {
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      padding: 15px;
+    }
+    .viewer-container h1 {
+      font-size: 2.2em;
+      color: #2a5b2b;
+    }
+    .chapter-images img {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body class="fade-out">
+  <div class="page-container">
+    <header>
+      <h1>Chapter Viewer</h1>
+    </header>
+    <div class="viewer-container" id="viewerContainer">
+      <!-- Dynamic Chapter content will load here -->
+    </div>
+    <footer>
+      <!-- Footer info -->
+      Copyright &copy; 2025 Frog103.
+    </footer>
+    <script src="scripts.js"></script>
+    <script src="particles.js"></script>
+  </div>
+</body>
+</html>
