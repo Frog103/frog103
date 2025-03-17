@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+  <meta name="theme-color" content="#4CAF50">
   <title>Contact</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
   <style>
-
     .contact-container {
       background-image: url(images/textureOne.jpeg);
       background-size: cover;
@@ -26,7 +28,6 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     .contact-item {
       display: flex;
       align-items: center;
@@ -37,12 +38,10 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .contact-item:hover {
       transform: scale(105%);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-
     .contact-icon {
       background-image: url(images/textureOne.jpeg);
       background-size: cover;
@@ -57,7 +56,6 @@
       width: 50px;
       height: 50px;
     }
-
     .contact-text {
       font-size: 1.1rem;
       color: #333;
@@ -81,7 +79,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .image-section img {
       max-width: 100%;
       max-height: 1000px;
@@ -94,7 +91,43 @@
     }
     .image-section img:hover {
       transform: scale(105%);
+    }
 
+    @media (max-width: 768px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+            padding: 15px;
+            margin: 15px;
+        }
+
+        .contact-list {
+            padding: 15px;
+        }
+
+        .contact-item {
+            padding: 12px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+
+        .contact-text {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contact-item {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .contact-icon {
+            margin: 0 auto 10px auto;
+        }
     }
   </style>
 </head>
@@ -113,48 +146,48 @@
       <nav>
         <ul>
           <li><a href="index.html">Homepage</a></li>
-          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="Projects.html">Products</a></li>
           <li><a href="GalleryTopic.html">Gallery</a></li>
           <li><a href="Blog.html">Blog</a></li>
         </ul>
       </nav>
     </div>
-
     <main class="content-wrap">
       <div class="contact-container">
         <div class="contact-list">
           <h2>Contact List:</h2>
           <div class="contact-item">
             <div class="contact-icon">1</div>
-            <div class="contact-text">Instagram: <a href="https://www.instagram.com/stickybell/" class="hyperlink"> @stickybell</a></div>
+            <div class="contact-text">
+              Instagram: <a href="https://www.instagram.com/stickybell09/" class="hyperlink"> @stickybell</a></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">2</div>
-            <div class="contact-text">Email: stickybell09@gmail.com</div>
+            <div class="contact-text"
+            >Email: stickybell09@gmail.com</div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">3</div>
-            <div class="contact-text">Discord: stickybell09</div>
+            <div class="contact-text">
+              Example Text</div>
           </div>
           <div class="contact-item">
             <div class="contact-icon">4</div>
-            <div class="contact-text">Resume Download 
+            <div class="contact-text">
+              Example Download Link:
               <a href= "images/frogBeeIcon.PNG" download="logoP" class="hyperlink">Here</a>
             </div>
           </div>
         </div>
-        
         <div class="image-section">
           <img src="images/globalPageImages/nono.JPG" alt="Contact Image"> 
         </div>    
       </div>
     </main>
-  
     <footer>
-      Copyright &copy; 2024 Frog103. All Rights Reserved.
+      Copyright &copy; 2025 Frog103. All Rights Reserved.
     </footer>
-    
-    
+    <script src="particles.js"></script>
     <script src="scripts.js"></script>
     <script>
       document.addEventListener('contextmenu', (event) => {
