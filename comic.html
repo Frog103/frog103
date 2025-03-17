@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+<meta name="theme-color" content="#4CAF50">
+<title>Frog103 - Product</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+<style>
+.product-wrapper {
+    background-image: url(images/textureOne.jpeg);
+    background-size: cover;
+    max-width: 1450px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f9f9f974;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+}
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+}
+.banner-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.product-header {
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.title-container {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: solid white 1px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+.title-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+.title-container h2 {
+    font-size: 1.8em;
+    margin: 10px 0;
+}
+.title-container h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    font-weight: normal;
+}
+.chapter-container {
+    background-color: #f9f9f97d;
+    border-radius: 5px;
+    border: solid white 1px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin: 5px auto;
+    padding: 10px;
+    justify-content: center;
+}
+.chapter-card {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+.chapter-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.card-text p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+.card-button a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 10px auto 0 auto;
+}
+.tag {
+background: #4CAF50;
+color: rgb(255, 255, 255);
+padding: 8px 15px;
+border-radius: 10px;
+font-size: 0.9em;
+transition: all 0.3s ease;
+width: fit-content;
+}
+
+.tag:hover {
+background: #388E3C;
+transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-wrapper {
+        margin: 10px;
+        padding: 5px;
+    }
+    .banner-container img {
+        border-radius: 0;
+    }
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    header, nav {
+        text-align: center;
+    }
+}
+@media (max-width: 480px) {
+    .title-container h1 {
+        font-size: 1.8em;
+    }
+    .title-container h2 {
+        font-size: 1.4em;
+    }
+    .title-container h3 {
+        font-size: 1em;
+    }
+}
+.volume-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+.volume-button:hover {
+    background-color: #388E3C;
+}
+.chapter-card {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+    
+</style>
+</head>
+<body class="fade-out">
+    <div class="page-container">
+    <div class="header-nav-container">
+        <header>
+            <div class="icon">
+                <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+            </div>
+            <div>
+                <h1>Frog103</h1>
+                <h3>Homepage</h3>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="Projects.html">Products</a></li>
+                <li><a href="GalleryTopic.html">Gallery</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+     <div class="product-wrapper">
+    <div class="banner-container" id="bannerContainer">
+     <img src="" alt="bannerimage">
+     </div>
+     <div class="product-header" id="productHeader">
+    </div>
+    <div class="title-container" id="titleContainer">
+    </div>
+    <div id="volumeContainer">
+    </div>
+    <div class="chapter-container" id="chapterContainer">
+    </div>
+    <div id="pdfContainer"></div>
+    </div>
+      <footer>
+        Copyright &copy; 2025 Frog103. All Rights Reserved.
+        <p>For usage or licensing, please contact me.</p>
+      </footer>
+    </div>
+    <script src="comicfetch.js" defer></script>
+    <script src="scripts.js"></script>
+    <script src="particles.js"></script>
+</body>
+</html>
