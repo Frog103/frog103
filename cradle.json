@@ -11,8 +11,8 @@
           "extra": "Pop Smoke, NBA Youngboy"
         },
         "tags": ["Fantasy", "Horror", "Adventure"],
-        "coverImage": "/images/products/comics/cradle/cover.jpg",
-        "bannerImage": "/images/products/comics/cradle/banner.jpg",
+        "coverImage": "images/products/comics/cradle/cover.jpg",
+        "bannerImage": "images/products/comics/cradle/banner.jpg",
         "volumes": [
           {
             "volumeId": "1",
