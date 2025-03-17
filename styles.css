@@ -1,4 +1,4 @@
-/* -- Global Styles -- */
+/* Global Styles & Variables */
 :root {
     --primary-color: rgb(31, 81, 132);
     --secondary-color: rgb(102, 126, 104);
@@ -28,9 +28,11 @@ body {
     line-height: 1.6;
     opacity: 0;
     animation: fadeIn 0.7s ease-in-out forwards;
+    
 }
 
-/* -- Header and Navigation -- */
+
+/* Header & Navigation */
 .header-nav-container {
     background-image: linear-gradient(var(--primary-color), rgba(32, 50, 32, 0));
     align-items: center;
@@ -101,7 +103,7 @@ nav ul li a:hover {
     transform: scale(1.5);
 }
 
-/* -- Gallery and Content Sections -- */
+/* Gallery & Content Sections */
 .gallery-topics {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -120,25 +122,27 @@ nav ul li a:hover {
 }
 .gallery-topic:hover {
     transform: scale(110%);
-    background: linear-gradient(rgba(3, 134, 8, 0.5),rgba(255, 255, 255, 0.01));
+    background: linear-gradient(rgba(3, 200, 9, 0.5),rgba(255, 255, 255, 0.01));
 }
 .gallery-topic img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 .gallery-topic a {
+    background:linear-gradient( rgba(0,0,0,0),rgba(102, 126, 124, 0.8));
     display: block;
     text-align: center;
     padding: 10px;
     font-size: 1.2rem;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
 }
 .gallery-topic a:hover {
-    color: rgb(4, 103, 4);
+    color: rgb(170, 255, 170);
 }
 .gallery-topic img:hover {
     outline: double white 2px;
@@ -188,7 +192,7 @@ nav ul li a:hover {
     color: rgb(4, 103, 4);
 }
 
-/* -- Animations and Effects -- */
+/* Animations & Effects */
 .fade {
     animation: fadeIn 1.0s ease-in-out;
 }
@@ -239,7 +243,7 @@ footer {
     border-top: 1px solid var(--text-light);
 }
 
-/* -- Responsive Rules -- */
+/* Responsive & Media Queries */
 @media (max-width: 1008px) {
     nav ul {
         display: flex;
@@ -351,7 +355,7 @@ footer {
     }
 }
 
-/* Touch Device Optimization */
+/* Touch Device & Reduced Motion Optimization */
 @media (hover: none) {
     nav ul li a:hover {
         transform: none;
@@ -390,11 +394,20 @@ html, body {
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #1a1a1a;
+        background-image: url(images/darkmode.jp);
+        background-image: linear-gradient(45deg,rgba(0, 144, 14, 0.35),rgba(0, 67, 160, 0.35)), url(images/darkmode.jpg);
+        background-size: cover;
+        background-attachment: fixed;
     }
     
     .textBox {
         background-color: rgba(255, 255, 255, 0.1);
+    }
+    .header-nav-container {
+        background-image: linear-gradient(45deg, #2c3e50, #00000000);
+    }
+    footer {
+        background-image: linear-gradient(45deg, #00000000, #2c3e50);
     }
 }
 
@@ -411,6 +424,7 @@ img {
     }
 }
 
+/* Accessibility & Utility Classes */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -427,3 +441,4 @@ main {
     padding: 20px 0;
     margin-top: 0;
 }
+
