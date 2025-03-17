@@ -179,6 +179,15 @@
             "date": "2025-02-11",
             "tags": ["Digital"],
             "showcase": "true"
+        },
+        {
+            "id": 21,
+            "title": "Comic Cover Prototype",
+            "description": "The first draft of a comic cover for a personal project.",
+            "image": "images/galleryImages/otherArt/cradle.jpg",
+            "date": "2025-03-08",
+            "tags": ["Digital"],
+            "showcase": "true"
         }
     ]
 }
