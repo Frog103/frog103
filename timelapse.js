@@ -4,18 +4,14 @@ async function loadRandomReel() {
         const response = await fetch('timelapses.json');
         const data = await response.json();
 
-        // Store the reels and initialize index
         const reels = data.reels;
         let currentReelIndex = 0;
-
-        // Get the reel container
         const reelContainer = document.getElementById('random-reel');
 
-        // Function to display a reel
         function displayReel(index) {
             const reel = reels[index];
             const nextReel = reels[(index + 1) % reels.length];
-            // Preload next video if media_url is defined
+            // Preload next video
             if (nextReel && nextReel.media_url) {
                 const preloadVideo = document.createElement('video');
                 preloadVideo.src = nextReel.media_url;
@@ -38,12 +34,15 @@ async function loadRandomReel() {
     }
 }
 
-// Fetch and display recent blog posts
+// -- Post Functions --
 async function loadRecentPosts() {
     try {
         const response = await fetch('posts.json');
         const data = await response.json();
-        const posts = data.posts.slice(0, 5); // The 5 most recent posts
+        // Sort posts by date descending then select the 5 most recent
+        const posts = data.posts
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .slice(0, 5);
 
         const postList = document.getElementById('recent-post-list');
         postList.innerHTML = '';
@@ -62,7 +61,7 @@ async function loadRecentPosts() {
     }
 }
 
-// Load data on page load
+// -- Initialization --
 document.addEventListener('DOMContentLoaded', () => {
     loadRecentPosts();
     loadRandomReel();
