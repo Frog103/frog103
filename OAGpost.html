@@ -90,7 +90,6 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-
         .return-button:hover {
             background: #388E3C;
             transform: scale(1.05);
@@ -188,14 +187,24 @@
                 font-size: 0.9rem;
             }
         }
+
+
+        .return-button {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .post-tags .tag {
+            margin: 0 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="fade-out">
     <div class="page-container">
+
         <div class="header-nav-container">
             <header>       
                 <div class="icon">
-                    <img src="images/frogBeeIcon.png" alt="Website Icon">
+                    <img src="images/frogBeeIcon.PNG" alt="Website Icon">
                 </div>
                 <div>
                     <h1>Frog103</h1>
@@ -205,7 +214,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Homepage</a></li>
-                    <li><a href="Projects.html">Projects</a></li>
+                    <li><a href="Projects.html">Products</a></li>
                     <li><a href="GalleryTopic.html">Gallery</a></li>
                     <li><a href="Blog.html">Blog</a></li>
                     <li><a href="Contact.html">Contact</a></li>
@@ -228,17 +237,17 @@
                     <img id="item-image" src="" alt="">
                 </div>
             </div>
-            
             <a href="otherArtGallery.html" class="return-button">Return to Gallery</a>
         </main>
 
         <footer>
-            Copyright &copy; 2024 Frog103. All Rights Reserved.
+            Copyright &copy; 2025 Frog103. All Rights Reserved.
         </footer>
     </div>
+
+    <script src="particles.js"></script>
     <script src="scripts.js"></script>
     <script>
-      // Update the JavaScript to match new element IDs and classes
       fetch('otherArtGallery.json')
         .then(response => response.json())
         .then(data => {
@@ -246,21 +255,20 @@
           const item = data.items.find(i => i.id === parseInt(itemId));
 
           if (item) {
-            // Set the item title and date
+
             document.getElementById('item-title').textContent = item.title || 'Untitled';
             document.getElementById('item-date').textContent = `Date: ${new Date(item.date).toLocaleDateString()}`;
 
-            // Update the image
+
             const img = document.getElementById('item-image');
             img.src = item.image;
             img.alt = item.title || 'Gallery Image';
             img.onerror = () => img.src = 'images/error-placeholder.png';
 
-            // Update the description
             const descriptionContainer = document.getElementById('item-description');
             descriptionContainer.innerHTML = `<p>${item.description}</p>`;
 
-            // Update the tags
+
             const tagsContainer = document.getElementById('item-tags');
             tagsContainer.innerHTML = item.tags
               .map(tag => `<span class="tag">${tag}</span>`)
@@ -273,6 +281,5 @@
           console.error('Error fetching item data:', error);
         });
     </script>
-    
 </body>
 </html>
