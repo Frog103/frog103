@@ -1,72 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Projects</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frog103 Projects Page">
+  <title>Products</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+  <script src="comicfetch.js" defer></script>
+  <style>
+    .project-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      margin: 0 auto;
+      max-width: 1200px;
+      background-image: url(images/textureOne.jpeg);
+      background-color: rgba(255, 255, 255, 0.15);
+      background-size: contain;
+      border-radius: 5px;
+      border: solid white 0.5px;
+    }
+    .project-card-container {
+        background-color: rgba(255, 255, 255, 0.6);
+        padding: 15px;
+        border-radius: 5px;
+        border: solid white 1px;
+    }
+    .project-card {
+      background-color: rgba(102, 126, 104, 0.873);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: solid white 1px;
+      overflow: hidden;
+      transition: var(--transition-standard);
+    }
 
-@media (max-width: 1000px) {
-.gallery-topics {
-grid-template-columns: repeat(2, 1fr);
-}
-}
+    .project-card img {
+        aspect-ratio: 9/16;
+        object-fit: cover;
+        width: 100%;
+        max-height: 500px;
+        display: block;
+    }
 
-@media (max-width: 600px) {
-.gallery-topics {
-grid-template-columns: 1fr;
-}
-}
-</style>
+    .project-card .project-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .project-card .project-info h2 {
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .project-card .project-info p {
+      font-size: 1rem;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .project-card .project-info .view-button {
+      background-color:#4caf50;
+      color: var(--text-light);
+      padding: 10px 20px;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition-standard);
+    }
+
+    .project-card .project-info .view-button:hover {
+      background-color: #388e3c;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .project-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+
+      .project-card .project-info h2 {
+        font-size: 1.25rem;
+      }
+
+      .project-card .project-info p {
+        font-size: 0.875rem;
+      }
+
+      .project-card .project-info .view-button {
+        padding: 8px 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .project-container {
+        padding: 10px;
+      }
+
+      .project-card .project-info h2 {
+        font-size: 1rem;
+      }
+
+      .project-card .project-info p {
+        font-size: 0.75rem;
+      }
+
+      .project-card .project-info .view-button {
+        padding: 6px 12px;
+      }
+    }
+    .project-card-container {
+      animation: project-card-container 1.5s ease-out;
+    }
+    @keyframes project-card-container {
+      0% {
+        transform: translateY(150px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body class="fade-out">
-<div class="page-container">
+  <div class="page-container">
     <div class="header-nav-container">
-        <div class="content-wrap">
-            <header> 
-                <div class="icon">
-                    <img src="images/frogBeeIcon.png" alt="Website Icon">
-                </div>
-                <div>
-                    <h1>Frog103</h1>
-                    <h3>Projects</h3>
-                </div>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Homepage</a></li>
-                    <li><a href="GalleryTopic.html">Gallery</a></li>
-                    <li><a href="Blog.html">Blog</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
-                </ul>
-            </nav>
+      <header>
+        <div class="icon">
+          <img src="images/frogBeeIcon.png" alt="Website Icon">
         </div>
+        <div>
+          <h1>Frog103</h1>
+          <h3>Products</h3>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Homepage</a></li>
+          <li><a href="GalleryTopic.html">Gallery</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
 
     <main class="content-wrap">
-        <div class="gallery-topics">
-            <!-- Topic 1: Project 1 -->
-            <div class="gallery-topic">
-                <a href="#">
-                    <img src="images/Unite.PNG" alt="Project 3 Image">
-                    <p>Project: 1</p>
-                </a>
-            </div>
-        </div>
+      <div class="project-container" id="projectContainer">
+      </div>
     </main>
-
     <footer>
-        Copyright &copy; 2024 Frog103. All Rights Reserved.
+      Copyright &copy; 2025 Frog103. All Rights Reserved.
     </footer>
-</div>
-
-<script src="scripts.js"></script>
-<script>
-    document.addEventListener('contextmenu', (event) => {
-      if (event.target.tagName === 'IMG') {
-        event.preventDefault();
-      }
-    });
-  </script>
+    <script src="particles.js"></script>
+    <script src="scripts.js"></script>
+  </div>
 </body>
 </html>
