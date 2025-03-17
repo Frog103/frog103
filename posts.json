@@ -1,16 +1,16 @@
 {
-    "posts": [
-      {
-        "id": 1,
-        "title": "My First Blog Post",
-        "date": "2024-11-18",
-        "tags": ["Announcement","Artwork","Project","Update"],
-        "excerpt": "A test post for this website",
-        "image": "images/frogBeeIcon.png",
-        "content": [
-        "This is a test post to display the functionality of this section of the website.",
-        "I plan to use this blog to document my plans, and to share some of my thoughts on the projects I'm working on.",
-        "On the side here are some of the early and current versions of the mascots I concepted for my online persona."
+  "posts": [
+    {
+      "id": 1,
+      "title": "My First Blog Post",
+      "date": "2024-11-18",
+      "tags": ["Announcement","Artwork","Project","Update"],
+      "excerpt": "A test post for this website",
+      "image": "images/frogBeeIcon.png",
+      "content": [
+      "This is a test post to display the functionality of this section of the website.",
+      "I plan to use this blog to document my plans, and to share some of my thoughts on the projects I'm working on.",
+      "On the side here are some of the early and current versions of the mascots I concepted for my online persona."
       ],
         "media": [
             "images/blogImages/11-18-24/frogBeeConcept.PNG",
@@ -22,9 +22,9 @@
       },
       {
         "id": 2,
-        "title": "Another Blog Post",
+        "title": "Test Post #1",
         "date": "2024-11-19",
-        "tags":["Artwork"],
+        "tags":["Project"],
         "excerpt": "Just a test post.",
         "image": "images/frogBeeIcon.png",
         "content":[
@@ -32,10 +32,32 @@
         "Maybe try taking a look around somewhere else?"],
         "media": [
             "images/splashing3.JPG",
-            "images/splashing4.JPG",
-            "images/splashing5.JPG",
-            "images/splashing6.JPG"
+            "images/splashing4.JPG"
         ]
+      },
+      {
+        "id": 3,
+        "title": "Test Post #2",
+        "date": "2025-03-14",
+        "tags":["Update"],
+        "excerpt": "Another test post.",
+        "image": "images/frogBeeIcon.png",
+        "content":[
+        "This post is also here to display the functionality of this website.",
+        "I'm not sure what else to say, so I'll just leave it at that."],
+        "media": []
+      },
+      {
+        "id": 4,
+        "title": "Test Post #3",
+        "date": "2025-03-15",
+        "tags":["Update","Project"],
+        "excerpt": "Yet another test post.",
+        "image": "images/frogBeeIcon.png",
+        "content":[
+        "This post is also here to display the functionality of this website.",
+        "I'm not sure what else to say, so I'll just leave it at that."],
+        "media": []
       }
     ]
   }
