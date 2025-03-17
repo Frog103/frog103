@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <title>Other Art</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+    <meta name="theme-color" content="#4CAF50">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
     <style>
@@ -125,7 +129,7 @@
         <div class="header-nav-container">
             <header>       
                 <div class="icon">
-                    <img src="images/frogBeeIcon.png" alt="Website Icon">
+                    <img src="images/frogBeeIcon.PNG" alt="Website Icon">
                 </div>
                 <div>
                     <h1>Frog103</h1>
@@ -135,14 +139,13 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Homepage</a></li>
-                    <li><a href="Projects.html">Projects</a></li>
+                    <li><a href="Projects.html">Products</a></li>
                     <li><a href="GalleryTopic.html">Gallery</a></li>
                     <li><a href="Blog.html">Blog</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
-
         <main class="content-wrap">
             <div class="filters">
                 <select id="tagFilter">
@@ -154,21 +157,16 @@
                 </select>
                 <button onclick="resetFilters()">Reset Filters</button>
             </div>
-
-            <div class="gallery-pictures" id="gallery-container">
-                
+            <div class="gallery-pictures" id="gallery-container"> 
             </div>
-
             <div class="pagination" id="pagination"></div>
         </main>
-
         <footer>
-            Copyright &copy; 2024 Frog103. All Rights Reserved.
+            Copyright &copy; 2025 Frog103. All Rights Reserved.
         </footer>
-    </div>
-
-    
+    </div>    
     <script src="scripts.js"></script>
+    <script src="particles.js"></script>
     <script>
         const ITEMS_PER_PAGE = 16;
         let currentPage = 1;
@@ -260,12 +258,10 @@
             const tagFilter = document.getElementById('tagFilter').value;
             const sortDirection = document.getElementById('dateSort').value;
 
-            // First filter by tag
             filteredItems = allItems.filter(item => {
                 return !tagFilter || (item.tags && item.tags.includes(tagFilter));
             });
 
-            // Then sort by date
             filteredItems = sortByDate(filteredItems, sortDirection);
 
             currentPage = 1;
@@ -287,13 +283,13 @@
                 
                 const data = await response.json();
                 allItems = data.items;
-                // Sort items by date initially (newest first)
+                
                 filteredItems = sortByDate(allItems, 'desc');
                 
                 setupFilters(allItems);
                 displayItems(filteredItems, currentPage);
 
-                // Add event listeners
+               
                 document.getElementById('tagFilter').addEventListener('change', filterItems);
                 document.getElementById('dateSort').addEventListener('change', filterItems);
             } catch (error) {
@@ -303,10 +299,9 @@
             }
         }
 
-        // Initialize the gallery when the page loads
+        
         window.addEventListener('DOMContentLoaded', initializeGallery);
 
-        // Prevent right-click on images
         document.addEventListener('contextmenu', (event) => {
             if (event.target.tagName === 'IMG') {
                 event.preventDefault();
