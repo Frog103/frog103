@@ -120,7 +120,6 @@
   background-color: #388E3C;
 }
 
-/* Modern Loading State */
 .loading {
     position: relative;
     min-height: 200px;
@@ -145,6 +144,54 @@
     100% { transform: rotate(360deg); }
 }
 
+    @media (max-width: 768px) {
+        .blog-container {
+            padding: 10px;
+        }
+
+        .filter-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .post-summary {
+            flex-direction: column;
+        }
+
+        .post-summary img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .post-title {
+            font-size: 1.2rem;
+        }
+
+        .pagination {
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .post-summary {
+            padding: 10px;
+        }
+
+        .post-excerpt {
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+        }
+    }
   </style>
 </head>
 <body class="fade-out">
@@ -152,7 +199,7 @@
     <div class="header-nav-container">
       <header>
         <div class="icon">
-          <img src="images/frogBeeIcon.png" alt="Website Icon">
+          <img src="images/frogBeeIcon.PNG" alt="Website Icon">
         </div>
         <div>
           <h1>Frog103</h1>
@@ -162,7 +209,7 @@
       <nav>
         <ul>
           <li><a href="index.html">Homepage</a></li>
-          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="Projects.html">Products</a></li>
           <li><a href="GalleryTopic.html">Gallery</a></li>
           <li><a href="Contact.html">Contact</a></li>
         </ul>
@@ -171,29 +218,24 @@
 
     <main class="content-wrap">
       <div class="blog-container">
-        <!-- Filter Options -->
         <div class="filter-container" role="search">
           <select id="tag-filter">
             <option value="All">All Tags</option>
           </select>
           <button id="sort-button" data-order="desc">Sort by Date: Descending</button>
         </div>
-
-        <!-- Blog Posts -->
         <section id="blog-posts" aria-live="polite">
-          <!-- Posts will load dynamically -->
         </section>
-
-        <!-- Pagination -->
         <div class="pagination" id="pagination">
-          <!-- Pagination buttons will load dynamically -->
         </div>
       </div>
     </main>
 
+
     <footer>
-      Copyright &copy; 2024 Frog103. All Rights Reserved.
+      Copyright &copy; 2025 Frog103. All Rights Reserved.
     </footer>
+
 
     <script>
       const postsPerPage = 4;
@@ -202,7 +244,6 @@
       let currentOrder = 'desc';
       let currentFilter = 'All';
 
-      // Fetch posts and initialize the page
       fetch('posts.json')
         .then(response => response.json())
         .then(data => {
@@ -212,7 +253,7 @@
         })
         .catch(error => console.error('Error fetching posts:', error));
 
-      // Populate the filter dropdown with unique tags
+     
       function populateTags() {
         const tagFilter = document.getElementById('tag-filter');
         const uniqueTags = new Set(posts.flatMap(post => post.tags));
@@ -224,7 +265,7 @@
         });
       }
 
-      // Update the posts displayed based on the current settings
+     
       function updatePosts() {
         const filteredPosts = filterPosts(currentFilter);
         sortPosts(currentOrder);
@@ -233,7 +274,6 @@
         setupPagination(filteredPosts.length);
       }
 
-      // Filter posts by tag
       function filterPosts(tag) {
         if (tag === 'All') {
           return posts;
@@ -241,7 +281,7 @@
         return posts.filter(post => post.tags.includes(tag));
       }
 
-      // Sort posts by date
+      
       function sortPosts(order) {
         posts.sort((a, b) => {
           const dateA = new Date(a.date);
@@ -250,13 +290,13 @@
         });
       }
 
-      // Paginate posts
+      
       function paginatePosts(filteredPosts, page) {
         const startIndex = (page - 1) * postsPerPage;
         return filteredPosts.slice(startIndex, startIndex + postsPerPage);
       }
 
-      // Render the paginated posts
+      
       function renderPosts(paginatedPosts) {
         const blogPosts = document.getElementById('blog-posts');
         blogPosts.innerHTML = '';
@@ -295,7 +335,7 @@
         });
       }
 
-      // Setup pagination buttons
+      
       function setupPagination(totalPosts) {
         const pagination = document.getElementById('pagination');
         pagination.innerHTML = '';
@@ -313,7 +353,6 @@
         }
       }
 
-      // Event Listeners
       document.getElementById('sort-button').addEventListener('click', () => {
         currentOrder = currentOrder === 'desc' ? 'asc' : 'desc';
         updatePosts();
@@ -326,7 +365,6 @@
         updatePosts();
       });
 
-    // Render Tags
     const tagsContainer = document.createElement('div');
     tagsContainer.classList.add('post-tags');
     post.tags.forEach(tag => {
@@ -336,15 +374,15 @@
       tagsContainer.appendChild(tagElement);
     });
     </script>
-        
-        <script src="scripts.js"></script>
-        <script>
-          document.addEventListener('contextmenu', (event) => {
-            if (event.target.tagName === 'IMG') {
-              event.preventDefault();
-            }
-          });
-        </script>
+    <script src="particles.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+      document.addEventListener('contextmenu', (event) => {
+        if (event.target.tagName === 'IMG') {
+          event.preventDefault();
+        }
+      });
+    </script>
   </div>
   <noscript>Please enable JavaScript to view blog posts.</noscript>
 </body>
