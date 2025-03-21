@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+<meta name="theme-color" content="#4CAF50">
+<title>Frog103 - Homepage</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+<style>
+    .gallery-item-container {
+            background: rgba(255, 255, 255, 0.899);
+            backdrop-filter: blur(10px);
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+            border: solid white 5px;
+        }
+
+        .gallery-item-content {
+            background: rgba(255, 255, 255, 0.949);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-item-image {
+            width: 100%;
+            max-height: 800px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        #item-media-container video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item-image:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item-title {
+            font-size: 2.8rem;
+            color: #2a5b2b;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item-details {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .tag {
+            background: #4CAF50;
+            color: rgb(255, 255, 255);
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #388E3C;
+            transform: scale(1.05);
+        }
+
+        .return-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .return-button:hover {
+            background: #388E3C;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item-container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .gallery-item-title {
+                font-size: 2rem;
+            }
+        }
+        .post-container {
+            background-image: url(images/textureOne.jpeg);
+            background-size: cover;
+            outline: solid white 1px;
+            max-width: 1200px;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-details-box {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-details-box h1 {
+            font-size: 2.5rem;
+            color: #2a5b2b;
+            margin-bottom: 10px;
+        }
+
+        .post-details-box p {
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .description {
+            margin-top: 20px;
+            background-color: rgba(50, 61, 51, 0.75);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.6;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .media-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .media-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 1000px) {
+            .post-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .post-details-box h1 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 0.9rem;
+            }
+        }
+        .return-button {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .post-tags .tag {
+            margin: 0 5px;
+            font-weight: bold;
+        }
+</style>
+</head>
+<body class="fade-out">
+    <div class="page-container">
+    <div class="header-nav-container">
+        <header>
+            <div class="icon">
+                <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+            </div>
+            <div>
+                <h1>Frog103</h1>
+                <h3>Homepage</h3>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="Projects.html">Products</a></li>
+                <li><a href="GalleryTopic.html">Gallery</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main class="content-wrap">
+        <div class="post-container">
+            <div class="post-details-box">
+                <h1 id="item-title">Loading...</h1>
+                <p id="item-date">Date: Loading...</p>
+                <div class="description" id="item-description">
+                    <p>Loading...</p>
+                </div>
+                <div id="item-tags" class="post-tags"></div>
+            </div>
+
+            <div id="item-media-container"></div>
+        </div>
+        <a href="animationGallery.html" class="return-button">Return to Gallery</a>
+    </main> 
+      <footer>
+        Copyright &copy; 2025 Frog103. All Rights Reserved.
+        <p>For usage or licensing, please contact me.</p>
+      </footer>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="particles.js"></script>
+    <script>
+        fetch('animationGallery.json')
+          .then(response => response.json())
+          .then(data => {
+            const itemId = new URLSearchParams(window.location.search).get('id');
+            const item = data.items.find(i => i.id === parseInt(itemId));
+  
+            if (item) {
+  
+              document.getElementById('item-title').textContent = item.title || 'Untitled';
+              document.getElementById('item-date').textContent = `Date: ${new Date(item.date).toLocaleDateString()}`;
+  
+              const mediaContainer = document.getElementById('item-media-container');
+              // Clear any existing content
+              mediaContainer.innerHTML = '';
+              if(item.image.toLowerCase().endsWith('.mp4')) {
+                const video = document.createElement('video');
+                video.src = item.image;
+                video.setAttribute('muted', '');
+                video.setAttribute('autoplay', '');
+                video.setAttribute('loop', '');
+                video.setAttribute('playsinline', '');
+                video.controls = true;
+                mediaContainer.appendChild(video);
+              } else {
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.title || 'Gallery Image';
+                img.onerror = () => img.src = 'images/error-placeholder.png';
+                mediaContainer.appendChild(img);
+              }
+  
+              const descriptionContainer = document.getElementById('item-description');
+              descriptionContainer.innerHTML = `<p>${item.description}</p>`;
+  
+  
+              const tagsContainer = document.getElementById('item-tags');
+              tagsContainer.innerHTML = item.tags
+                .map(tag => `<span class="tag">${tag}</span>`)
+                .join('');
+            } else {
+              document.getElementById('item-description').textContent = 'Item not found.';
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching item data:', error);
+          });
+      </script>
+</body>
+</html>
