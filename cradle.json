@@ -11,8 +11,8 @@
           "extra": "Pop Smoke, NBA Youngboy"
         },
         "tags": ["Fantasy", "Horror", "Adventure"],
-        "coverImage": "/images/products/comics/cradle/cover.jpg",
-        "bannerImage": "/images/products/comics/cradle/banner.jpg",
+        "coverImage": "images/products/comics/cradle/cover.jpg",
+        "bannerImage": "images/products/comics/cradle/banner.jpg",
         "volumes": [
           {
             "volumeId": "1",
@@ -46,22 +46,22 @@
                 "chapterTitle": "Chapter 1: The Beginning",
                 "releaseDate": "2025-03-11",
                 "chapterImages": [
-                  "/images/products/comics/cradle/vol1/chapters/ch1/1.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/2.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/3.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/4.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/5.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/6.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/7.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/8.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/9.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/10.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/11.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/12.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/13.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/14.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/15.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch1/16.jpg"
+                  "images/products/comics/cradle/vol1/chapters/ch1/1.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/2.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/3.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/4.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/5.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/6.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/7.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/8.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/9.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/10.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/11.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/12.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/13.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/14.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/15.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch1/16.jpg"
                 ]
               },
               {
@@ -69,22 +69,22 @@
                 "chapterTitle": "Chapter 2: The Middle",
                 "releaseDate": "2025-03-18",
                 "chapterImages": [
-                  "/images/products/comics/cradle/vol1/chapters/ch2/1.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/2.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/3.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/4.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/5.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/6.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/7.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/8.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/9.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/10.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/11.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/12.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/13.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/14.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/15.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch2/16.jpg"
+                  "images/products/comics/cradle/vol1/chapters/ch2/1.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/2.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/3.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/4.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/5.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/6.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/7.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/8.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/9.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/10.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/11.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/12.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/13.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/14.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/15.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch2/16.jpg"
                 ]
               },
               {
@@ -92,22 +92,22 @@
                 "chapterTitle": "Chapter 3: The End",
                 "releaseDate": "2025-03-25",
                 "chapterImages": [
-                  "/images/products/comics/cradle/vol1/chapters/ch3/1.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/2.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/3.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/4.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/5.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/6.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/7.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/8.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/9.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/10.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/11.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/12.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/13.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/14.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/15.jpg",
-                  "/images/products/comics/cradle/vol1/chapters/ch3/16.jpg"
+                  "images/products/comics/cradle/vol1/chapters/ch3/1.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/2.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/3.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/4.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/5.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/6.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/7.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/8.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/9.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/10.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/11.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/12.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/13.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/14.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/15.jpg",
+                  "images/products/comics/cradle/vol1/chapters/ch3/16.jpg"
                 ]
               }
             ]
@@ -132,8 +132,8 @@
                 "chapterTitle": "Chapter 11: A New Beginning",
                 "releaseDate": "2025-06-01",
                 "chapterImages": [
-                  "/images/products/comics/cradle/vol2/chapters/ch11/1.jpg",
-                  "/images/products/comics/cradle/vol2/chapters/ch11/2.jpg"
+                  "images/products/comics/cradle/vol2/chapters/ch11/1.jpg",
+                  "images/products/comics/cradle/vol2/chapters/ch11/2.jpg"
                 ]
               }
             ]
