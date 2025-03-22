@@ -196,6 +196,14 @@
             margin: 0 5px;
             font-weight: bold;
         }
+        img {
+  pointer-events: none; 
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
     </style>
 </head>
 <body class="fade-out">
@@ -204,7 +212,7 @@
         <div class="header-nav-container">
             <header>       
                 <div class="icon">
-                    <img src="images/frogBeeIcon.png" alt="Website Icon">
+                    <img src="images/frogBeeIcon.PNG" alt="Website Icon">
                 </div>
                 <div>
                     <h1>Frog103</h1>
@@ -235,6 +243,7 @@
 
                 <div class="media-gallery">
                     <img id="item-image" src="" alt="">
+                    <button id="openImageBtn" class="return-button" style="margin-top:10px;">View Full Size</button>
                 </div>
             </div>
             <a href="otherArtGallery.html" class="return-button">Return to Gallery</a>
@@ -259,15 +268,20 @@
             document.getElementById('item-title').textContent = item.title || 'Untitled';
             document.getElementById('item-date').textContent = `Date: ${new Date(item.date).toLocaleDateString()}`;
 
-
             const img = document.getElementById('item-image');
             img.src = item.image;
             img.alt = item.title || 'Gallery Image';
             img.onerror = () => img.src = 'images/error-placeholder.png';
 
+            const openImageBtn = document.getElementById('openImageBtn');
+            openImageBtn.addEventListener('click', () => {
+              if (img.src) {
+                window.open(img.src, '_blank');
+              }
+            });
+
             const descriptionContainer = document.getElementById('item-description');
             descriptionContainer.innerHTML = `<p>${item.description}</p>`;
-
 
             const tagsContainer = document.getElementById('item-tags');
             tagsContainer.innerHTML = item.tags
