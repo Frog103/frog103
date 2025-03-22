@@ -50,31 +50,40 @@ function loadComic(){
         }
         let chaptersHtml = "";
         volume.chapters.forEach(ch => {
+          // Lookup corresponding meta to check for free chapter flag
+          let meta = volume.childChaptersMeta ? volume.childChaptersMeta.find(m => m.chapterId === ch.chapterId) : null;
+          let chapterIcon = (meta && meta["chapterfree?"] === "true") ? '👁️' : '🔒';
           chaptersHtml += `
             <div class="chapter-card">
               <div class="card-text">
                 <p>${ch.chapterTitle}</p>
-                <p>Released On: ${ch.releaseDate}</p>
+                <p>Release: ${ch.releaseDate}</p>
               </div>
             </div>
             <div class="card-button">
-              <a href="viewer.html?chapterId=${ch.chapterId}">View</a>
+              <a href="viewer.html?chapterId=${ch.chapterId}" data-chapterfree="${(meta && meta["chapterfree?"] === "true") ? "true" : "false"}">
+                View <span class="free-icon">${chapterIcon}</span>
+              </a>
             </div>
-            <!-- Removed individual chapter PDF link -->
           `;
         });
         document.getElementById("chapterContainer").innerHTML = chaptersHtml;
         
-        // Render the volume's PDF download link in a separate container
+        // Render the volume's PDF download link with the appropriate icon.
         if(volume.pdf) {
+          let pdfIcon = (volume["pdffree?"] === "true") ? '👁️' : '🔒';
           document.getElementById("pdfContainer").innerHTML = `
             <div class="card-button">
-              <a href="${volume.pdf}">Download Volume PDF</a>
+              <a href="${volume.pdf}" data-pdffree="${(volume["pdffree?"] === "true") ? "true" : "false"}">
+                Download Volume PDF <span class="free-icon">${pdfIcon}</span>
+              </a>
             </div>
           `;
         } else {
           document.getElementById("pdfContainer").innerHTML = "";
         }
+        
+        attachAccessControl();
       }
       
       // Load the first volume by default.
@@ -96,6 +105,26 @@ function loadComic(){
       console.error("Error loading comic:", err);
       document.getElementById("titleContainer").innerHTML = "<p>Error loading comic data.</p>";
     });
+}
+
+// New function to attach access control to generated links.
+function attachAccessControl() {
+  document.querySelectorAll("#chapterContainer a[data-chapterfree]").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      if(this.dataset.chapterfree === "false") {
+        alert("Access Denied: This chapter is not available.");
+        e.preventDefault();
+      }
+    });
+  });
+  document.querySelectorAll("#pdfContainer a[data-pdffree]").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      if(this.dataset.pdffree === "false") {
+        alert("Access Denied: This volume's PDF is not available.");
+        e.preventDefault();
+      }
+    });
+  });
 }
 
 function loadProjects(){
