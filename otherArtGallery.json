@@ -182,6 +182,15 @@
         },
         {
             "id": 21,
+            "title":"" ,
+            "description": "Character artwork",
+            "image": "images/galleryImages/otherArt/brother.jpg",
+            "date": "2025-02-28",
+            "tags": ["Digital"],
+            "showcase": "true"
+        },
+        {
+            "id": 22,
             "title": "Comic Cover Prototype",
             "description": "The first draft of a comic cover for a personal project.",
             "image": "images/galleryImages/otherArt/cradle.jpg",
