@@ -95,7 +95,7 @@
             "title": "",
             "description": "Character artwork",
             "image": "images/galleryImages/otherArt/melica2.JPG",
-            "date": "2024-05-27",
+            "date": "2024-08-08",
             "tags": ["Character", "Digital"],
             "showcase": "false"
         },
@@ -197,6 +197,24 @@
             "date": "2025-03-08",
             "tags": ["Digital"],
             "showcase": "true"
+        },
+        {
+            "id": 23,
+            "title":"",
+            "description": "Character artwork",
+            "image": "images/galleryImages/otherArt/naledi.jpg",
+            "date": "2025-04-04",
+            "tags": ["Digital"],
+            "showcase": "true"
+        },
+        {
+            "id": 24,
+            "title":"",
+            "description":"",
+            "image":"images/galleryImages/otherArt/tatsumaki.JPG",
+            "date":"2024-04-30",
+            "tags":["Digital"],
+            "showcase":"false"
         }
     ]
 }
