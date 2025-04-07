@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+<meta name="theme-color" content="#4CAF50">
+<title>Frog103 - Character Design</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+<style>
+    .content-container {
+        background-image: url(images/textureOne.jpeg);
+        background-size: cover;
+        border-radius: 5px;
+        border: solid white 1px;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 10px;
+    }
+    .post-container {
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border: solid white 1px;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 20px;
+    }
+    .character-info-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .character-info-box h1 {
+        font-size: 2.5rem;
+        color: #2a5b2b;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    .tag-container {
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .banner-tags {
+        background: #4CAF50;
+        color: rgb(255, 255, 255);
+        padding: 8px 15px;
+        border-radius: 10px;
+        font-size: 0.9em;
+        transition: all 0.3s ease;
+        margin: 5px 0;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+    }
+    .character-images img {
+        width: 100%;
+        max-height: 800px;
+        object-fit: contain;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    .description {
+        margin-top: 20px;
+        background-color: rgba(50, 61, 51, 0.75);
+        color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        line-height: 1.6;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .introduction-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+    }
+    .information-nav-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
+    }
+    .history-box, .trivia-box, .image-box {
+        margin-top: 20px;
+        background-color: rgba(50, 61, 51, 0.75);
+        color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        line-height: 1.6;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+    .dropdown-menu {
+        position: absolute;
+        color: white;
+        background: #333;
+        border: none;
+        border-radius: 8px;
+        text-align: left;
+        z-index: 1000;
+        left: 0%;
+        top: 100%;
+        padding: 10px;
+        width: 100%;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        animation: fadeIn 0.3s forwards;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .dropdown-menu div {
+        padding: 10px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    
+    .dropdown-menu div:hover {
+        background: #555;
+    }
+    .resetIntro {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s, transform 0.3s;
+    }
+    .introduction-box .description img {
+        width: auto !important;
+        height: auto !important;
+        max-width: 100%;
+        max-height: none !important;
+    }
+    /* New CSS rule for all button elements */
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s, transform 0.3s;
+        margin: 5px;
+    }
+</style>
+</head>
+<body class="fade-out">
+    <div class="page-container">
+    <div class="header-nav-container">
+        <header>
+            <div class="icon">
+                <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+            </div>
+            <div>
+                <h1>Frog103</h1>
+                <h3>Design Gallery</h3>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="Projects.html">Products</a></li>
+                <li><a href="GalleryTopic.html">Gallery</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content-container">
+        <div class="post-container">
+            <div class="character-info-box">
+                <div class="header">
+                    <!--This is where the character name will be displayed-->
+                    <h1>Character Name</h1>
+                </div>
+
+                <div class="tag-container">
+                <div class="banner-tags">
+                    <p>tag</p>
+                    <!--This is where the banner tags will be displayed ontop of the banner images to click on and view different images-->
+                </div>
+                <div class="banner-tags">
+                    <p>tag</p>
+                </div>
+                <div class="banner-tags">
+                    <p>tag</p>
+                </div>
+                </div>
+
+                <div class="character-images">
+                    <!--This is where the character banner images will be displayed-->
+                    <img src="#" alt="Character Image" loading="lazy">
+                </div>
+
+                <div class="description">
+                    hello
+                    <!--Load Character Info here-->
+                </div>
+            </div>
+
+            <div class="introduction-box">
+                <h2>Character Introduction</h2>
+                <div class="description">
+                    hello
+                    <!--Load Character Introduction txt file here-->
+                </div>
+                <!-- Added reset button for introduction content -->
+                <button id="resetIntro">Reset</button>
+                <!-- New button to return to designGallery.html -->
+                <button id="returnButton">Return to Gallery</button>
+            </div>
+
+            <div class="information-nav-box">
+                <h2>Character Information</h2>
+                <div class="history-box">
+                    <h3>Character History</h3>
+                    <!--Load and display History txt files here as dropdown menu-->
+                    <!--When clicked on, the text should replace the area where the introduction txt file is loaded-->
+                </div>
+                <div class="trivia-box">
+                    <h3>Character Trivia</h3>
+                    <!--Load and display Character Trivia txt files here as dropdown menu-->
+                    <!--When clicked on, the text should replace the area where the introduction txt file is loaded-->
+                </div>
+                <div class="image-box">
+                    <h3>Character Images</h3>
+                    <!--Load and display Character Images here as dropdown menu-->
+                    <!--When clicked on, the images should replace the area where the introduction txt file is loaded-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <footer>
+        Copyright &copy; 2025 Frog103. All Rights Reserved.
+        <p>For usage or licensing, please contact me.</p>
+      </footer>
+    </div>
+    <script src="scripts.js" defer></script>
+    <script src="particles.js" defer></script>
+    <script>
+    // Parse query parameters, fetch JSON, and wire up dynamic content
+    document.addEventListener('DOMContentLoaded', function(){
+      const params = new URLSearchParams(window.location.search);
+      const charId = Number(params.get('id'));
+      if (!charId) return;
+  
+      fetch('characterDesignGallery.json')
+        .then(res => res.json())
+        .then(data => {
+          const character = data.characters.find(c => c.characterId === charId);
+          if (!character) return;
+  
+          // Update the character name
+          document.querySelector('.character-info-box h1').textContent = character.name;
+  
+          // Clear and populate banner tags with click events to update banner image
+          const bannerContainer = document.querySelector('.tag-container');
+          bannerContainer.innerHTML = "";
+          if (character.pageDetails && character.pageDetails.characterBanners) {
+              character.pageDetails.characterBanners.forEach(banner => {
+                  const tagDiv = document.createElement('div');
+                  tagDiv.className = 'banner-tags';
+                  tagDiv.innerHTML = `<p>${banner.tag}</p>`;
+                  tagDiv.addEventListener('click', () => {
+                      document.querySelector('.character-images img').src = banner.image;
+                  });
+                  bannerContainer.appendChild(tagDiv);
+              });
+              // Set initial banner image
+              document.querySelector('.character-images img').src = character.pageDetails.characterBanners[0].image;
+          }
+  
+          // Update Character Info section with properties from characterInfo
+          const infoBox = document.querySelector('.character-info-box .description');
+          if (character.pageDetails && character.pageDetails.characterInfo) {
+            infoBox.innerHTML = `
+              <strong>Age:</strong> ${character.pageDetails.characterInfo.age}<br>
+              <strong>Gender:</strong> ${character.pageDetails.characterInfo.gender}<br>
+              <strong>Height:</strong> ${character.pageDetails.characterInfo.height}<br>
+              <strong>Weight:</strong> ${character.pageDetails.characterInfo.weight}<br>
+              <strong>DOB:</strong> ${character.pageDetails.characterInfo.dateOfBirth}
+            `;
+          }
+  
+          // Store default introduction text so it can be reset later
+          let defaultIntroduction = "";
+  
+          // Load Character Introduction text file
+          fetch(character.introTextFile)
+            .then(r => r.text())
+            .then(text => {
+              defaultIntroduction = text;
+              document.querySelector('.introduction-box .description').textContent = text;
+              // Initially hide reset button
+              document.getElementById('resetIntro').style.display = 'none';
+            });
+  
+          // Add event listener to reset introduction when reset button is clicked
+          document.getElementById('resetIntro').addEventListener('click', () => {
+              document.querySelector('.introduction-box .description').textContent = defaultIntroduction;
+              document.getElementById('resetIntro').style.display = 'none';
+          });
+  
+          // Helper: create and show dropdown menu using CSS styling from .dropdown-menu
+          function showDropdown(container, items, renderOption, callback) {
+            // If this container already has an active dropdown, remove it and toggle off.
+            if (container.dropdownVisible) {
+                const existingDropdown = container.querySelector('.dropdown-menu');
+                if (existingDropdown) {
+                    existingDropdown.remove();
+                }
+                container.dropdownVisible = false;
+                return;
+            }
+            // Disable any other active dropdown menus.
+            document.querySelectorAll('.dropdown-menu').forEach(menu => menu.remove());
+            const dropdown = document.createElement('div');
+            dropdown.className = 'dropdown-menu';
+            items.forEach(item => {
+              const option = document.createElement('div');
+              option.classList.add('dropdown-option');
+              option.textContent = renderOption(item);
+              option.addEventListener('click', function(e){
+                e.stopPropagation();
+                dropdown.remove();
+                container.dropdownVisible = false;
+                callback(item);
+                // Show the reset button since the introduction content has been updated
+                document.getElementById('resetIntro').style.display = 'block';
+              });
+              dropdown.appendChild(option);
+            });
+            container.appendChild(dropdown);
+            container.dropdownVisible = true;
+          }
+  
+          // History dropdown: show available history files as dropdown
+          const historyBox = document.querySelector('.history-box');
+          historyBox.style.cursor = "pointer";
+          historyBox.addEventListener('click', () => {
+            if (character.pageDetails.history && character.pageDetails.history.length) {
+              showDropdown(historyBox, character.pageDetails.history, item => item.title, (item) => {
+                fetch(item.textFile)
+                  .then(r => r.text())
+                  .then(text => {
+                    document.querySelector('.introduction-box .description').textContent = text;
+                    document.getElementById('resetIntro').style.display = 'block';
+                  });
+              });
+            }
+          });
+  
+          // Trivia dropdown: show available trivia files as dropdown
+          const triviaBox = document.querySelector('.trivia-box');
+          triviaBox.style.cursor = "pointer";
+          triviaBox.addEventListener('click', () => {
+            if (character.pageDetails.trivia && character.pageDetails.trivia.length) {
+              showDropdown(triviaBox, character.pageDetails.trivia, item => item.title, (item) => {
+                fetch(item.textFile)
+                  .then(r => r.text())
+                  .then(text => {
+                    document.querySelector('.introduction-box .description').textContent = text;
+                    document.getElementById('resetIntro').style.display = 'block';
+                  });
+              });
+            }
+          });
+  
+          // Image dropdown: show available images as dropdown
+          const imageBox = document.querySelector('.image-box');
+          if (imageBox) {
+            imageBox.style.cursor = "pointer";
+            imageBox.addEventListener('click', () => {
+              if (character.pageDetails.images && character.pageDetails.images.length) {
+                showDropdown(imageBox, character.pageDetails.images, 
+                  item => item.description ? item.description : `Image ${item.imageId}`, 
+                  (item) => {
+                    document.querySelector('.introduction-box .description').innerHTML = `<img src="${item.image}" alt="${character.name} image" style="width:100%; max-height:400px; margin:10px 0; border-radius:10px;">`;
+                    document.getElementById('resetIntro').style.display = 'block';
+                  });
+              }
+            });
+          }
+        })
+        .catch(err => console.error(err));
+      
+      // New event listener for "Return to Gallery" button
+      document.getElementById('returnButton').addEventListener('click', function(){
+          window.location.href = 'designGallery.html';
+      });
+    });
+    </script>
+</body>
+</html>

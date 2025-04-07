@@ -1,0 +1,227 @@
+{
+    "characters": [
+      {
+        "characterId": 1,
+        "name": "Corraine",
+        "excerpt": "test text",
+        "tags": ["Backyard"],
+        "credits": {
+          "artists": ["stickybell09"],
+          "extra": ["Pop Smoke", "NBA Youngboy"]
+        },
+        "postImage": "images/galleryImages/characterDesigns/corraine.png",
+        "introTextFile": "txtFiles/corraineIntro.txt",
+        "pageDetails": {
+          "characterBanners": [
+            {
+              "image": "images/galleryImages/characterDesigns/corraine.png",
+              "tag": "Volume 1"
+            },
+            {
+              "image": "images/galleryImages/characterDesigns/corraine2.png",
+              "tag": "Volume 2"
+            },
+            {
+              "image": "images/galleryImages/characterDesigns/corraine3.png",
+              "tag": "Volume 3"
+            }
+          ],
+          "characterInfo": {
+            "name": "Corraine",
+            "age": "15",
+            "gender": "Female",
+            "height": "6'3\"",
+            "weight": "173 lbs",
+            "dateOfBirth": "X12-04-06"
+          },
+          "images": [
+            {
+              "imageId": 1,
+              "image": "images/galleryImages/characterDesigns/corraine.png",
+              "description": "Corraine's main design for Volume 1.",
+              "timeOfUpload": "2025-04-06"
+            },
+            {
+              "imageId": 2,
+              "image": "images/galleryImages/characterDesigns/corraine2.png",
+              "description": "Corraine's main design for Volume 2.",
+              "timeOfUpload": "2025-04-06"
+            },
+            {
+              "imageId": 3,
+              "image": "images/galleryImages/characterDesigns/corraine3.png",
+              "description": "Corraine's main design for Volume 3.",
+              "timeOfUpload": "2025-04-06"
+            }
+          ],
+          "history": [
+            {
+              "historyId": 1,
+              "title": "Corraine's Conception",
+              "textFile": "txtFiles/corraineHistory.txt",
+              "timeOfUpload": "2025-04-06",
+              "relatedImageIds": [1]
+            }
+          ],
+          "trivia": [
+            {
+              "triviaId": 1,
+              "title": "Inspirations",
+              "textFile": "txtFiles/corraineTrivia.txt",
+              "timeOfUpload": "2025-04-06",
+              "relatedImageIds": [1]
+            }
+          ]
+        }
+      },
+      {
+        "characterId": 2,
+        "name": "Aimee",
+        "excerpt": "test text",
+        "tags": ["Backyard"],
+        "credits": {
+          "artists": ["stickybell09"],
+          "extra": ["Pop Smoke", "NBA Youngboy"]
+        },
+        "postImage": "images/galleryImages/characterDesigns/aimee.png",
+        "introTextFile": "txtFiles/aimeeIntro.txt",
+        "pageDetails": {
+          "characterBanners": [
+            {
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "tag": "Volume 1"
+            },
+            {
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "tag": "Volume 2"
+            },
+            {
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "tag": "Volume 3"
+            }
+          ],
+          "characterInfo": {
+            "name": "Aimee",
+            "age": "15",
+            "gender": "Female",
+            "height": "5'0\"",
+            "weight": "113 lbs",
+            "dateOfBirth": "X12-01-07"
+          },
+          "images": [
+            {
+              "imageId": 1,
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "description": "Aimee's first design for the Isolation Arc.",
+              "timeOfUpload": "2025-04-06"
+            },
+            {
+              "imageId": 2,
+              "image": "images/galleryImages/characterDesigns/aimee2.png",
+              "description": "Aimee's second design for the Purpose Arc.",
+              "timeOfUpload": "2025-04-06"
+            },
+            {
+              "imageId": 3,
+              "image": "images/galleryImages/characterDesigns/aimee3.png",
+              "description": "Aimee's third design for the Renewal Arc.",
+              "timeOfUpload": "2025-04-06"
+            }
+          ],
+          "history": [
+            {
+              "historyId": 1,
+              "title": "Title#1",
+              "textFile": "txtFiles/aimeeHistory.txt",
+              "timeOfUpload": "2025-04-06",
+              "relatedImageIds": [1]
+            }
+          ],
+          "trivia": [
+            {
+              "triviaId": 1,
+              "title": "Trivia#1",
+              "textFile": "txtFiles/aimeeTrivia.txt",
+              "timeOfUpload": "2025-04-06",
+              "relatedImageIds": [1]
+            }
+          ]
+        }
+      },
+      {
+        "characterId": 3,
+        "name": "Naledi",
+        "excerpt": "test text",
+        "tags": ["Gravitas"],
+        "credits": {
+          "artists": ["stickybell09"],
+          "extra": ["Pop Smoke", "NBA Youngboy"]
+        },
+        "postImage": "images/galleryImages/characterDesigns/aimee.png",
+        "introTextFile": "txtFiles/aimeeIntro.txt",
+        "pageDetails": {
+          "characterBanners": [
+            {
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "tag": "Volume 1"
+            },
+            {
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "tag": "Volume 2"
+            },
+            {
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "tag": "Volume 3"
+            }
+          ],
+          "characterInfo": {
+            "name": "Naledi",
+            "age": "20",
+            "gender": "Female",
+            "height": "5'7\"",
+            "weight": "137 lbs",
+            "dateOfBirth": "X21-05-12"
+          },
+          "images": [
+            {
+              "imageId": 1,
+              "image": "images/galleryImages/characterDesigns/aimee.png",
+              "description": "Aimee's first design for the Isolation Arc.",
+              "timeOfUpload": "2025-04-06"
+            },
+            {
+              "imageId": 2,
+              "image": "images/galleryImages/characterDesigns/aimee2.png",
+              "description": "Aimee's second design for the Purpose Arc.",
+              "timeOfUpload": "2025-04-06"
+            },
+            {
+              "imageId": 3,
+              "image": "images/galleryImages/characterDesigns/aimee3.png",
+              "description": "Aimee's third design for the Renewal Arc.",
+              "timeOfUpload": "2025-04-06"
+            }
+          ],
+          "history": [
+            {
+              "historyId": 1,
+              "title": "Title#1",
+              "textFile": "txtFiles/aimeeHistory.txt",
+              "timeOfUpload": "2025-04-06",
+              "relatedImageIds": [1]
+            }
+          ],
+          "trivia": [
+            {
+              "triviaId": 1,
+              "title": "Trivia#1",
+              "textFile": "txtFiles/aimeeTrivia.txt",
+              "timeOfUpload": "2025-04-06",
+              "relatedImageIds": [1]
+            }
+          ]
+        }
+      } 
+    ]
+  }
+  

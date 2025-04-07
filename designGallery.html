@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+<meta name="theme-color" content="#4CAF50">
+<title>Frog103 - Character Designs</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+<style>
+    .blog-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-container select, .filter-container button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .post-summary {
+      display: flex;
+      gap: 15px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post-summary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .post-summary img {
+      width: 150px;
+      height: auto;
+      border-radius: 5px;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-info {
+      flex: 1;
+    }
+
+    .post-title {
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: #4CAF50;
+      margin-bottom: 5px;
+    }
+
+    .post-date {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .post-excerpt {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .pagination button:hover {
+      background-color: #388E3C;
+    }
+
+    .pagination button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .post-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+.tag:hover {
+  background-color: #388E3C;
+}
+
+.loading {
+    position: relative;
+    min-height: 200px;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    @media (max-width: 768px) {
+        .blog-container {
+            padding: 10px;
+        }
+
+        .filter-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .post-summary {
+            flex-direction: column;
+        }
+
+        .post-summary img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .post-title {
+            font-size: 1.2rem;
+        }
+
+        .pagination {
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .post-summary {
+            padding: 10px;
+        }
+
+        .post-excerpt {
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+        }
+    }
+    
+    #blog-posts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+</style>
+</head>
+<body class="fade-out">
+    <div class="page-container">
+    <div class="header-nav-container">
+        <header>
+            <div class="icon">
+                <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+            </div>
+            <div>
+                <h1>Frog103</h1>
+                <h3>Design Gallery</h3>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="Projects.html">Products</a></li>
+                <li><a href="GalleryTopic.html">Gallery</a></li>
+                <li><a href="Blog.html">Blog</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="content-wrap">
+        <div class="blog-container">
+          <div class="filter-container" role="search">
+            <select id="tag-filter">
+              <option value="All">All Tags</option>
+            </select>
+            <button id="sort-button" data-order="desc">Sort by Date: Descending</button>
+          </div>
+          <section id="blog-posts" aria-live="polite">
+          </section>
+          <div class="pagination" id="pagination">
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        Copyright &copy; 2025 Frog103. All Rights Reserved.
+        <p>For usage or licensing, please contact me.</p>
+      </footer>
+    </div>
+    <script>
+  const postsPerPage = 9;
+  let posts = [];
+  let currentPage = 1;
+  let currentOrder = 'desc';
+  let currentFilter = 'All';
+
+  // Fetch using the modified JSON structure.
+  fetch('characterDesignGallery.json')
+    .then(response => response.json())
+    .then(data => {
+      posts = data.characters;
+      populateTags();
+      updatePosts();
+    })
+    .catch(error => console.error('Error fetching characters:', error));
+
+  function populateTags() {
+    const tagFilter = document.getElementById('tag-filter');
+    const uniqueTags = new Set(posts.flatMap(character => character.tags));
+    uniqueTags.forEach(tag => {
+      const option = document.createElement('option');
+      option.value = tag;
+      option.textContent = tag;
+      tagFilter.appendChild(option);
+    });
+  }
+
+  function updatePosts() {
+    const filteredPosts = filterPosts(currentFilter);
+    sortPosts(currentOrder);
+    const paginatedPosts = paginatePosts(filteredPosts, currentPage);
+    renderPosts(paginatedPosts);
+    setupPagination(filteredPosts.length);
+  }
+
+  function filterPosts(tag) {
+    if (tag === 'All') return posts;
+    return posts.filter(character => character.tags.includes(tag));
+  }
+
+  // Sort by name instead of date.
+  function sortPosts(order) {
+    posts.sort((a, b) => {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      return order === 'desc'
+        ? nameB.localeCompare(nameA)
+        : nameA.localeCompare(nameB);
+    });
+  }
+
+  function paginatePosts(filteredPosts, page) {
+    const startIndex = (page - 1) * postsPerPage;
+    return filteredPosts.slice(startIndex, startIndex + postsPerPage);
+  }
+
+  function renderPosts(paginatedPosts) {
+    const blogPosts = document.getElementById('blog-posts');
+    blogPosts.innerHTML = '';
+
+    paginatedPosts.forEach(character => {
+      const postElement = document.createElement('div');
+      postElement.classList.add('post-summary');
+
+      const img = document.createElement('img');
+      img.src = character.postImage || 'images/default-placeholder.jpg';
+      img.alt = character.name;
+
+      const info = document.createElement('div');
+      info.classList.add('post-info');
+
+      const title = document.createElement('a');
+      title.href = `CDCpost.html?id=${character.characterId}`;
+      title.textContent = character.name;
+      title.classList.add('post-title');
+
+      const excerpt = document.createElement('p');
+      excerpt.textContent = character.excerpt || 'No excerpt available.';
+      excerpt.classList.add('post-excerpt');
+
+      info.appendChild(title);
+      info.appendChild(excerpt);
+
+      // display the most recent upload date.
+      const latestDate = getLatestUpload(character);
+      if (latestDate) {
+        const latestElem = document.createElement('p');
+        latestElem.textContent = `Last Update: ${latestDate}`;
+        latestElem.classList.add('post-date');
+        info.appendChild(latestElem);
+      }
+
+      // Render tags.
+      if (character.tags && character.tags.length) {
+        const tagsContainer = document.createElement('div');
+        tagsContainer.classList.add('post-tags');
+        character.tags.forEach(tag => {
+          const tagElement = document.createElement('span');
+          tagElement.textContent = tag;
+          tagElement.classList.add('tag');
+          tagsContainer.appendChild(tagElement);
+        });
+        info.appendChild(tagsContainer);
+      }
+
+      postElement.appendChild(img);
+      postElement.appendChild(info);
+      blogPosts.appendChild(postElement);
+    });
+  }
+
+  function setupPagination(totalPosts) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const button = document.createElement('button');
+      button.textContent = i;
+      button.disabled = i === currentPage;
+      button.addEventListener('click', () => {
+        currentPage = i;
+        updatePosts();
+      });
+      pagination.appendChild(button);
+    }
+  }
+
+  document.getElementById('sort-button').addEventListener('click', () => {
+    currentOrder = currentOrder === 'desc' ? 'asc' : 'desc';
+    updatePosts();
+    document.getElementById('sort-button').textContent = `Sort by Name: ${currentOrder === 'desc' ? 'Descending' : 'Ascending'}`;
+  });
+
+  document.getElementById('tag-filter').addEventListener('change', (event) => {
+    currentFilter = event.target.value;
+    currentPage = 1;
+    updatePosts();
+  });
+
+  function getLatestUpload(character) {
+    let dates = [];
+    if (character.pageDetails) {
+      if (character.pageDetails.images)
+        dates.push(...character.pageDetails.images.map(img => new Date(img.timeOfUpload)));
+      if (character.pageDetails.history)
+        dates.push(...character.pageDetails.history.map(hist => new Date(hist.timeOfUpload)));
+      if (character.pageDetails.trivia)
+        dates.push(...character.pageDetails.trivia.map(triv => new Date(triv.timeOfUpload)));
+    }
+    if (dates.length === 0) return '';
+    const latest = new Date(Math.max(...dates));
+    return latest.toLocaleDateString();
+  }
+</script>
+    <script src="scripts.js"></script>
+    <script src="particles.js"></script>
+    <noscript>Please enable JavaScript to view blog posts.</noscript>
+</body>
+</html>
