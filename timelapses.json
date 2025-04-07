@@ -29,6 +29,24 @@
             "media_url": "images/timelapses/larunia.mp4",
             "thumbnail_url": "images/thumbnails/larunia.jpg",
             "caption": ""
+        },
+        {
+            "id": "6",
+            "media_url": "images/timelapses/naledi.mp4",
+            "thumbnail_url": "images/thumbnails/naledi.jpg",
+            "caption": ""
+        },
+        {
+            "id": "7",
+            "media_url": "images/timelapses/juno.mp4",
+            "thumbnail_url": "images/thumbnails/juno.jpg",
+            "caption": ""
+        },
+        {
+            "id": "8",
+            "media_url": "images/timelapses/tetna.mp4",
+            "thumbnail_url": "images/thumbnails/tetna.jpg",
+            "caption": ""
         }
     ]
 }
