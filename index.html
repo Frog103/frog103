@@ -10,24 +10,56 @@
     <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
     <style>
         .homepage-container {
-            background-color: rgba(240, 248, 255, 0.285);
-            border: solid 1px white;
-            border-radius: 10px;
-            margin: auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
             display: grid;
             grid-template-areas: 
                 "instagram slideshow"
-                "blog slideshow";
-            grid-template-columns: 1fr 1.5fr; 
-            grid-template-rows: minmax(400px, 2fr) minmax(0, 1fr); 
+                "blog birthday";
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             padding: 20px;
             max-width: 1200px;
-            max-height: 120vh; 
-            height: 95vh; 
+            margin: auto;
         }
+
+        .instagram-feed, .slideshow-container, .boxed-by-ninja, .birthday-container {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .instagram-feed, .slideshow-container, .recent-posts {
+            position: relative;
+        }
+
+        .instagram-feed {
+            grid-area: instagram;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        .slideshow-container {
+            grid-area: slideshow;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        .boxed-by-ninja {
+            grid-area: blog;
+        }
+
+        .birthday-container {
+            grid-area: birthday;
+            text-align: center;
+        }
+
         .boxed-by-po {
             max-width: 850px;
             background-image: url(images/textureOne.jpeg);
@@ -40,14 +72,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-        .boxed-by-ninja {
-            margin-top: 30px; 
-            background-image: url(images/textureOne.jpeg);
-            background-size: contain;
-            border: solid 1px white;
-            border-radius: 10px;
-            padding: 10px;
-        }
         .postbox {
             text-align: center;
             background-color: rgba(102, 126, 104, 0.873);
@@ -57,22 +81,16 @@
             border-top-left-radius: 10px;
             border-bottom: solid 1px rgba(255, 255, 255, 0.3);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            border-radius: 10px 10px 0 0;
         }
         .random-reel {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             flex: 1;
-        }
-        .slideshow-container {
-            grid-area: slideshow;
-            background: rgba(255, 255, 255, 0.601);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: solid 1px white;
-            max-height: 80vh; 
         }
 
         .splash-container {
@@ -90,11 +108,15 @@
             background-color: rgba(102, 126, 104, 0.873);
             color: white;
             padding: 12px;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
+            border-radius: 10px;
             border-bottom: solid 1px rgb(255, 255, 255);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            margin: -15px -15px 15px -15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            border-radius: 10px 10px 0 0;
         }
 
         .slideshow-header h3 {
@@ -103,6 +125,7 @@
         }
 
         .slideshow-container img {
+            margin-top: 10px;
             border-radius: 5px;
             border: solid 1px rgba(255, 255, 255, 0.3);
             max-width: 100%;
@@ -126,30 +149,21 @@
             transform: translateX(-50%);
             z-index: 1;
         }
-        .instagram-feed {
-            grid-area: instagram;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            height: 500px; 
-            border: solid 1px white;
-            aspect-ratio: 9/16; 
-            min-width: 280px; 
-        }
 
         .instagram-account-card {
             background-color: rgba(102, 126, 104, 0.873);
             color: white;
             text-align: center;
             padding: 10px;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            border-bottom: solid 1px rgb(255, 255, 255);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            margin: -15px -15px 15px -15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            border-radius: 10px 10px 0 0;
             flex-shrink: 0; 
         }
 
@@ -179,7 +193,6 @@
 
         .recent-posts {
             margin: 0px;
-            grid-area: blog;
             background: rgba(255, 255, 255, 0.8);
             padding: 5px;
             border: solid 1px white;
@@ -190,6 +203,7 @@
             min-height: 160px; 
             max-height: 100%; 
             overflow: hidden;
+            padding-top: 55px;
         }
 
         .recent-posts ul {
@@ -246,31 +260,10 @@
                 grid-template-areas: 
                     "slideshow"
                     "instagram"
-                    "blog";
+                    "blog"
+                    "birthday";
                 grid-template-columns: 1fr;
-                grid-template-rows: auto;
-                height: auto;
-                max-height: none;
                 gap: 15px;
-            }
-
-            .instagram-feed {
-                aspect-ratio: 16/9;
-                height: auto;
-                min-height: 300px;
-            }
-
-            .slideshow-container {
-                max-height: 50vh;
-            }
-
-            .boxed-by-ninja {
-                margin-top: 0;
-            }
-
-            .recent-posts ul li {
-                padding: 8px;
-                font-size: 0.8em;
             }
         }
 
@@ -279,20 +272,49 @@
                 padding: 10px;
             }
 
-            .instagram-feed {
-                min-height: 250px;
-            }
-
-            .slideshow-container img {
-                min-height: 372px;
+            .instagram-feed, .slideshow-container, .boxed-by-ninja, .birthday-container {
+                padding: 15px;
             }
         }
+
         @media (max-width: 540px) {
             .instagram-feed {
                 max-width: 320px;
                 min-height: 500px;
             }
 
+        }
+        .birthday-banner {
+            margin-bottom: 10px;
+        }
+        .birthday-banner img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .birthday-container p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+        .birthday-container h3 {
+            font-size: 1.0em;
+            color: #ffffff;
+            margin: 5px 0;
+        }
+        .birthday-link-box a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .birthday-link-box a:hover {
+            background-color: #388E3C;
         }
     </style>
 </head>
@@ -338,7 +360,7 @@
                         </div>
                     </div>
                     <div id="slideshow-error" style="display: none;">
-                        Unable to load slideshow images. Please try refreshing the page.
+                        Unable to load. Please try refreshing the page.
                     </div>
                 </div>
                 <div class="boxed-by-ninja">
@@ -362,5 +384,69 @@
     <script src="scripts.js"></script>
     <script src="timelapse.js"></script>
     <script src="particles.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('characterDesignGallery.json')
+          .then(response => response.json())
+          .then(data => {
+              const today = new Date();
+              const todayMonth = (today.getMonth() + 1).toString().padStart(2, '0');
+              const todayDay = today.getDate().toString().padStart(2, '0');
+              data.characters.forEach(character => {
+                  const dob = character.pageDetails.characterInfo.dateOfBirth;
+                  const parts = dob.split('-');
+                  if (parts.length >= 3) {
+                      const month = parts[1];
+                      const day = parts[2];
+                      if (month === todayMonth && day === todayDay) {
+                          // Create main birthday container
+                          const container = document.createElement('div');
+                          container.className = 'birthday-container';
+                          
+                          // Banner box to cycle through characterBanners
+                          const banner = document.createElement('div');
+                          banner.className = 'birthday-banner';
+                          const img = document.createElement('img');
+                          img.src = character.pageDetails.characterBanners[0].image;
+                          img.alt = character.name + ' Birthday Banner';
+                          banner.appendChild(img);
+                          container.appendChild(banner);
+                          
+                          // Happy Birthday text
+                          const text = document.createElement('p');
+                          text.textContent = 'It\'s ' + character.name + '\'s Birthday!';
+                          container.appendChild(text);
+                          
+                          // New: Display the character's birthdate
+                          const birthdate = document.createElement('h3');
+                          birthdate.textContent = 'Born on: ' + dob;
+                          container.appendChild(birthdate);
+                          
+                          // Direct link box to character page
+                          const linkBox = document.createElement('div');
+                          linkBox.className = 'birthday-link-box';
+                          const link = document.createElement('a');
+                          link.href = 'CDCpost.html?id=' + character.characterId;
+                          link.textContent = 'Visit ' + character.name + '\'s Profile';
+                          linkBox.appendChild(link);
+                          container.appendChild(linkBox);
+                          
+                          // Append the birthday container inside the homepage-container element
+                          const homepageContainer = document.querySelector('.homepage-container');
+                          homepageContainer.appendChild(container);
+                          
+                          // Cycle banner images every 5 seconds
+                          let bannerIndex = 0;
+                          setInterval(() => {
+                              bannerIndex = (bannerIndex + 1) % character.pageDetails.characterBanners.length;
+                              img.src = character.pageDetails.characterBanners[bannerIndex].image;
+                          }, 5000);
+                      }
+                  }
+              });
+          })
+          .catch(err => console.error('Error fetching birthday data:', err));
+    });
+    </script>
 </body>
 </html>
