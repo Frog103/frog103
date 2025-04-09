@@ -144,7 +144,7 @@
         max-width: 100%;
         max-height: none !important;
     }
-    /* New CSS rule for all button elements */
+
     button {
         background-color: #4CAF50;
         color: white;
@@ -155,6 +155,51 @@
         font-size: 1rem;
         transition: background 0.3s, transform 0.3s;
         margin: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .post-container {
+            grid-template-columns: 1fr;
+        }
+        .tag-container {
+            grid-template-columns: 1fr;
+        }
+        .character-images img {
+            max-height: 400px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header-nav-container nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+        .banner-tags {
+            font-size: 0.8em;
+            padding: 5px 10px;
+        }
+        button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        .introduction-box .description {
+            font-size: 0.9rem;
+            padding: 10px;
+        }
+    }
+    @media (max-width: 768px) {
+        .dropdown-menu {
+            position: relative;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: none;
+            margin: 5px 0;
+        }
+        .dropdown-menu div {
+            padding: 15px;
+            font-size: 1.1rem;
+        }
     }
 </style>
 </head>
@@ -210,37 +255,38 @@
                 <div class="description">
                     hello
                     <!--Load Character Info here-->
+                    <!--Load Credit information here-->
                 </div>
             </div>
 
             <div class="introduction-box">
-                <h2>Character Introduction</h2>
+                <h2>Character Info</h2>
                 <div class="description">
                     hello
                     <!--Load Character Introduction txt file here-->
+                    <!--When dropdown images are loaded here, include the description and time of upload properties-->
+                    <p>Description:</p>
+                    <p>Time of Upload:</p>
                 </div>
-                <!-- Added reset button for introduction content -->
+                <!-- reset button for introduction content -->
                 <button id="resetIntro">Reset</button>
-                <!-- New button to return to designGallery.html -->
-                <button id="returnButton">Return to Gallery</button>
+                <!-- button to return to designGallery.html -->
+                <button id="returnButton">Return to Main Gallery Menu</button>
             </div>
 
             <div class="information-nav-box">
-                <h2>Character Information</h2>
+                <h2>Additional Information</h2>
                 <div class="history-box">
                     <h3>Character History</h3>
                     <!--Load and display History txt files here as dropdown menu-->
-                    <!--When clicked on, the text should replace the area where the introduction txt file is loaded-->
                 </div>
                 <div class="trivia-box">
                     <h3>Character Trivia</h3>
                     <!--Load and display Character Trivia txt files here as dropdown menu-->
-                    <!--When clicked on, the text should replace the area where the introduction txt file is loaded-->
                 </div>
                 <div class="image-box">
                     <h3>Character Images</h3>
                     <!--Load and display Character Images here as dropdown menu-->
-                    <!--When clicked on, the images should replace the area where the introduction txt file is loaded-->
                 </div>
             </div>
         </div>
@@ -259,6 +305,18 @@
       const params = new URLSearchParams(window.location.search);
       const charId = Number(params.get('id'));
       if (!charId) return;
+
+      // Helper: process loaded text. Replaces [ID] with the image from the JSON images list and appends time if provided.
+      function processTextContent(text, time, imagesList) {
+        let processed = text.replace(/\[([^\]]+)\]/g, (match, id) => {
+          const found = imagesList.find(img => img.imageId == id);
+          return found ? `<img src="${found.image}" alt="${found.description || id} image" loading="lazy" style="width:100px; height:auto;">` : match;
+        });
+        if(time) {
+          processed += `<br><strong>Time of Upload:</strong> ${time}`;
+        }
+        return processed;
+      }
   
       fetch('characterDesignGallery.json')
         .then(res => res.json())
@@ -297,23 +355,35 @@
               <strong>DOB:</strong> ${character.pageDetails.characterInfo.dateOfBirth}
             `;
           }
+
+          // Add display for credits property
+          if (character.credits) {
+            let creditsDiv = document.createElement('div');
+            creditsDiv.className = 'credits';
+            creditsDiv.innerHTML = '<strong>Artists:</strong> ' + character.credits.artists.join(', ') +
+                                   '<br><strong>Extra:</strong> ' + character.credits.extra.join(', ');
+            infoBox.appendChild(creditsDiv);
+          }
   
           // Store default introduction text so it can be reset later
           let defaultIntroduction = "";
   
-          // Load Character Introduction text file
+          // Retrieve images list from the JSON for later use
+          let imagesList = (character.pageDetails && character.pageDetails.images) || [];
+  
+          // Load Character Introduction text file with processing
           fetch(character.introTextFile)
             .then(r => r.text())
             .then(text => {
-              defaultIntroduction = text;
-              document.querySelector('.introduction-box .description').textContent = text;
+              defaultIntroduction = processTextContent(text, undefined, imagesList);
+              document.querySelector('.introduction-box .description').innerHTML = defaultIntroduction;
               // Initially hide reset button
               document.getElementById('resetIntro').style.display = 'none';
             });
   
           // Add event listener to reset introduction when reset button is clicked
           document.getElementById('resetIntro').addEventListener('click', () => {
-              document.querySelector('.introduction-box .description').textContent = defaultIntroduction;
+              document.querySelector('.introduction-box .description').innerHTML = defaultIntroduction;
               document.getElementById('resetIntro').style.display = 'none';
           });
   
@@ -359,7 +429,7 @@
                 fetch(item.textFile)
                   .then(r => r.text())
                   .then(text => {
-                    document.querySelector('.introduction-box .description').textContent = text;
+                    document.querySelector('.introduction-box .description').innerHTML = processTextContent(text, item.timeOfUpload, imagesList);
                     document.getElementById('resetIntro').style.display = 'block';
                   });
               });
@@ -375,7 +445,7 @@
                 fetch(item.textFile)
                   .then(r => r.text())
                   .then(text => {
-                    document.querySelector('.introduction-box .description').textContent = text;
+                    document.querySelector('.introduction-box .description').innerHTML = processTextContent(text, item.timeOfUpload, imagesList);
                     document.getElementById('resetIntro').style.display = 'block';
                   });
               });
@@ -391,7 +461,12 @@
                 showDropdown(imageBox, character.pageDetails.images, 
                   item => item.description ? item.description : `Image ${item.imageId}`, 
                   (item) => {
-                    document.querySelector('.introduction-box .description').innerHTML = `<img src="${item.image}" alt="${character.name} image" style="width:100%; max-height:400px; margin:10px 0; border-radius:10px;">`;
+                    document.querySelector('.introduction-box .description').innerHTML = `
+                        <img src="${item.image}" alt="${character.name} image" loading="lazy" style="width:100%; max-height:400px; margin:10px 0; border-radius:10px;">
+                        <p><strong>Description:</strong> ${item.description || 'N/A'}</p>
+                        <p><strong>Artist:</strong> ${item.artist || 'Unknown'}</p>
+                        <p><strong>Time of Upload:</strong> ${item.timeOfUpload || 'N/A'}</p>
+                    `;
                     document.getElementById('resetIntro').style.display = 'block';
                   });
               }
