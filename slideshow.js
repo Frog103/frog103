@@ -15,7 +15,7 @@ async function initializeSlideshow() {
                 return item.showcase === true || item.showcase === 'true';
             })
             .map(item => item.image);
-        
+
         if (!galleryImages || galleryImages.length === 0) {
             throw new Error('No showcase images available');
         }
@@ -94,6 +94,13 @@ function createSlide(imageSrc, index) {
         // Apply calculated dimensions
         img.style.width = `${width}px`;
         img.style.height = `${height}px`;
+
+        // Ensure compatibility for smaller screens
+        if (window.innerWidth <= 600) {
+            img.style.width = '100%';
+            img.style.height = 'auto';
+        }
+
         slideDiv.style.opacity = '1';
     };
     
