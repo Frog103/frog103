@@ -32,25 +32,28 @@
             "gender": "Female",
             "height": "6'3\"",
             "weight": "173 lbs",
-            "dateOfBirth": "X12-04-06"
+            "dateOfBirth": "X97-04-06"
           },
           "images": [
             {
               "imageId": 1,
-              "image": "images/galleryImages/characterDesigns/corraine.png",
-              "description": "Corraine's main design for Volume 1.",
-              "timeOfUpload": "2025-04-06"
+              "image": "images/galleryImages/characterDesigns/cModelSheet1.jpg",
+              "description": "Corraine's inital design iterations alongside Aimee.",
+              "artist": "stickybell09",
+              "timeOfUpload": "2025-04-07"
             },
             {
               "imageId": 2,
-              "image": "images/galleryImages/characterDesigns/corraine2.png",
-              "description": "Corraine's main design for Volume 2.",
-              "timeOfUpload": "2025-04-06"
+              "image": "images/galleryImages/characterDesigns/cModelSheet2.jpg",
+              "description": "Corraine's current model sheet design.",
+              "artist": "stickybell09",
+              "timeOfUpload": "2025-04-07"
             },
             {
               "imageId": 3,
               "image": "images/galleryImages/characterDesigns/corraine3.png",
-              "description": "Corraine's main design for Volume 3.",
+              "description": "Corraine's Expression Sheet.",
+              "artist": "stickybell09",
               "timeOfUpload": "2025-04-06"
             }
           ],
@@ -106,25 +109,28 @@
             "gender": "Female",
             "height": "5'0\"",
             "weight": "113 lbs",
-            "dateOfBirth": "X12-01-07"
+            "dateOfBirth": "X97-01-07"
           },
           "images": [
             {
               "imageId": 1,
               "image": "images/galleryImages/characterDesigns/aimee.png",
               "description": "Aimee's first design for the Isolation Arc.",
+              "artist": "stickybell09",
               "timeOfUpload": "2025-04-06"
             },
             {
               "imageId": 2,
               "image": "images/galleryImages/characterDesigns/aimee2.png",
               "description": "Aimee's second design for the Purpose Arc.",
+              "artist": "stickybell09",
               "timeOfUpload": "2025-04-06"
             },
             {
               "imageId": 3,
               "image": "images/galleryImages/characterDesigns/aimee3.png",
               "description": "Aimee's third design for the Renewal Arc.",
+              "artist": "stickybell09",
               "timeOfUpload": "2025-04-06"
             }
           ],
@@ -151,27 +157,19 @@
       {
         "characterId": 3,
         "name": "Naledi",
-        "excerpt": "test text",
+        "excerpt": "Underdog Athlete",
         "tags": ["Gravitas"],
         "credits": {
           "artists": ["stickybell09"],
           "extra": ["Pop Smoke", "NBA Youngboy"]
         },
         "postImage": "images/galleryImages/characterDesigns/aimee.png",
-        "introTextFile": "txtFiles/aimeeIntro.txt",
+        "introTextFile": "txtFiles/nalediIntro.txt",
         "pageDetails": {
           "characterBanners": [
             {
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "tag": "Volume 1"
-            },
-            {
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "tag": "Volume 2"
-            },
-            {
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "tag": "Volume 3"
+              "image": "images/galleryImages/characterDesigns/naledi.jpg",
+              "tag": "1"
             }
           ],
           "characterInfo": {
@@ -179,43 +177,46 @@
             "age": "20",
             "gender": "Female",
             "height": "5'7\"",
-            "weight": "137 lbs",
-            "dateOfBirth": "X21-05-12"
+            "weight": "147 lbs (Debut)",
+            "dateOfBirth": "X19-04-02"
           },
           "images": [
             {
               "imageId": 1,
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "description": "Aimee's first design for the Isolation Arc.",
-              "timeOfUpload": "2025-04-06"
+              "image": "images/galleryImages/characterDesigns/nModelSheet1.jpg",
+              "description": "The first draft of Naledi's model sheet.",
+              "artist": "stickybell09",
+              "timeOfUpload": "2025-04-07"
             },
             {
               "imageId": 2,
-              "image": "images/galleryImages/characterDesigns/aimee2.png",
-              "description": "Aimee's second design for the Purpose Arc.",
-              "timeOfUpload": "2025-04-06"
+              "image": "images/galleryImages/characterDesigns/nModelSheet2.jpg",
+              "description": "A Revision of Naledi's original model sheet.",
+              "artist": "stickybell09",
+              "timeOfUpload": "2025-04-07"
             },
             {
               "imageId": 3,
-              "image": "images/galleryImages/characterDesigns/aimee3.png",
-              "description": "Aimee's third design for the Renewal Arc.",
-              "timeOfUpload": "2025-04-06"
+              "image": "images/galleryImages/characterDesigns/nModelSheet3.jpg",
+              "description": "Naledi's Final Design.",
+              "artist": "stickybell09",
+              "timeOfUpload": "2025-04-07"
             }
           ],
           "history": [
             {
               "historyId": 1,
-              "title": "Title#1",
-              "textFile": "txtFiles/aimeeHistory.txt",
+              "title": "Design Origins",
+              "textFile": "txtFiles/nalediHistory.txt",
               "timeOfUpload": "2025-04-06",
-              "relatedImageIds": [1]
+              "relatedImageIds": [1,2,3]
             }
           ],
           "trivia": [
             {
               "triviaId": 1,
               "title": "Trivia#1",
-              "textFile": "txtFiles/aimeeTrivia.txt",
+              "textFile": "txtFiles/nalediTrivia.txt",
               "timeOfUpload": "2025-04-06",
               "relatedImageIds": [1]
             }
