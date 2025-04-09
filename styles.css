@@ -1,4 +1,6 @@
-/* Global Styles & Variables */
+/*=========================================================================
+  Global Variables & Reset
+==========================================================================*/
 :root {
     --primary-color: rgb(31, 81, 132);
     --secondary-color: rgb(102, 126, 104);
@@ -15,7 +17,14 @@
     padding: 0;
 }
 
-/*Global CSS*/
+/*=========================================================================
+  Base & Global Styles
+==========================================================================*/
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    height: 100%;
+}
 body {
     height: 100%;
     margin: 0;
@@ -28,11 +37,11 @@ body {
     line-height: 1.6;
     opacity: 0;
     animation: fadeIn 0.7s ease-in-out forwards;
-    
 }
 
-
-/* Header & Navigation */
+/*=========================================================================
+  Header & Navigation
+==========================================================================*/
 .header-nav-container {
     background-image: linear-gradient(var(--primary-color), rgba(32, 50, 32, 0));
     align-items: center;
@@ -103,7 +112,9 @@ nav ul li a:hover {
     transform: scale(1.5);
 }
 
-/* Gallery & Content Sections */
+/*=========================================================================
+  Gallery & Content Sections
+==========================================================================*/
 .gallery-topics {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -192,7 +203,9 @@ nav ul li a:hover {
     color: rgb(4, 103, 4);
 }
 
-/* Animations & Effects */
+/*=========================================================================
+  Animations & Page Layout
+==========================================================================*/
 .fade {
     animation: fadeIn 1.0s ease-in-out;
 }
@@ -243,7 +256,9 @@ footer {
     border-top: 1px solid var(--text-light);
 }
 
-/* Responsive & Media Queries */
+/*=========================================================================
+  Responsive & Media Queries
+==========================================================================*/
 @media (max-width: 1008px) {
     nav ul {
         display: flex;
@@ -355,7 +370,82 @@ footer {
     }
 }
 
-/* Touch Device & Reduced Motion Optimization */
+/*=========================================================================
+  Miscellaneous / Utility Classes & Accessibility
+==========================================================================*/
+.fade-transition {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-transition.visible {
+    opacity: 1;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+main {
+    transition: padding 0.3s ease;
+    padding: 20px 0;
+    margin-top: 0;
+}
+
+/* Birthday function styles */
+.birthday-container {
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background-color: rgba(240, 255, 240, 0.8);
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.birthday-banner {
+    margin-bottom: 10px;
+}
+
+.birthday-banner img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.birthday-container p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 10px 0;
+}
+
+.birthday-link-box a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.birthday-link-box a:hover {
+    background-color: #388E3C;
+}
+
+/*=========================================================================
+  Additional Effects & Optimizations
+==========================================================================*/
 @media (hover: none) {
     nav ul li a:hover {
         transform: none;
@@ -366,32 +456,6 @@ footer {
     }
 }
 
-.fade-transition {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.fade-transition.visible {
-    opacity: 1;
-}
-
-html, body {
-    overflow-x: hidden;
-    position: relative;
-    height: 100%;
-}
-
-.gallery-topic, .gallery-picture {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(5px);
-}
-
-:focus {
-    outline: 3px solid #4CAF50;
-    outline-offset: 2px;
-}
-
-/* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     body {
         background-image: url(images/darkmode.jp);
@@ -422,23 +486,5 @@ img {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
     }
-}
-
-/* Accessibility & Utility Classes */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-main {
-    transition: padding 0.3s ease;
-    padding: 20px 0;
-    margin-top: 0;
 }
 
