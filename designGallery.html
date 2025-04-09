@@ -200,6 +200,19 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
+
+    /* Additional responsive styles */
+    @media (max-width: 1024px) {
+      #blog-posts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 600px) {
+      #blog-posts {
+        grid-template-columns: 1fr;
+      }
+    }
 </style>
 </head>
 <body class="fade-out">
