@@ -73,6 +73,9 @@
         line-height: 1.6;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+    .description p {
+        margin-bottom: 10px;
+    }
     .introduction-box {
         background-color: rgba(255, 255, 255, 0.8);
         padding: 20px;
@@ -302,183 +305,197 @@
     <script>
     // Parse query parameters, fetch JSON, and wire up dynamic content
     document.addEventListener('DOMContentLoaded', function(){
-      const params = new URLSearchParams(window.location.search);
-      const charId = Number(params.get('id'));
-      if (!charId) return;
+        // Cache DOM elements for performance
+        const resetButton = document.getElementById('resetIntro');
+        const returnButton = document.getElementById('returnButton');
+        const characterNameElem = document.querySelector('.character-info-box h1');
+        const bannerContainer = document.querySelector('.tag-container');
+        const characterImageElem = document.querySelector('.character-images img');
+        const infoBox = document.querySelector('.character-info-box .description');
+        const introDesc = document.querySelector('.introduction-box .description');
 
-      // Helper: process loaded text. Replaces [ID] with the image from the JSON images list and appends time if provided.
-      function processTextContent(text, time, imagesList) {
-        let processed = text.replace(/\[([^\]]+)\]/g, (match, id) => {
-          const found = imagesList.find(img => img.imageId == id);
-          return found ? `<img src="${found.image}" alt="${found.description || id} image" loading="lazy" style="width:100px; height:auto;">` : match;
-        });
-        if(time) {
-          processed += `<br><strong>Time of Upload:</strong> ${time}`;
+        const params = new URLSearchParams(window.location.search);
+        const charId = Number(params.get('id'));
+        if (!charId) return;
+
+        // New helper function to replace [P] with a page break element
+        function insertPageBreaks(text) {
+            return text.replace(/\[P\]/g, '<div style="page-break-after: always;"></div>');
         }
-        return processed;
-      }
-  
-      fetch('characterDesignGallery.json')
-        .then(res => res.json())
-        .then(data => {
-          const character = data.characters.find(c => c.characterId === charId);
-          if (!character) return;
-  
-          // Update the character name
-          document.querySelector('.character-info-box h1').textContent = character.name;
-  
-          // Clear and populate banner tags with click events to update banner image
-          const bannerContainer = document.querySelector('.tag-container');
-          bannerContainer.innerHTML = "";
-          if (character.pageDetails && character.pageDetails.characterBanners) {
-              character.pageDetails.characterBanners.forEach(banner => {
-                  const tagDiv = document.createElement('div');
-                  tagDiv.className = 'banner-tags';
-                  tagDiv.innerHTML = `<p>${banner.tag}</p>`;
-                  tagDiv.addEventListener('click', () => {
-                      document.querySelector('.character-images img').src = banner.image;
-                  });
-                  bannerContainer.appendChild(tagDiv);
-              });
-              // Set initial banner image
-              document.querySelector('.character-images img').src = character.pageDetails.characterBanners[0].image;
-          }
-  
-          // Update Character Info section with properties from characterInfo
-          const infoBox = document.querySelector('.character-info-box .description');
-          if (character.pageDetails && character.pageDetails.characterInfo) {
-            infoBox.innerHTML = `
-              <strong>Age:</strong> ${character.pageDetails.characterInfo.age}<br>
-              <strong>Gender:</strong> ${character.pageDetails.characterInfo.gender}<br>
-              <strong>Height:</strong> ${character.pageDetails.characterInfo.height}<br>
-              <strong>Weight:</strong> ${character.pageDetails.characterInfo.weight}<br>
-              <strong>DOB:</strong> ${character.pageDetails.characterInfo.dateOfBirth}
-            `;
-          }
 
-          // Add display for credits property
-          if (character.credits) {
-            let creditsDiv = document.createElement('div');
-            creditsDiv.className = 'credits';
-            creditsDiv.innerHTML = '<strong>Artists:</strong> ' + character.credits.artists.join(', ') +
-                                   '<br><strong>Extra:</strong> ' + character.credits.extra.join(', ');
-            infoBox.appendChild(creditsDiv);
-          }
-  
-          // Store default introduction text so it can be reset later
-          let defaultIntroduction = "";
-  
-          // Retrieve images list from the JSON for later use
-          let imagesList = (character.pageDetails && character.pageDetails.images) || [];
-  
-          // Load Character Introduction text file with processing
-          fetch(character.introTextFile)
-            .then(r => r.text())
-            .then(text => {
-              defaultIntroduction = processTextContent(text, undefined, imagesList);
-              document.querySelector('.introduction-box .description').innerHTML = defaultIntroduction;
-              // Initially hide reset button
-              document.getElementById('resetIntro').style.display = 'none';
+        // Helper: process loaded text. Replaces [ID] with the image from the JSON images list and appends time if provided.
+        function processTextContent(text, time, imagesList) {
+            let processed = text.replace(/\[([^\]]+)\]/g, (match, id) => {
+                if (id === "P") return match; // skip to handle page break later
+                const found = imagesList.find(img => img.imageId == id);
+                return found ? `<img src="${found.image}" alt="${found.description || id} image" loading="lazy" style="width:100px; height:auto;">` : match;
             });
-  
-          // Add event listener to reset introduction when reset button is clicked
-          document.getElementById('resetIntro').addEventListener('click', () => {
-              document.querySelector('.introduction-box .description').innerHTML = defaultIntroduction;
-              document.getElementById('resetIntro').style.display = 'none';
-          });
-  
-          // Helper: create and show dropdown menu using CSS styling from .dropdown-menu
-          function showDropdown(container, items, renderOption, callback) {
-            // If this container already has an active dropdown, remove it and toggle off.
-            if (container.dropdownVisible) {
-                const existingDropdown = container.querySelector('.dropdown-menu');
-                if (existingDropdown) {
-                    existingDropdown.remove();
+            processed = insertPageBreaks(processed); // Replace any [P] tokens with page breaks
+            if(time) {
+                processed += `<br><strong>Time of Upload:</strong> ${time}`;
+            }
+            return processed;
+        }
+    
+        fetch('characterDesignGallery.json')
+            .then(res => res.json())
+            .then(data => {
+                const character = data.characters.find(c => c.characterId === charId);
+                if (!character) return;
+    
+                // Update the character name
+                characterNameElem.textContent = character.name;
+    
+                // Clear and populate banner tags with click events to update banner image
+                bannerContainer.innerHTML = "";
+                if (character.pageDetails && character.pageDetails.characterBanners) {
+                    character.pageDetails.characterBanners.forEach(banner => {
+                        const tagDiv = document.createElement('div');
+                        tagDiv.className = 'banner-tags';
+                        tagDiv.innerHTML = `<p>${banner.tag}</p>`;
+                        tagDiv.addEventListener('click', () => {
+                            characterImageElem.src = banner.image;
+                        });
+                        bannerContainer.appendChild(tagDiv);
+                    });
+                    // Set initial banner image
+                    characterImageElem.src = character.pageDetails.characterBanners[0].image;
                 }
-                container.dropdownVisible = false;
-                return;
-            }
-            // Disable any other active dropdown menus.
-            document.querySelectorAll('.dropdown-menu').forEach(menu => menu.remove());
-            const dropdown = document.createElement('div');
-            dropdown.className = 'dropdown-menu';
-            items.forEach(item => {
-              const option = document.createElement('div');
-              option.classList.add('dropdown-option');
-              option.textContent = renderOption(item);
-              option.addEventListener('click', function(e){
-                e.stopPropagation();
-                dropdown.remove();
-                container.dropdownVisible = false;
-                callback(item);
-                // Show the reset button since the introduction content has been updated
-                document.getElementById('resetIntro').style.display = 'block';
-              });
-              dropdown.appendChild(option);
-            });
-            container.appendChild(dropdown);
-            container.dropdownVisible = true;
-          }
-  
-          // History dropdown: show available history files as dropdown
-          const historyBox = document.querySelector('.history-box');
-          historyBox.style.cursor = "pointer";
-          historyBox.addEventListener('click', () => {
-            if (character.pageDetails.history && character.pageDetails.history.length) {
-              showDropdown(historyBox, character.pageDetails.history, item => item.title, (item) => {
-                fetch(item.textFile)
-                  .then(r => r.text())
-                  .then(text => {
-                    document.querySelector('.introduction-box .description').innerHTML = processTextContent(text, item.timeOfUpload, imagesList);
-                    document.getElementById('resetIntro').style.display = 'block';
-                  });
-              });
-            }
-          });
-  
-          // Trivia dropdown: show available trivia files as dropdown
-          const triviaBox = document.querySelector('.trivia-box');
-          triviaBox.style.cursor = "pointer";
-          triviaBox.addEventListener('click', () => {
-            if (character.pageDetails.trivia && character.pageDetails.trivia.length) {
-              showDropdown(triviaBox, character.pageDetails.trivia, item => item.title, (item) => {
-                fetch(item.textFile)
-                  .then(r => r.text())
-                  .then(text => {
-                    document.querySelector('.introduction-box .description').innerHTML = processTextContent(text, item.timeOfUpload, imagesList);
-                    document.getElementById('resetIntro').style.display = 'block';
-                  });
-              });
-            }
-          });
-  
-          // Image dropdown: show available images as dropdown
-          const imageBox = document.querySelector('.image-box');
-          if (imageBox) {
-            imageBox.style.cursor = "pointer";
-            imageBox.addEventListener('click', () => {
-              if (character.pageDetails.images && character.pageDetails.images.length) {
-                showDropdown(imageBox, character.pageDetails.images, 
-                  item => item.description ? item.description : `Image ${item.imageId}`, 
-                  (item) => {
-                    document.querySelector('.introduction-box .description').innerHTML = `
-                        <img src="${item.image}" alt="${character.name} image" loading="lazy" style="width:100%; max-height:400px; margin:10px 0; border-radius:10px;">
-                        <p><strong>Description:</strong> ${item.description || 'N/A'}</p>
-                        <p><strong>Artist:</strong> ${item.artist || 'Unknown'}</p>
-                        <p><strong>Time of Upload:</strong> ${item.timeOfUpload || 'N/A'}</p>
+    
+                // Update Character Info section with properties from characterInfo
+                if (character.pageDetails && character.pageDetails.characterInfo) {
+                    infoBox.innerHTML = `
+                    <strong>Age:</strong> ${character.pageDetails.characterInfo.age}<br>
+                    <strong>Gender:</strong> ${character.pageDetails.characterInfo.gender}<br>
+                    <strong>Height:</strong> ${character.pageDetails.characterInfo.height}<br>
+                    <strong>Weight:</strong> ${character.pageDetails.characterInfo.weight}<br>
+                    <strong>DOB:</strong> ${character.pageDetails.characterInfo.dateOfBirth}
                     `;
-                    document.getElementById('resetIntro').style.display = 'block';
-                  });
-              }
-            });
-          }
-        })
-        .catch(err => console.error(err));
-      
-      // New event listener for "Return to Gallery" button
-      document.getElementById('returnButton').addEventListener('click', function(){
-          window.location.href = 'designGallery.html';
-      });
+                }
+
+                // Add display for credits property
+                if (character.credits) {
+                    let creditsDiv = document.createElement('div');
+                    creditsDiv.className = 'credits';
+                    creditsDiv.innerHTML = '<strong>Artists:</strong> ' + character.credits.artists.join(', ') +
+                                        '<br><strong>Extra:</strong> ' + character.credits.extra.join(', ');
+                    infoBox.appendChild(creditsDiv);
+                }
+    
+                // Store default introduction text so it can be reset later
+                let defaultIntroduction = "";
+    
+                // Retrieve images list from the JSON for later use
+                let imagesList = (character.pageDetails && character.pageDetails.images) || [];
+    
+                // Load Character Introduction text file with processing
+                fetch(character.introTextFile)
+                    .then(r => r.text())
+                    .then(text => {
+                        defaultIntroduction = processTextContent(text, undefined, imagesList);
+                        introDesc.innerHTML = defaultIntroduction;
+                        // Initially hide reset button
+                        resetButton.style.display = 'none';
+                    });
+    
+                // Add event listener to reset introduction when reset button is clicked
+                resetButton.addEventListener('click', () => {
+                    introDesc.innerHTML = defaultIntroduction;
+                    resetButton.style.display = 'none';
+                });
+    
+                // Helper: create and show dropdown menu using CSS styling from .dropdown-menu
+                function showDropdown(container, items, renderOption, callback) {
+                    // If this container already has an active dropdown, remove it and toggle off.
+                    if (container.dropdownVisible) {
+                        const existingDropdown = container.querySelector('.dropdown-menu');
+                        if (existingDropdown) {
+                            existingDropdown.remove();
+                        }
+                        container.dropdownVisible = false;
+                        return;
+                    }
+                    // Disable any other active dropdown menus.
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => menu.remove());
+                    const dropdown = document.createElement('div');
+                    dropdown.className = 'dropdown-menu';
+                    items.forEach(item => {
+                        const option = document.createElement('div');
+                        option.classList.add('dropdown-option');
+                        option.textContent = renderOption(item);
+                        option.addEventListener('click', function(e){
+                            e.stopPropagation();
+                            dropdown.remove();
+                            container.dropdownVisible = false;
+                            callback(item);
+                            // Show the reset button since the introduction content has been updated
+                            resetButton.style.display = 'block';
+                        });
+                        dropdown.appendChild(option);
+                    });
+                    container.appendChild(dropdown);
+                    container.dropdownVisible = true;
+                }
+    
+                // History dropdown: show available history files as dropdown
+                const historyBox = document.querySelector('.history-box');
+                historyBox.style.cursor = "pointer";
+                historyBox.addEventListener('click', () => {
+                    if (character.pageDetails.history && character.pageDetails.history.length) {
+                        showDropdown(historyBox, character.pageDetails.history, item => item.title, (item) => {
+                            fetch(item.textFile)
+                                .then(r => r.text())
+                                .then(text => {
+                                    introDesc.innerHTML = processTextContent(text, item.timeOfUpload, imagesList);
+                                    resetButton.style.display = 'block';
+                                });
+                        });
+                    }
+                });
+    
+                // Trivia dropdown: show available trivia files as dropdown
+                const triviaBox = document.querySelector('.trivia-box');
+                triviaBox.style.cursor = "pointer";
+                triviaBox.addEventListener('click', () => {
+                    if (character.pageDetails.trivia && character.pageDetails.trivia.length) {
+                        showDropdown(triviaBox, character.pageDetails.trivia, item => item.title, (item) => {
+                            fetch(item.textFile)
+                                .then(r => r.text())
+                                .then(text => {
+                                    introDesc.innerHTML = processTextContent(text, item.timeOfUpload, imagesList);
+                                    resetButton.style.display = 'block';
+                                });
+                        });
+                    }
+                });
+    
+                // Image dropdown: show available images as dropdown
+                const imageBox = document.querySelector('.image-box');
+                if (imageBox) {
+                    imageBox.style.cursor = "pointer";
+                    imageBox.addEventListener('click', () => {
+                        if (character.pageDetails.images && character.pageDetails.images.length) {
+                            showDropdown(imageBox, character.pageDetails.images, 
+                                item => item.description ? item.description : `Image ${item.imageId}`, 
+                                (item) => {
+                                    introDesc.innerHTML = `
+                                        <img src="${item.image}" alt="${character.name} image" loading="lazy" style="width:100%; max-height:400px; margin:10px 0; border-radius:10px;">
+                                        <p><strong>Description:</strong> ${item.description || 'N/A'}</p>
+                                        <p><strong>Artist:</strong> ${item.artist || 'Unknown'}</p>
+                                        <p><strong>Time of Upload:</strong> ${item.timeOfUpload || 'N/A'}</p>
+                                    `;
+                                    resetButton.style.display = 'block';
+                                });
+                        }
+                    });
+                }
+            })
+            .catch(err => console.error(err));
+        
+        // New event listener for "Return to Gallery" button
+        returnButton.addEventListener('click', function(){
+            window.location.href = 'designGallery.html';
+        });
     });
     </script>
 </body>
