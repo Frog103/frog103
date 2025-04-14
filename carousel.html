@@ -86,11 +86,11 @@
     <div class="header-nav-container">
         <header>
             <div class="icon">
-                <img src="images/frogBeeIcon.png" alt="Website Icon">
+                <img src="images/frogBeeIcon.PNG" alt="Website Icon">
             </div>
             <div>
                 <h1>Frog103</h1>
-                <h3>Homepage</h3>
+                <h3>Comic Viewer</h3>
             </div>
         </header>
         <nav>
@@ -135,133 +135,117 @@
     <p>For usage or licensing, please contact me.</p>
   </footer>
   <script>
-   
-    const params = new URLSearchParams(window.location.search);
-    const chapterId = params.get("chapterId");
-    let images = [];
-    let currentIndex = 0;
-    
-    
-    function updateNumberDisplays() {
-      document.querySelectorAll(".number-display").forEach(display => {
-        display.innerText = `${images.length ? currentIndex + 1 : 0} | ${images.length}`;
-      });
+// Modularize repetitive code for carousel navigation
+function updateNumberDisplays(images, currentIndex) {
+  document.querySelectorAll(".number-display").forEach(display => {
+    display.innerText = `${images.length ? currentIndex + 1 : 0} | ${images.length}`;
+  });
+}
+
+function navigateCarousel(images, direction, currentIndex) {
+  if (images.length > 0) {
+    currentIndex = (direction === 'next')
+      ? (currentIndex === images.length - 1 ? 0 : currentIndex + 1)
+      : (currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+    document.getElementById("carouselImage").src = images[currentIndex];
+    updateNumberDisplays(images, currentIndex);
+  }
+  return currentIndex;
+}
+
+function attachChapterNavigation(currentVolume, chapterIndex) {
+  document.getElementById("nextchptr").addEventListener("click", function () {
+    if (currentVolume && chapterIndex >= 0 && chapterIndex < currentVolume.chapters.length - 1) {
+      const nextChapterId = currentVolume.chapters[chapterIndex + 1].chapterId;
+      const nextMeta = currentVolume.childChaptersMeta?.find(m => m.chapterId === nextChapterId);
+      if (nextMeta?.["chapterfree?"] === "false") {
+        alert("Access Denied: Next chapter is not free.");
+        return;
+      }
+      window.location.href = `carousel.html?chapterId=${nextChapterId}`;
+    } else {
+      alert("This is the last chapter in the current volume.");
     }
-    
-    fetch('cradle.json')
-      .then(res => res.json())
-      .then(data => {
-        
-         data.comics[0].volumes.forEach(volume => {
-           volume.chapters.forEach(chapter => {
-             if(chapter.chapterId === chapterId){
-               document.getElementById("chapterTitle").innerText = chapter.chapterTitle;
-               images = chapter.chapterImages;
-             }
-           });
-         });
-         if(images.length > 0){
-           document.getElementById("carouselImage").src = images[currentIndex];
-           updateNumberDisplays();
-         }
-         
-         let currentVolume = null;
-         let chapterIndex = -1;
-         data.comics[0].volumes.forEach(volume => {
-           volume.chapters.forEach((chapter, index) => {
-             if(chapter.chapterId === chapterId) {
-               currentVolume = volume;
-               chapterIndex = index;
-             }
-           });
-         });
-         
-         document.getElementById("nextchptr").addEventListener("click", function(){
-           if(currentVolume && chapterIndex >= 0 && chapterIndex < currentVolume.chapters.length - 1) {
-             const nextChapterId = currentVolume.chapters[chapterIndex + 1].chapterId;
-             let nextMeta = currentVolume.childChaptersMeta ?
-               currentVolume.childChaptersMeta.find(m => m.chapterId === nextChapterId) : null;
-             if(nextMeta && nextMeta["chapterfree?"] === "false"){
-               alert("Access Denied: Next chapter is not free.");
-               return;
-             }
-             window.location.href = `carousel.html?chapterId=${nextChapterId}`;
-           } else {
-             alert("This is the last chapter in the current volume.");
-           }
-         });
-         
-         document.getElementById("prevchptr").addEventListener("click", function(){
-           if(currentVolume && chapterIndex > 0) {
-             const prevChapterId = currentVolume.chapters[chapterIndex - 1].chapterId;
-             let prevMeta = currentVolume.childChaptersMeta ?
-               currentVolume.childChaptersMeta.find(m => m.chapterId === prevChapterId) : null;
-             if(prevMeta && prevMeta["chapterfree?"] === "false"){
-               alert("Access Denied: Previous chapter is not free.");
-               return;
-             }
-             window.location.href = `carousel.html?chapterId=${prevChapterId}`;
-           } else {
-             alert("This is the first chapter in the current volume.");
-           }
-         });
-         
-         document.querySelector(".return-button a").addEventListener("click", function(e){
-           e.preventDefault();
-           window.location.href = "comic.html";
-         });
-      })
-      .catch(err => console.error(err));
-      
-    document.getElementById("prevBtn").addEventListener("click", function(){
-       if(images.length > 0){
-         currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-         document.getElementById("carouselImage").src = images[currentIndex];
-         updateNumberDisplays();
-       }
-    });
-    
-    document.getElementById("nextBtn").addEventListener("click", function(){
-       if(images.length > 0){
-         currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-         document.getElementById("carouselImage").src = images[currentIndex];
-         updateNumberDisplays();
-       }
-    });
-    
-    document.getElementById("prevBtn2").addEventListener("click", function(){
-      if(images.length > 0){
-        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+  });
+
+  document.getElementById("prevchptr").addEventListener("click", function () {
+    if (currentVolume && chapterIndex > 0) {
+      const prevChapterId = currentVolume.chapters[chapterIndex - 1].chapterId;
+      const prevMeta = currentVolume.childChaptersMeta?.find(m => m.chapterId === prevChapterId);
+      if (prevMeta?.["chapterfree?"] === "false") {
+        alert("Access Denied: Previous chapter is not free.");
+        return;
+      }
+      window.location.href = `carousel.html?chapterId=${prevChapterId}`;
+    } else {
+      alert("This is the first chapter in the current volume.");
+    }
+  });
+}
+
+function initializeCarousel() {
+  const params = new URLSearchParams(window.location.search);
+  const chapterId = params.get("chapterId");
+  let images = [];
+  let currentIndex = 0;
+
+  fetch('cradle.json')
+    .then(res => res.json())
+    .then(data => {
+      const comic = data.comics[0];
+      let currentVolume = null;
+      let chapterIndex = -1;
+
+      comic.volumes.forEach(volume => {
+        volume.chapters.forEach((chapter, index) => {
+          if (chapter.chapterId === chapterId) {
+            document.getElementById("chapterTitle").innerText = chapter.chapterTitle;
+            images = chapter.chapterImages;
+            currentVolume = volume;
+            chapterIndex = index;
+          }
+        });
+      });
+
+      if (images.length > 0) {
         document.getElementById("carouselImage").src = images[currentIndex];
-        updateNumberDisplays();
+        updateNumberDisplays(images, currentIndex);
       }
-    });
-    
-    document.getElementById("nextBtn2").addEventListener("click", function(){
-      if(images.length > 0){
-        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-        document.getElementById("carouselImage").src = images[currentIndex];
-        updateNumberDisplays();
-      }
-    });
-    
-    
-    document.getElementById("carouselImage").addEventListener("click", function(e) {
-      const rect = this.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const mid = rect.width / 2;
-      if(images.length > 0) {
-        if(clickX < mid) {
-          // Left half: go to previous image
-          currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-        } else {
-          // Right half: go to next image
-          currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-        }
-        this.src = images[currentIndex];
-        updateNumberDisplays();
-      }
-    });
-  </script>
+
+      attachChapterNavigation(currentVolume, chapterIndex);
+
+      document.querySelector(".return-button a").addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "comic.html";
+      });
+    })
+    .catch(err => console.error(err));
+
+  document.getElementById("prevBtn").addEventListener("click", function () {
+    currentIndex = navigateCarousel(images, 'prev', currentIndex);
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", function () {
+    currentIndex = navigateCarousel(images, 'next', currentIndex);
+  });
+
+  document.getElementById("prevBtn2").addEventListener("click", function () {
+    currentIndex = navigateCarousel(images, 'prev', currentIndex);
+  });
+
+  document.getElementById("nextBtn2").addEventListener("click", function () {
+    currentIndex = navigateCarousel(images, 'next', currentIndex);
+  });
+
+  document.getElementById("carouselImage").addEventListener("click", function (e) {
+    const rect = this.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const mid = rect.width / 2;
+    currentIndex = navigateCarousel(images, clickX < mid ? 'prev' : 'next', currentIndex);
+  });
+}
+
+initializeCarousel();
+</script>
 </body>
 </html>

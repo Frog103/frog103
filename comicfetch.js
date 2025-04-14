@@ -8,102 +8,103 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 });
 
-function loadComic(){
+// Modularize repetitive code and improve readability
+function renderError(containerId, message) {
+  document.getElementById(containerId).innerHTML = `<p>${message}</p>`;
+}
+
+function renderVolumeButtons(volumes) {
+  return volumes.map((volume, index) => `<button class="volume-button" data-index="${index}">${volume.volumeTitle}</button>`).join('');
+}
+
+function renderChapterCard(ch, meta) {
+  const chapterIcon = (meta && meta["chapterfree?"] === "true") ? '👁️' : '🔒';
+  return `
+    <div class="chapter-card">
+      <div class="card-text">
+        <p>${ch.chapterTitle}</p>
+        <p>Release: ${ch.releaseDate}</p>
+      </div>
+      <div class="card-button">
+        <a href="viewer.html?chapterId=${ch.chapterId}" data-chapterfree="${(meta && meta["chapterfree?"] === "true") ? "true" : "false"}">
+          View <span class="free-icon">${chapterIcon}</span>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function renderChapters(volume) {
+  if (!volume || !Array.isArray(volume.chapters)) {
+    renderError("chapterContainer", "No chapters available.");
+    return;
+  }
+
+  const chaptersHtml = volume.chapters.map(ch => {
+    const meta = volume.childChaptersMeta ? volume.childChaptersMeta.find(m => m.chapterId === ch.chapterId) : null;
+    return renderChapterCard(ch, meta);
+  }).join('');
+
+  document.getElementById("chapterContainer").innerHTML = chaptersHtml;
+
+  if (volume.pdf) {
+    const pdfIcon = (volume["pdffree?"] === "true") ? '👁️' : '🔒';
+    document.getElementById("pdfContainer").innerHTML = `
+      <div class="card-button">
+        <a href="${volume.pdf}" data-pdffree="${(volume["pdffree?"] === "true") ? "true" : "false"}">
+          Download Volume PDF <span class="free-icon">${pdfIcon}</span>
+        </a>
+      </div>
+    `;
+  } else {
+    document.getElementById("pdfContainer").innerHTML = "";
+  }
+
+  attachAccessControl();
+}
+
+function loadComic() {
   fetch('cradle.json')
     .then(res => res.json())
     .then(data => {
-      // Check for valid comics data
-      if(!data.comics || !data.comics.length) {
+      if (!data.comics || !data.comics.length) {
         console.error("No comics available in data.");
-        document.getElementById("titleContainer").innerHTML = "<p>No comic data available.</p>";
+        renderError("titleContainer", "No comic data available.");
         return;
       }
-      const comic = data.comics[0]; // assuming first comic
-      // Update banner image
+
+      const comic = data.comics[0];
       document.querySelector("#bannerContainer img").src = comic.bannerImage;
-      // Update product header text
       document.getElementById("productHeader").innerHTML = `<h2>${comic.productHeaderText}</h2>`;
-      // Update title container with comic details
       document.getElementById("titleContainer").innerHTML = `
         <h1>${comic.comicTitle}</h1>
         <h2>Tags: ${comic.tags.join(", ")}</h2>
-        <h2> ${comic.comicDescription}</h2>
+        <h2>${comic.comicDescription}</h2>
         <div class="credits">
           <p>Writers:<div class="tag">${comic.credits.writer}</div></p>
-          <p>Main Artists:<div class="tag">${comic.credits.artist}</p></div>
+          <p>Main Artists:<div class="tag">${comic.credits.artist}</div></p>
           <p>Extra: <div class="tag">${comic.credits.extra}</div></p>
         </div>
       `;
-      
-      // Build volumes buttons
-      let volumeHtml = "";
-      comic.volumes.forEach((volume, index) => {
-         volumeHtml += `<button class="volume-button" data-index="${index}">${volume.volumeTitle}</button>`;
-      });
-      document.getElementById("volumeContainer").innerHTML = volumeHtml;
-      
-      // Function to render chapters from a given volume with error handling
-      function renderChapters(volume) {
-        if(!volume || !Array.isArray(volume.chapters)) {
-          document.getElementById("chapterContainer").innerHTML = "<p>No chapters available.</p>";
-          return;
-        }
-        let chaptersHtml = "";
-        volume.chapters.forEach(ch => {
-          // Lookup corresponding meta to check for free chapter flag
-          let meta = volume.childChaptersMeta ? volume.childChaptersMeta.find(m => m.chapterId === ch.chapterId) : null;
-          let chapterIcon = (meta && meta["chapterfree?"] === "true") ? '👁️' : '🔒';
-          chaptersHtml += `
-            <div class="chapter-card">
-              <div class="card-text">
-                <p>${ch.chapterTitle}</p>
-                <p>Release: ${ch.releaseDate}</p>
-              </div>
-            </div>
-            <div class="card-button">
-              <a href="viewer.html?chapterId=${ch.chapterId}" data-chapterfree="${(meta && meta["chapterfree?"] === "true") ? "true" : "false"}">
-                View <span class="free-icon">${chapterIcon}</span>
-              </a>
-            </div>
-          `;
-        });
-        document.getElementById("chapterContainer").innerHTML = chaptersHtml;
-        
-        // Render the volume's PDF download link with the appropriate icon.
-        if(volume.pdf) {
-          let pdfIcon = (volume["pdffree?"] === "true") ? '👁️' : '🔒';
-          document.getElementById("pdfContainer").innerHTML = `
-            <div class="card-button">
-              <a href="${volume.pdf}" data-pdffree="${(volume["pdffree?"] === "true") ? "true" : "false"}">
-                Download Volume PDF <span class="free-icon">${pdfIcon}</span>
-              </a>
-            </div>
-          `;
-        } else {
-          document.getElementById("pdfContainer").innerHTML = "";
-        }
-        
-        attachAccessControl();
-      }
-      
-      // Load the first volume by default.
-      if(comic.volumes && comic.volumes.length){
-         renderChapters(comic.volumes[0]);
+
+      document.getElementById("volumeContainer").innerHTML = renderVolumeButtons(comic.volumes);
+
+      if (comic.volumes && comic.volumes.length) {
+        renderChapters(comic.volumes[0]);
       } else {
-         document.getElementById("chapterContainer").innerHTML = "<p>No volumes available.</p>";
+        renderError("chapterContainer", "No volumes available.");
       }
-      
-      // Add event listeners for volume buttons.
+
       document.querySelectorAll(".volume-button").forEach(btn => {
-         btn.addEventListener("click", function(){
-            const idx = this.getAttribute("data-index");
-            renderChapters(comic.volumes[idx]);
-         });
+        btn.addEventListener("click", function () {
+          const idx = this.getAttribute("data-index");
+          renderChapters(comic.volumes[idx]);
+        });
       });
     })
     .catch(err => {
       console.error("Error loading comic:", err);
-      document.getElementById("titleContainer").innerHTML = "<p>Error loading comic data.</p>";
+      renderError("titleContainer", "Error loading comic data.");
     });
 }
 

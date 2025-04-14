@@ -1,228 +1,227 @@
 {
-    "characters": [
-      {
-        "characterId": 1,
-        "name": "Corraine",
-        "excerpt": "test text",
-        "tags": ["Backyard"],
-        "credits": {
-          "artists": ["stickybell09"],
-          "extra": ["Pop Smoke", "NBA Youngboy"]
-        },
-        "postImage": "images/galleryImages/characterDesigns/corraine.png",
-        "introTextFile": "txtFiles/corraineIntro.txt",
-        "pageDetails": {
-          "characterBanners": [
-            {
-              "image": "images/galleryImages/characterDesigns/corraine.png",
-              "tag": "Volume 1"
-            },
-            {
-              "image": "images/galleryImages/characterDesigns/corraine2.png",
-              "tag": "Volume 2"
-            },
-            {
-              "image": "images/galleryImages/characterDesigns/corraine3.png",
-              "tag": "Volume 3"
-            }
-          ],
-          "characterInfo": {
-            "name": "Corraine",
-            "age": "15",
-            "gender": "Female",
-            "height": "6'3\"",
-            "weight": "173 lbs",
-            "dateOfBirth": "X97-04-06"
-          },
-          "images": [
-            {
-              "imageId": 1,
-              "image": "images/galleryImages/characterDesigns/cModelSheet1.jpg",
-              "description": "Corraine's inital design iterations alongside Aimee.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-07"
-            },
-            {
-              "imageId": 2,
-              "image": "images/galleryImages/characterDesigns/cModelSheet2.jpg",
-              "description": "Corraine's current model sheet design.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-07"
-            },
-            {
-              "imageId": 3,
-              "image": "images/galleryImages/characterDesigns/corraine3.png",
-              "description": "Corraine's Expression Sheet.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-06"
-            }
-          ],
-          "history": [
-            {
-              "historyId": 1,
-              "title": "Corraine's Conception",
-              "textFile": "txtFiles/corraineHistory.txt",
-              "timeOfUpload": "2025-04-06",
-              "relatedImageIds": [1]
-            }
-          ],
-          "trivia": [
-            {
-              "triviaId": 1,
-              "title": "Inspirations",
-              "textFile": "txtFiles/corraineTrivia.txt",
-              "timeOfUpload": "2025-04-06",
-              "relatedImageIds": [1]
-            }
-          ]
-        }
+  "characters": [
+    {
+      "characterId": 1,
+      "name": "Corraine",
+      "excerpt": "test text",
+      "tags": ["Backyard"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
       },
-      {
-        "characterId": 2,
-        "name": "Aimee",
-        "excerpt": "test text",
-        "tags": ["Backyard"],
-        "credits": {
-          "artists": ["stickybell09"],
-          "extra": ["Pop Smoke", "NBA Youngboy"]
-        },
-        "postImage": "images/galleryImages/characterDesigns/aimee.png",
-        "introTextFile": "txtFiles/aimeeIntro.txt",
-        "pageDetails": {
-          "characterBanners": [
-            {
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "tag": "Volume 1"
-            },
-            {
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "tag": "Volume 2"
-            },
-            {
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "tag": "Volume 3"
-            }
-          ],
-          "characterInfo": {
-            "name": "Aimee",
-            "age": "15",
-            "gender": "Female",
-            "height": "5'0\"",
-            "weight": "113 lbs",
-            "dateOfBirth": "X97-01-07"
+      "postImage": "images/galleryImages/characterDesigns/corraine.png",
+      "introTextFile": "txtFiles/corraineIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/corraine.png",
+            "tag": "Volume 1"
           },
-          "images": [
-            {
-              "imageId": 1,
-              "image": "images/galleryImages/characterDesigns/aimee.png",
-              "description": "Aimee's first design for the Isolation Arc.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-06"
-            },
-            {
-              "imageId": 2,
-              "image": "images/galleryImages/characterDesigns/aimee2.png",
-              "description": "Aimee's second design for the Purpose Arc.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-06"
-            },
-            {
-              "imageId": 3,
-              "image": "images/galleryImages/characterDesigns/aimee3.png",
-              "description": "Aimee's third design for the Renewal Arc.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-06"
-            }
-          ],
-          "history": [
-            {
-              "historyId": 1,
-              "title": "Title#1",
-              "textFile": "txtFiles/aimeeHistory.txt",
-              "timeOfUpload": "2025-04-06",
-              "relatedImageIds": [1]
-            }
-          ],
-          "trivia": [
-            {
-              "triviaId": 1,
-              "title": "Trivia#1",
-              "textFile": "txtFiles/aimeeTrivia.txt",
-              "timeOfUpload": "2025-04-06",
-              "relatedImageIds": [1]
-            }
-          ]
-        }
+          {
+            "image": "images/galleryImages/characterDesigns/corraine2.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/corraine3.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Corraine",
+          "age": "15",
+          "gender": "Female",
+          "height": "6'3\"",
+          "weight": "173 lbs",
+          "dateOfBirth": "X97-04-06"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/cModelSheet1.jpg",
+            "description": "Corraine's inital design iterations alongside Aimee.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-07"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/cModelSheet2.jpg",
+            "description": "Corraine's current model sheet design.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-07"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/corraine3.png",
+            "description": "Corraine's Expression Sheet.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Corraine's Conception",
+            "textFile": "txtFiles/corraineHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Inspirations",
+            "textFile": "txtFiles/corraineTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    },
+    {
+      "characterId": 2,
+      "name": "Aimee",
+      "excerpt": "test text",
+      "tags": ["Backyard"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
       },
-      {
-        "characterId": 3,
-        "name": "Naledi",
-        "excerpt": "Underdog Athlete",
-        "tags": ["Gravitas"],
-        "credits": {
-          "artists": ["stickybell09"],
-          "extra": ["Pop Smoke", "NBA Youngboy"]
-        },
-        "postImage": "images/galleryImages/characterDesigns/aimee.png",
-        "introTextFile": "txtFiles/nalediIntro.txt",
-        "pageDetails": {
-          "characterBanners": [
-            {
-              "image": "images/galleryImages/characterDesigns/naledi.jpg",
-              "tag": "1"
-            }
-          ],
-          "characterInfo": {
-            "name": "Naledi",
-            "age": "20",
-            "gender": "Female",
-            "height": "5'7\"",
-            "weight": "147 lbs (<i>Debut</i>)",
-            "dateOfBirth": "X19-04-02"
+      "postImage": "images/galleryImages/characterDesigns/aimee.png",
+      "introTextFile": "txtFiles/aimeeIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/aimee.png",
+            "tag": "Volume 1"
           },
-          "images": [
-            {
-              "imageId": 1,
-              "image": "images/galleryImages/characterDesigns/nModelSheet1.jpg",
-              "description": "The first draft of Naledi's model sheet.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-07"
-            },
-            {
-              "imageId": 2,
-              "image": "images/galleryImages/characterDesigns/nModelSheet2.jpg",
-              "description": "A Revision of Naledi's original model sheet.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-07"
-            },
-            {
-              "imageId": 3,
-              "image": "images/galleryImages/characterDesigns/nModelSheet3.jpg",
-              "description": "Naledi's Final Design.",
-              "artist": "stickybell09",
-              "timeOfUpload": "2025-04-07"
-            }
-          ],
-          "history": [
-            {
-              "historyId": 1,
-              "title": "Design Origins",
-              "textFile": "txtFiles/nalediHistory.txt",
-              "timeOfUpload": "2025-04-06",
-              "relatedImageIds": [1,2,3]
-            }
-          ],
-          "trivia": [
-            {
-              "triviaId": 1,
-              "title": "Trivia#1",
-              "textFile": "txtFiles/nalediTrivia.txt",
-              "timeOfUpload": "2025-04-06",
-              "relatedImageIds": [1]
-            }
-          ]
-        }
-      } 
-    ]
-  }
-  
+          {
+            "image": "images/galleryImages/characterDesigns/aimee.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/aimee.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Aimee",
+          "age": "15",
+          "gender": "Female",
+          "height": "5'0\"",
+          "weight": "113 lbs",
+          "dateOfBirth": "X97-01-07"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/aimee.png",
+            "description": "Aimee's first design for the Isolation Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/aimee2.png",
+            "description": "Aimee's second design for the Purpose Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/aimee3.png",
+            "description": "Aimee's third design for the Renewal Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Title#1",
+            "textFile": "txtFiles/aimeeHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Trivia#1",
+            "textFile": "txtFiles/aimeeTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    },
+    {
+      "characterId": 3,
+      "name": "Naledi",
+      "excerpt": "Underdog Athlete",
+      "tags": ["Gravitas"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
+      },
+      "postImage": "images/galleryImages/characterDesigns/aimee.png",
+      "introTextFile": "txtFiles/nalediIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/naledi.jpg",
+            "tag": "1"
+          }
+        ],
+        "characterInfo": {
+          "name": "Naledi",
+          "age": "20",
+          "gender": "Female",
+          "height": "5'7\"",
+          "weight": "147 lbs (<i>Debut</i>)",
+          "dateOfBirth": "X19-04-02"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/nModelSheet1.jpg",
+            "description": "The first draft of Naledi's model sheet.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-07"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/nModelSheet2.jpg",
+            "description": "A Revision of Naledi's original model sheet.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-07"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/nModelSheet3.jpg",
+            "description": "Naledi's Final Design.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-07"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Design Origins",
+            "textFile": "txtFiles/nalediHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1,2,3]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Trivia#1",
+            "textFile": "txtFiles/nalediTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    } 
+  ]
+}
