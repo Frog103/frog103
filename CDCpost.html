@@ -336,12 +336,23 @@
             }
             return processed;
         }
+
+        // New function to check showcase property for the character
+        function checkShowcaseStatus(character) {
+            if (character.hasOwnProperty('showcase') && character.showcase === false) {
+                alert("This link is not available to view.");
+                return false;
+            }
+            return true;
+        }
     
         fetch('characterDesignGallery.json')
             .then(res => res.json())
             .then(data => {
                 const character = data.characters.find(c => c.characterId === charId);
                 if (!character) return;
+                // Check the showcase property
+                if (!checkShowcaseStatus(character)) return;
     
                 // Update the character name
                 characterNameElem.textContent = character.name;

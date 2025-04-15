@@ -2,6 +2,7 @@
   "characters": [
     {
       "characterId": 1,
+      "showcase": "false",
       "name": "Corraine",
       "excerpt": "test text",
       "tags": ["Backyard"],
@@ -80,6 +81,7 @@
     {
       "characterId": 2,
       "name": "Aimee",
+      "showcase": "false",
       "excerpt": "test text",
       "tags": ["Backyard"],
       "credits": {
@@ -157,6 +159,7 @@
     {
       "characterId": 3,
       "name": "Naledi",
+      "showcase": "true",
       "excerpt": "Underdog Athlete",
       "tags": ["Gravitas"],
       "credits": {
