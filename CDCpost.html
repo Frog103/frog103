@@ -356,7 +356,8 @@
 
         // New function to check showcase access
         function checkShowcaseAccess(character) {
-            return character && character.showcase !== false;
+            // Returns false if showcase is explicitly false (boolean or string)
+            return character && String(character.showcase).toLowerCase() !== "false";
         }
 
         // New helper function to replace [P] with a page break element
