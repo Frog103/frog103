@@ -318,6 +318,11 @@
         const charId = Number(params.get('id'));
         if (!charId) return;
 
+        // New function to check showcase access
+        function checkShowcaseAccess(character) {
+            return character && character.showcase !== false;
+        }
+
         // New helper function to replace [P] with a page break element
         function insertPageBreaks(text) {
             return text.replace(/\[P\]/g, '<div style="page-break-after: always;"></div>');
@@ -341,7 +346,10 @@
             .then(res => res.json())
             .then(data => {
                 const character = data.characters.find(c => c.characterId === charId);
-                if (!character) return;
+                // Exit if showcase is disabled for this character
+                if (!checkShowcaseAccess(character)) {
+                    return;
+                }
     
                 // Update the character name
                 characterNameElem.textContent = character.name;
