@@ -11,15 +11,6 @@
         },
         {
             "id": 2,
-            "title": "Character Turnaround #2",
-            "description": "A slightly cleaned up version of the previous animation.",
-            "image": "images/galleryImages/animations/Nonetto2.mp4",
-            "date": "2025-2-20",
-            "tags": ["Animation"],
-            "showcase": "false"
-        },
-        {
-            "id": 3,
             "title": "#",
             "description": "A test animation",
             "image": "images/galleryImages/animations/headturnSC1.mp4",
@@ -28,7 +19,7 @@
             "showcase": "false"
         },
         {
-            "id": 4,
+            "id": 3,
             "title": "#",
             "description": "A test animation",
             "image": "images/galleryImages/animations/blink.mp4",
