@@ -334,6 +334,13 @@
       title.href = `CDCpost.html?id=${character.characterId}`;
       title.textContent = character.name;
       title.classList.add('post-title');
+      // New event listener that checks the showcase property and shows an inline popup if false
+      title.addEventListener('click', (e) => {
+        if (character.hasOwnProperty('showcase') && character.showcase === false) {
+          e.preventDefault();
+          showInlinePopup(title, "This link is not available to view.");
+        }
+      });
 
       const excerpt = document.createElement('p');
       excerpt.textContent = character.excerpt || 'No excerpt available.';
@@ -368,6 +375,27 @@
       postElement.appendChild(info);
       blogPosts.appendChild(postElement);
     });
+  }
+
+  // New helper function to display an inline popup with CSS styling.
+  function showInlinePopup(element, message) {
+    const popup = document.createElement('div');
+    popup.textContent = message;
+    popup.style.position = 'absolute';
+    popup.style.background = '#f8d7da';
+    popup.style.color = '#721c24';
+    popup.style.border = '1px solid #f5c6cb';
+    popup.style.borderRadius = '5px';
+    popup.style.padding = '10px';
+    popup.style.top = '100%';
+    popup.style.left = '0';
+    popup.style.zIndex = '10';
+    // Ensure the parent is positioned
+    element.parentElement.style.position = 'relative';
+    element.parentElement.appendChild(popup);
+    setTimeout(() => {
+      popup.remove();
+    }, 2000);
   }
 
   function setupPagination(totalPosts) {
