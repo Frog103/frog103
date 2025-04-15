@@ -334,9 +334,9 @@
       title.href = `CDCpost.html?id=${character.characterId}`;
       title.textContent = character.name;
       title.classList.add('post-title');
-      // New event listener that checks the showcase property and shows an inline popup if false
+      // Updated event listener: check both boolean false and string "false"
       title.addEventListener('click', (e) => {
-        if (character.hasOwnProperty('showcase') && character.showcase === false) {
+        if (character.hasOwnProperty('showcase') && (character.showcase === false || character.showcase === "false")) {
           e.preventDefault();
           showInlinePopup(title, "This link is not available to view.");
         }
