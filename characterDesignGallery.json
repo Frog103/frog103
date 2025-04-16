@@ -167,7 +167,7 @@
         "extra": ["Pop Smoke", "NBA Youngboy"]
       },
       "postImage": "images/galleryImages/characterDesigns/naledi.jpg",
-      "introTextFile": "txtFiles/nalediIntr.txt",
+      "introTextFile": "txtFiles/nalediIntro.txt",
       "pageDetails": {
         "characterBanners": [
           {
