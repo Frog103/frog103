@@ -116,6 +116,36 @@
         opacity: 0;
         animation: fadeIn 0.3s forwards;
     }
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        box-shadow: #000000 50px 50px 50px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        
+    }
+    .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .modal-content button {
+        margin-top: 15px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
     
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(-10px); }
@@ -204,37 +234,6 @@
             font-size: 1.1rem;
         }
     }
-    /* Modal popup styles */
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        box-shadow: #000000 0px 0px 30px;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 2000;
-        
-    }
-    .modal-content {
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .modal-content button {
-        margin-top: 15px;
-        background-color: #4CAF50;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
 </style>
 </head>
 <body class="fade-out">
@@ -264,14 +263,12 @@
         <div class="post-container">
             <div class="character-info-box">
                 <div class="header">
-                    <!--This is where the character name will be displayed-->
                     <h1>Character Name</h1>
                 </div>
 
                 <div class="tag-container">
                 <div class="banner-tags">
                     <p>tag</p>
-                    <!--This is where the banner tags will be displayed ontop of the banner images to click on and view different images-->
                 </div>
                 <div class="banner-tags">
                     <p>tag</p>
@@ -282,45 +279,34 @@
                 </div>
 
                 <div class="character-images">
-                    <!--This is where the character banner images will be displayed-->
                     <img src="#" alt="Character Image" loading="lazy">
                 </div>
 
                 <div class="description">
-                    hello
-                    <!--Load Character Info here-->
-                    <!--Load Credit information here-->
+                    Loading...
                 </div>
             </div>
 
             <div class="introduction-box">
                 <h2>Character Info</h2>
                 <div class="description">
-                    hello
-                    <!--Load Character Introduction txt file here-->
-                    <!--When dropdown images are loaded here, include the description and time of upload properties-->
-                    <p>Description:</p>
-                    <p>Time of Upload:</p>
+                    <p>Loading...</p>
+                    <p>Description: Loading...</p>
+                    <p>Time of Upload: Loading...</p>
                 </div>
-                <!-- reset button for introduction content -->
                 <button id="resetIntro">Reset</button>
-                <!-- button to return to designGallery.html -->
-                <button id="returnButton">Return to Main Gallery Menu</button>
+                <button id="returnButton">Return to Main Gallery</button>
             </div>
-
             <div class="information-nav-box">
                 <h2>Additional Information</h2>
                 <div class="history-box">
                     <h3>Character History</h3>
-                    <!--Load and display History txt files here as dropdown menu-->
                 </div>
                 <div class="trivia-box">
                     <h3>Character Trivia</h3>
-                    <!--Load and display Character Trivia txt files here as dropdown menu-->
                 </div>
                 <div class="image-box">
                     <h3>Character Images</h3>
-                    <!--Load and display Character Images here as dropdown menu-->
                 </div>
             </div>
         </div>
@@ -340,9 +326,9 @@
     <script src="scripts.js" defer></script>
     <script src="particles.js" defer></script>
     <script>
-    // Parse query parameters, fetch JSON, and wire up dynamic content
+    //fetch JSON, and initialize dynamic content
     document.addEventListener('DOMContentLoaded', function(){
-        // Cache DOM elements for performance
+        // Cache elements for performance
         const resetButton = document.getElementById('resetIntro');
         const returnButton = document.getElementById('returnButton');
         const characterNameElem = document.querySelector('.character-info-box h1');
@@ -355,25 +341,19 @@
         const charId = Number(params.get('id'));
         if (!charId) return;
 
-        // New function to check showcase access
+        // Check showcase access
         function checkShowcaseAccess(character) {
-            // Returns false if showcase is explicitly false (boolean or string)
+            // Return false if showcase is set to false
             return character && String(character.showcase).toLowerCase() !== "false";
         }
 
-        // New helper function to replace [P] with a page break element
-        function insertPageBreaks(text) {
-            return text.replace(/\[P\]/g, '<div style="page-break-after: always;"></div>');
-        }
-
-        // Helper: process loaded text. Replaces [ID] with the image from the JSON images list and appends time if provided.
+        // Replace [ID#] with the image from the JSON if provided.
         function processTextContent(text, time, imagesList) {
             let processed = text.replace(/\[([^\]]+)\]/g, (match, id) => {
-                if (id === "P") return match; // skip to handle page break later
+                if (id === "P") return ''; // Remove [P] (too lazy to remove teehee)
                 const found = imagesList.find(img => img.imageId == id);
                 return found ? `<img src="${found.image}" alt="${found.description || id} image" loading="lazy" style="width:100px; height:auto;">` : match;
             });
-            processed = insertPageBreaks(processed); // Replace any [P] tokens with page breaks
             if(time) {
                 processed += `<br><strong>Time of Upload:</strong> ${time}`;
             }
@@ -384,7 +364,7 @@
             .then(res => res.json())
             .then(data => {
                 const character = data.characters.find(c => c.characterId === charId);
-                // Immediately show modal popup if showcase is disabled
+                // Immediately show popup if showcase is false
                 if (!checkShowcaseAccess(character)) {
                     document.getElementById('returnModal').style.display = 'flex';
                     return;
@@ -432,7 +412,7 @@
                 // Store default introduction text so it can be reset later
                 let defaultIntroduction = "";
     
-                // Retrieve images list from the JSON for later use
+                // Retrieve images list from the JSON file
                 let imagesList = (character.pageDetails && character.pageDetails.images) || [];
     
                 // Load Character Introduction text file with processing
@@ -445,15 +425,15 @@
                         resetButton.style.display = 'none';
                     });
     
-                // Add event listener to reset introduction when reset button is clicked
+                // Reset introduction when reset button is clicked
                 resetButton.addEventListener('click', () => {
                     introDesc.innerHTML = defaultIntroduction;
                     resetButton.style.display = 'none';
                 });
     
-                // Helper: create and show dropdown menu using CSS styling from .dropdown-menu
+                // Create and show dropdown menu using CSS styling from .dropdown-menu
                 function showDropdown(container, items, renderOption, callback) {
-                    // If this container already has an active dropdown, remove it and toggle off.
+                    // If container already has an active dropdown, remove it and toggle off.
                     if (container.dropdownVisible) {
                         const existingDropdown = container.querySelector('.dropdown-menu');
                         if (existingDropdown) {
@@ -539,7 +519,7 @@
             })
             .catch(err => console.error(err));
         
-        // New event listener for "Return to Gallery" button
+        // Event listener for "Return to Gallery" button
         returnButton.addEventListener('click', function(){
             document.getElementById('returnModal').style.display = 'flex';
         });
