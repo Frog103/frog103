@@ -382,8 +382,9 @@
             .then(res => res.json())
             .then(data => {
                 const character = data.characters.find(c => c.characterId === charId);
-                // Exit if showcase is disabled for this character
+                // Immediately show modal popup if showcase is disabled
                 if (!checkShowcaseAccess(character)) {
+                    document.getElementById('returnModal').style.display = 'flex';
                     return;
                 }
     
