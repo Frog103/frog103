@@ -3,7 +3,7 @@
     {
       "characterId": 1,
       "showcase": "false",
-      "name": "Corraine",
+      "name": "Test Name",
       "excerpt": "test text",
       "tags": ["Backyard"],
       "credits": {
@@ -80,7 +80,7 @@
     },
     {
       "characterId": 2,
-      "name": "Aimee",
+      "name": "Test Name",
       "showcase": "false",
       "excerpt": "test text",
       "tags": ["Backyard"],
@@ -160,14 +160,14 @@
       "characterId": 3,
       "name": "Naledi",
       "showcase": "true",
-      "excerpt": "Underdog Athlete",
+      "excerpt": "Underdog",
       "tags": ["Gravitas"],
       "credits": {
         "artists": ["stickybell09"],
         "extra": ["Pop Smoke", "NBA Youngboy"]
       },
-      "postImage": "images/galleryImages/characterDesigns/aimee.png",
-      "introTextFile": "txtFiles/nalediIntro.txt",
+      "postImage": "images/galleryImages/characterDesigns/naledi.jpg",
+      "introTextFile": "txtFiles/nalediIntr.txt",
       "pageDetails": {
         "characterBanners": [
           {
@@ -189,21 +189,21 @@
             "image": "images/galleryImages/characterDesigns/nModelSheet1.jpg",
             "description": "The first draft of Naledi's model sheet.",
             "artist": "stickybell09",
-            "timeOfUpload": "2025-04-01"
+            "timeOfUpload": "2024-04-02"
           },
           {
             "imageId": 2,
             "image": "images/galleryImages/characterDesigns/nModelSheet2.jpg",
             "description": "A Revision of Naledi's original model sheet.",
             "artist": "stickybell09",
-            "timeOfUpload": "2024-04-03"
+            "timeOfUpload": "2024-04-17"
           },
           {
             "imageId": 3,
             "image": "images/galleryImages/characterDesigns/nModelSheet3.jpg",
             "description": "Naledi's Final Design.",
             "artist": "stickybell09",
-            "timeOfUpload": "2025-04-15"
+            "timeOfUpload": "2025-04-16"
           }
         ],
         "history": [
