@@ -260,7 +260,6 @@
           const item = data.items.find(i => i.id === parseInt(itemId));
 
           if (item) {
-
             document.getElementById('item-title').textContent = item.title || 'Untitled';
             document.getElementById('item-date').textContent = `Date: ${new Date(item.date).toLocaleDateString()}`;
 
@@ -271,13 +270,15 @@
 
             const openImageBtn = document.getElementById('openImageBtn');
             openImageBtn.addEventListener('click', () => {
-              if (img.src) {
-                window.open(img.src, '_blank');
-              }
+              if (img.src) { window.open(img.src, '_blank'); }
             });
 
+            // fetch description text from file path specified in item.description
             const descriptionContainer = document.getElementById('item-description');
-            descriptionContainer.innerHTML = `<p>${item.description}</p>`;
+            fetch(item.description)
+              .then(response => response.text())
+              .then(text => { descriptionContainer.innerHTML = `<p>${text}</p>`; })
+              .catch(err => { descriptionContainer.textContent = 'Error loading description.'; });
 
             const tagsContainer = document.getElementById('item-tags');
             tagsContainer.innerHTML = item.tags
@@ -287,9 +288,7 @@
             document.getElementById('item-description').textContent = 'Item not found.';
           }
         })
-        .catch(error => {
-          console.error('Error fetching item data:', error);
-        });
+        .catch(error => { console.error('Error fetching item data:', error); });
     </script>
 </body>
 </html>

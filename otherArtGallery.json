@@ -3,7 +3,7 @@
         {
             "id": 1,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item1.txt",
             "image": "images/galleryImages/otherArt/tungstenLotus.PNG",
             "date": "2024-11-01",
             "tags": ["Digital", "Character"],
@@ -12,7 +12,7 @@
         {
             "id": 2,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item2.txt",
             "image": "images/galleryImages/otherArt/ainee.JPG",
             "date": "2024-11-20",
             "tags": ["Character", "Digital"],
@@ -21,7 +21,7 @@
         {
             "id": 3,
             "title": "Contact Page Artwork",
-            "description": "An character piece of Nonetto created for the contact page of this website.",
+            "description": "txtFiles/item3.txt",
             "image": "images/galleryImages/otherArt/nonettoMail.JPG",
             "date": "2024-12-05",
             "tags": ["Character", "Digital"],
@@ -30,7 +30,7 @@
         {
             "id": 4,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item4.txt",
             "image": "images/galleryImages/otherArt/frogbeeGirl.JPG",
             "date": "2024-10-17",
             "tags": ["Character", "Digital"],
@@ -39,7 +39,7 @@
         {
             "id": 5,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item5.txt",
             "image": "images/galleryImages/otherArt/neon.JPG",
             "date": "2024-10-09",
             "tags": ["Character", "Digital"],
@@ -48,7 +48,7 @@
         {
             "id": 6,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item6.txt",
             "image": "images/galleryImages/otherArt/juno.JPG",
             "date": "2024-09-11",
             "tags": ["Character", "Digital"],
@@ -57,7 +57,7 @@
         {
             "id": 7,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item7.txt",
             "image": "images/galleryImages/otherArt/uniteGirl.JPG",
             "date": "2024-08-08",
             "tags": ["Character", "Digital"],
@@ -66,7 +66,7 @@
         {
             "id": 8,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item8.txt",
             "image": "images/galleryImages/otherArt/melica.JPG",
             "date": "2024-05-27",
             "tags": ["Character", "Digital"],
@@ -75,7 +75,7 @@
         {
             "id": 9,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item9.txt",
             "image": "images/galleryImages/otherArt/tenlaem.JPG",
             "date": "2024-06-04",
             "tags": ["Character", "Digital"],
@@ -84,7 +84,7 @@
         {
             "id": 10,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item10.txt",
             "image": "images/galleryImages/otherArt/constance.JPG",
             "date": "2024-06-02",
             "tags": ["Character", "Digital"],
@@ -93,7 +93,7 @@
         {
             "id": 11,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item11.txt",
             "image": "images/galleryImages/otherArt/melica2.JPG",
             "date": "2024-08-08",
             "tags": ["Character", "Digital"],
@@ -102,7 +102,7 @@
         {
             "id": 12,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item12.txt",
             "image": "images/galleryImages/otherArt/elodie.JPG",
             "date": "2024-05-23",
             "tags": ["Character", "Digital"],
@@ -111,7 +111,7 @@
         {
             "id": 13,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item13.txt",
             "image": "images/galleryImages/otherArt/elodie2.JPG",
             "date": "2024-07-20",
             "tags": ["Character", "Digital"],
@@ -120,7 +120,7 @@
         {
             "id": 14,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item14.txt",
             "image": "images/galleryImages/otherArt/nonetto2.JPG",
             "date": "2024-07-09",
             "tags": ["Character", "Digital"],
@@ -129,7 +129,7 @@
         {
             "id": 15,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item15.txt",
             "image": "images/galleryImages/otherArt/lakesideSketch.JPG",
             "date": "2024-05-04",
             "tags": ["Character", "Digital"],
@@ -138,7 +138,7 @@
         {
             "id": 16,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item16.txt",
             "image": "images/galleryImages/otherArt/lbpSketch.JPG",
             "date": "2024-05-03",
             "tags": ["Character", "Digital"],
@@ -147,7 +147,7 @@
         {
             "id": 17,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item17.txt",
             "image": "images/galleryImages/otherArt/codSketch.JPG",
             "date": "2024-05-02",
             "tags": ["Character", "Digital"],
@@ -156,7 +156,7 @@
         {
             "id": 18,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item18.txt",
             "image": "images/galleryImages/otherArt/clothSketch.JPG",
             "date": "2024-04-29",
             "tags": ["Character", "Digital"],
@@ -165,7 +165,7 @@
         {
             "id": 19,
             "title": "",
-            "description": "Character artwork",
+            "description": "txtFiles/item19.txt",
             "image": "images/galleryImages/otherArt/ether.jpg",
             "date": "2025-01-27",
             "tags": ["Character", "Digital"],
@@ -174,7 +174,7 @@
         {
             "id": 20,
             "title": "",
-            "description":"Character artwork",
+            "description": "txtFiles/item20.txt",
             "image": "images/galleryImages/otherArt/larunia.jpg",
             "date": "2025-02-11",
             "tags": ["Digital"],
@@ -182,8 +182,8 @@
         },
         {
             "id": 21,
-            "title":"" ,
-            "description": "Character artwork",
+            "title": "",
+            "description": "txtFiles/item21.txt",
             "image": "images/galleryImages/otherArt/brother.jpg",
             "date": "2025-02-28",
             "tags": ["Digital"],
@@ -192,7 +192,7 @@
         {
             "id": 22,
             "title": "Comic Cover Prototype",
-            "description": "The first draft of a comic cover for a personal project.",
+            "description": "txtFiles/item22.txt",
             "image": "images/galleryImages/otherArt/cradle.jpg",
             "date": "2025-03-08",
             "tags": ["Digital"],
@@ -200,8 +200,8 @@
         },
         {
             "id": 23,
-            "title":"",
-            "description": "Character artwork",
+            "title": "",
+            "description": "txtFiles/item23.txt",
             "image": "images/galleryImages/otherArt/naledi.jpg",
             "date": "2025-04-04",
             "tags": ["Digital"],
@@ -209,12 +209,12 @@
         },
         {
             "id": 24,
-            "title":"",
-            "description":"",
-            "image":"images/galleryImages/otherArt/tatsumaki.JPG",
-            "date":"2024-04-30",
-            "tags":["Digital"],
-            "showcase":"false"
+            "title": "",
+            "description": "txtFiles/item24.txt",
+            "image": "images/galleryImages/otherArt/tatsumaki.JPG",
+            "date": "2024-04-30",
+            "tags": ["Digital"],
+            "showcase": "false"
         }
     ]
 }
