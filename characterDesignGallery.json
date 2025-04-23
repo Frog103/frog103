@@ -225,6 +225,396 @@
           }
         ]
       }
-    } 
+    },
+    {
+      "characterId": 4,
+      "name":"Test Name",
+      "showcase": "false",
+      "excerpt": "test text",
+      "tags": ["Gravitas"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
+      },
+      "postImage": "images/galleryImages/characterDesigns/andre.png",
+      "introTextFile": "txtFiles/andreIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 1"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Andre",
+          "age": "16",
+          "gender":"Female",
+          "height": "5'8\"",
+          "weight": "130 lbs",
+          "dateOfBirth": "X19-04-02"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/aModelSheet1.jpg",
+            "description": "Andre's first design for the Isolation Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/aModelSheet2.jpg",
+            "description": "Andre's second design for the Purpose Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/aModelSheet3.jpg",
+            "description": "Andre's third design for the Renewal Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Title#1",
+            "textFile": "txtFiles/andreHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Trivia#1",
+            "textFile": "txtFiles/andreTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    },
+    {
+      "characterId": 5,
+      "name":"Test Name",
+      "showcase": "false",
+      "excerpt": "test text",
+      "tags": ["Cradle"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
+      },
+      "postImage": "images/galleryImages/characterDesigns/andre.png",
+      "introTextFile": "txtFiles/andreIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 1"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Andre",
+          "age": "16",
+          "gender":"Female",
+          "height": "5'8\"",
+          "weight": "130 lbs",
+          "dateOfBirth": "X19-04-02"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/aModelSheet1.jpg",
+            "description": "Andre's first design for the Isolation Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/aModelSheet2.jpg",
+            "description": "Andre's second design for the Purpose Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/aModelSheet3.jpg",
+            "description": "Andre's third design for the Renewal Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Title#1",
+            "textFile": "txtFiles/andreHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Trivia#1",
+            "textFile": "txtFiles/andreTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    },
+    {
+      "characterId": 6,
+      "name":"Test Name",
+      "showcase": "false",
+      "excerpt": "test text",
+      "tags": ["Cradle"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
+      },
+      "postImage": "images/galleryImages/characterDesigns/andre.png",
+      "introTextFile": "txtFiles/andreIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 1"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Andre",
+          "age": "16",
+          "gender":"Female",
+          "height": "5'8\"",
+          "weight": "130 lbs",
+          "dateOfBirth": "X19-04-02"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/aModelSheet1.jpg",
+            "description": "Andre's first design for the Isolation Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/aModelSheet2.jpg",
+            "description": "Andre's second design for the Purpose Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/aModelSheet3.jpg",
+            "description": "Andre's third design for the Renewal Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Title#1",
+            "textFile": "txtFiles/andreHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Trivia#1",
+            "textFile": "txtFiles/andreTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    },
+    {
+      "characterId": 7,
+      "name":"Test Name",
+      "showcase": "false",
+      "excerpt": "test text",
+      "tags": ["Blue Moon"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
+      },
+      "postImage": "images/galleryImages/characterDesigns/andre.png",
+      "introTextFile": "txtFiles/andreIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 1"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Andre",
+          "age": "16",
+          "gender":"Female",
+          "height": "5'8\"",
+          "weight": "130 lbs",
+          "dateOfBirth": "X19-04-02"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/aModelSheet1.jpg",
+            "description": "Andre's first design for the Isolation Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/aModelSheet2.jpg",
+            "description": "Andre's second design for the Purpose Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/aModelSheet3.jpg",
+            "description": "Andre's third design for the Renewal Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Title#1",
+            "textFile": "txtFiles/andreHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Trivia#1",
+            "textFile": "txtFiles/andreTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    },
+    {
+      "characterId": 8,
+      "name":"Test Name",
+      "showcase": "false",
+      "excerpt": "test text",
+      "tags": ["Blue Moon"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
+      },
+      "postImage": "images/galleryImages/characterDesigns/andre.png",
+      "introTextFile": "txtFiles/andreIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 1"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/andre.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Andre",
+          "age": "16",
+          "gender":"Female",
+          "height": "5'8\"",
+          "weight": "130 lbs",
+          "dateOfBirth": "X19-04-02"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/aModelSheet1.jpg",
+            "description": "Andre's first design for the Isolation Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/aModelSheet2.jpg",
+            "description": "Andre's second design for the Purpose Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/aModelSheet3.jpg",
+            "description": "Andre's third design for the Renewal Arc.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Title#1",
+            "textFile": "txtFiles/andreHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Trivia#1",
+            "textFile": "txtFiles/andreTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
+    }
   ]
 }
