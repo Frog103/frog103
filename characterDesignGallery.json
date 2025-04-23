@@ -159,7 +159,7 @@
     {
       "characterId": 3,
       "name": "Naledi",
-      "showcase": "true",
+      "showcase": "false",
       "excerpt": "Underdog",
       "tags": ["Gravitas"],
       "credits": {
