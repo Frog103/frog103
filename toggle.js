@@ -1,22 +1,25 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.getElementById("darkmode-toggle");
 
-    // Set initial theme based on localStorage or system preference
-    let darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
-    if(darkModeEnabled) {
-        document.body.classList.add("dark-mode");
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("darkMode", "enabled");
+    // Initialize based on stored preference or system default
+    let preferredScheme = localStorage.getItem("preferredColorScheme");
+    if (!preferredScheme) {
+        preferredScheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default";
     }
-    
-    toggleButton.addEventListener("click", function() {
-        if(document.body.classList.contains("dark-mode")) {
-            document.body.classList.remove("dark-mode");
-            localStorage.setItem("darkMode", "disabled");
+    if(preferredScheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+        document.documentElement.removeAttribute("data-theme");
+    }
+
+    toggleButton.addEventListener("click", () => {
+        if(document.documentElement.getAttribute("data-theme") === "dark") {
+            document.documentElement.removeAttribute("data-theme");
+            localStorage.setItem("preferredColorScheme", "default");
         } else {
-            document.body.classList.add("dark-mode");
-            localStorage.setItem("darkMode", "enabled");
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("preferredColorScheme", "dark");
         }
     });
 });
+
