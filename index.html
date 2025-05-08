@@ -14,13 +14,21 @@
             grid-template-areas: 
                 "instagram slideshow"
                 "blog birthday";
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
             gap: 20px;
             padding: 20px;
             max-width: 1200px;
             margin: auto;
         }
-
+        .headertext {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
         .instagram-feed, .slideshow-container, .boxed-by-ninja, .birthday-container {
             background: rgba(255, 255, 255, 0.5);
             padding: 20px;
@@ -256,38 +264,6 @@
             margin: 0;
             font-size: 1.2em;
         }
-        .birthday-banner {
-            margin-bottom: 10px;
-        }
-        .birthday-banner img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .birthday-container p {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #ffffff;
-            margin: 10px 0;
-        }
-        .birthday-container h3 {
-            font-size: 1.0em;
-            color: #ffffff;
-            margin: 5px 0;
-        }
-        .birthday-link-box a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .birthday-link-box a:hover {
-            background-color: #388E3C;
-        }
 
         @media (max-width: 768px) {
             .homepage-container {
@@ -324,6 +300,39 @@
             }
 
         }
+        .birthday-banner {
+            margin-bottom: 10px;
+        }
+        .birthday-banner img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .birthday-container p {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+        .birthday-container h3 {
+            font-size: 1.0em;
+            color: #ffffff;
+            margin: 5px 0;
+        }
+        .birthday-link-box a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .birthday-link-box a:hover {
+            background-color: #388E3C;
+        }
+
         @media (max-width: 600px) {
             .homepage-container {
                 grid-template-areas:
@@ -359,7 +368,16 @@
                 </ul>
             </nav>
         </div>
+
         <div class="boxed-by-po">
+            <div class="headertext">
+                <h2>About</h2>
+                <hr>
+                <p>This site is the personal portfolio and gallery of stickybell09.</p>
+                <p>Digital illustration, Character Design, and Animation.</p>
+                <p>All content on this site is created by me, unless otherwise stated.</p>
+                <p>See below for samples.</p>
+            </div>
             <main class="homepage-container">
                 <div class="instagram-feed">
                     <div class="instagram-account-card">
@@ -395,14 +413,13 @@
             </main>
         </div>
         <footer>
-            Copyright &copy; 2024-2025 Frog103. All Rights Reserved.
-            <p>For usage, licensing, or other inquiries, please contact me.</p>
+            Copyright &copy; 2025 Frog103. All Rights Reserved.
+            <p>For usage or licensing, please contact me.</p>
         </footer>
     </div>
     <script src="slideshow.js"></script>
     <script src="scripts.js"></script>
     <script src="timelapse.js"></script>
     <script src="particles.js"></script>
-    <script src="birthday.js"></script>
 </body>
 </html>
