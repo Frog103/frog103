@@ -476,7 +476,7 @@ main {
 }
 @media (prefers-color-scheme: default) {
     body {
-        background-image: url(images/lightmode.jpg);
+        background-image: url(images/background.jpeg);
         background-size: cover;
         background-attachment: fixed;
     }
