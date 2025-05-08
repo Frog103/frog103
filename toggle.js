@@ -1,19 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const darkmodeToggle = document.getElementById("darkmode-toggle");
-    if (!darkmodeToggle) return;
-    // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem("darkMode");
-    if (savedTheme === "enabled") {
+    const toggleButton = document.getElementById("darkmode-toggle");
+
+    // Set initial theme based on localStorage or system preference
+    let darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+    if(darkModeEnabled) {
         document.body.classList.add("dark-mode");
-        darkmodeToggle.checked = true;
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "enabled");
     }
-    darkmodeToggle.addEventListener("change", function() {
-        if (this.checked) {
-            document.body.classList.add("dark-mode");
-            localStorage.setItem("darkMode", "enabled");
-        } else {
+    
+    toggleButton.addEventListener("click", function() {
+        if(document.body.classList.contains("dark-mode")) {
             document.body.classList.remove("dark-mode");
             localStorage.setItem("darkMode", "disabled");
+        } else {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
         }
     });
 });
