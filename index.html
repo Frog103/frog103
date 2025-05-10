@@ -13,7 +13,7 @@
             display: grid;
             grid-template-areas: 
                 "instagram slideshow"
-                "blog birthday";
+                "blog activities";
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             padding: 20px;
@@ -29,7 +29,7 @@
         text-align: center;
         margin-bottom: 20px;
     }
-        .instagram-feed, .slideshow-container, .boxed-by-ninja, .birthday-container {
+        .instagram-feed, .slideshow-container, .boxed-by-ninja, .activities-postbox {
             background: rgba(255, 255, 255, 0.5);
             padding: 20px;
             border-radius: 10px;
@@ -63,8 +63,8 @@
             grid-area: blog;
         }
 
-        .birthday-container {
-            grid-area: birthday;
+        .activities-postbox {
+            grid-area: activities;
             text-align: center;
         }
 
@@ -271,7 +271,7 @@
                     "slideshow"
                     "instagram"
                     "blog"
-                    "birthday";
+                    "activities";
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
@@ -300,46 +300,14 @@
             }
 
         }
-        .birthday-banner {
-            margin-bottom: 10px;
-        }
-        .birthday-banner img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .birthday-container p {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #ffffff;
-            margin: 10px 0;
-        }
-        .birthday-container h3 {
-            font-size: 1.0em;
-            color: #ffffff;
-            margin: 5px 0;
-        }
-        .birthday-link-box a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .birthday-link-box a:hover {
-            background-color: #388E3C;
-        }
-
+        
         @media (max-width: 600px) {
             .homepage-container {
                 grid-template-areas:
                     "instagram"
                     "slideshow"
                     "blog"
-                    "birthday";
+                    "activities";
                 grid-template-columns: 1fr;
                 gap: 10px;
                 padding: 10px;
@@ -410,6 +378,19 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="boxed-by-ninja">
+                    <div class="activities-postbox">
+                        <div class="postbox">
+                            <h3>Recent Activities</h3>
+                        </div>
+                        <ul id="recent-post-list">
+                            <li>Loading recent posts...</li>
+                        </ul>
+                    </div>
+                </div>
+
+
             </main>
         </div>
         <footer>
