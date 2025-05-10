@@ -9,310 +9,290 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
     <style>
-        .homepage-container {
-            display: grid;
-            grid-template-areas: 
-                "instagram slideshow"
-                "blog activities";
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 20px;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .headertext {
+    /* Layout & General Styles */
+    .homepage-container {
+        display: grid;
+        grid-template-areas: 
+            "instagram slideshow"
+            "blog activities";
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .headertext {
         background-color: rgba(255, 255, 255, 0.25);
         border-radius: 10px;
         padding: 20px;
         text-align: center;
         margin-bottom: 20px;
     }
-        .instagram-feed, .slideshow-container, .boxed-by-ninja, .activities-postbox {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
+    
+    /* Component Styles */
+    .instagram-feed, .slideshow-container, .boxed-by-ninja, .activities-postbox {
+        background: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+    }
+    .instagram-feed, .slideshow-container, .recent-posts, .activities-postbox {
+        position: relative;
+    }
+    .instagram-feed {
+        grid-area: instagram;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+    }
+    .slideshow-container {
+        grid-area: slideshow;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+    }
+    .boxed-by-ninja {
+        grid-area: blog;
+    }
+    .activities-postbox {
+        grid-area: activities;
+        text-align: center;
+    }
+    
+    /* Additional Component Styles */
+    .boxed-by-po {
+        max-width: 850px;
+        background-image: url(images/textureOne.jpeg);
+        background-size: contain;
+        border: solid 1px white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .postbox {
+        text-align: center;
+        background-color: rgba(102, 126, 104, 0.873);
+        color: white;
+        padding: 12px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+    }
+    .random-reel {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        flex: 1;
+    }
+    
+    /* Slideshow Specific Styles */
+    .splash-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: calc(80vh - 60px); 
+        overflow: hidden;
+    }
+    .slideshow-header {
+        text-align: center;
+        background-color: rgba(102, 126, 104, 0.873);
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        border-bottom: solid 1px rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+        z-index: 2;
+    }
+    .slideshow-header h3 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+    .slideshow-container img {
+        margin-top: 10px;
+        border-radius: 5px;
+        border: solid 1px rgba(255, 255, 255, 0.3);
+        max-width: 100%;
+        max-height: 100%; 
+        width: auto; 
+        height: auto;
+        object-fit: contain; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    #slideshow-error {
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    
+    /* Instagram & Recent Posts Styles */
+    .instagram-account-card {
+        background-color: rgba(102, 126, 104, 0.873);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        border-bottom: solid 1px rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+        flex-shrink: 0; 
+    }
+    #random-reel {
+        padding: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+    #random-reel video {
+        width: 100%;
+        height: calc(100% - 40px);
+        object-fit: contain;
+        border-radius: 5px;
+    }
+    #random-reel p {
+        margin-top: 10px;
+        text-align: center;
+        color: black;
+        padding: 5px;
+        font-size: 0.9em;
+    }
+    .recent-posts {
+        margin: 0px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border: solid 1px white;
+        border-radius: 9px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        min-height: 160px; 
+        max-height: 100%; 
+        overflow: hidden;
+        padding-top: 55px;
+    }
+    .recent-posts ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        overflow-y: auto; 
+        scrollbar-width: thin;
+        scrollbar-color: rgba(102, 126, 104, 0.5) transparent; 
+    }
+    .recent-posts ul li {
+        margin: 0;
+        padding: 5.5px 11.5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-size: 0.85em; 
+        min-height: 45px;
+    }
+    .recent-posts ul li:last-child {
+        border-bottom: none;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .recent-posts ul li:hover {
+        background: rgba(100, 138, 108, 0.3);
+        transform:scale(1.02);
+    }
+    .recent-posts ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        display: block;
+        font-size: 0.95em;
+    }
+    .recent-posts .post-date {
+        font-size: 0.70em;
+        color: rgba(0, 0, 0, 0.7);
+        margin-top: 1.5px;
+    }
+    .postbox h3 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 768px) {
+        .homepage-container {
+            grid-template-areas: 
+                "slideshow"
+                "instagram"
+                "blog"
+                "activities";
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
-
-        .instagram-feed, .slideshow-container, .recent-posts, .activities-postbox {
-            position: relative;
-        }
-
-        .instagram-feed {
-            grid-area: instagram;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-top: 50px;
-        }
-
-        .slideshow-container {
-            grid-area: slideshow;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-top: 50px;
-        }
-
-        .boxed-by-ninja {
-            grid-area: blog;
-        }
-
-        .activities-postbox {
-            grid-area: activities;
-            text-align: center;
-        }
-
-        .boxed-by-po {
-            max-width: 850px;
-            background-image: url(images/textureOne.jpeg);
-            background-size: contain;
-            border: solid 1px white;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .postbox {
-            text-align: center;
-            background-color: rgba(102, 126, 104, 0.873);
-            color: white;
-            padding: 12px;
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            border-bottom: solid 1px rgba(255, 255, 255, 0.3);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            margin: 0;
-            border-radius: 10px 10px 0 0;
-        }
-        .random-reel {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            flex: 1;
-        }
-
-        .splash-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-height: calc(80vh - 60px); 
-            overflow: hidden;
-        }
-
-        .slideshow-header {
-            text-align: center;
-            background-color: rgba(102, 126, 104, 0.873);
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
-            border-bottom: solid 1px rgb(255, 255, 255);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            margin: 0;
-            border-radius: 10px 10px 0 0;
-            z-index: 2;
-        }
-
-        .slideshow-header h3 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
         .slideshow-container img {
-            margin-top: 10px;
-            border-radius: 5px;
-            border: solid 1px rgba(255, 255, 255, 0.3);
-            max-width: 100%;
-            max-height: 100%; 
-            width: auto; 
-            height: auto;
-            object-fit: contain; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+            margin-top: 40px;
         }
-
-        #slideshow-error {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
+    }
+    @media (max-width: 480px) {
+        .homepage-container {
             padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            margin-top: 10px;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
         }
-
-        .instagram-account-card {
-            background-color: rgba(102, 126, 104, 0.873);
-            color: white;
-            text-align: center;
+        .instagram-feed, .slideshow-container, .boxed-by-ninja, .birthday-container {
+            padding: 15px;
+        }
+        .slideshow-container img {
+            margin-top: 45px;
+        }
+    }
+    @media (max-width: 540px) {
+        .instagram-feed {
+            max-width: 320px;
+            min-height: 500px;
+        }
+    }
+    @media (max-width: 600px) {
+        .homepage-container {
+            grid-template-areas:
+                "instagram"
+                "slideshow"
+                "blog"
+                "activities";
+            grid-template-columns: 1fr;
+            gap: 10px;
             padding: 10px;
-            border-radius: 10px;
-            border-bottom: solid 1px rgb(255, 255, 255);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            margin: 0;
-            border-radius: 10px 10px 0 0;
-            flex-shrink: 0; 
         }
-
-        #random-reel {
-            padding: 10px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        #random-reel video {
-            width: 100%;
-            height: calc(100% - 40px);
-            object-fit: contain;
-            border-radius: 5px;
-        }
-
-        #random-reel p {
-            margin-top: 10px;
-            text-align: center;
-            color: black;
-            padding: 5px;
-            font-size: 0.9em;
-        }
-
-        .recent-posts {
-            margin: 0px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 5px;
-            border: solid 1px white;
-            border-radius: 9px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            min-height: 160px; 
-            max-height: 100%; 
-            overflow: hidden;
-            padding-top: 55px;
-        }
-
-        .recent-posts ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            flex: 1;
-            overflow-y: auto; 
-            scrollbar-width: thin;
-            scrollbar-color: rgba(102, 126, 104, 0.5) transparent; 
-        }
-
-        .recent-posts ul li {
-            margin: 0;
-            padding: 5.5px 11.5px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            font-size: 0.85em; 
-            min-height: 45px;
-        }
-
-        .recent-posts ul li:last-child {
-            border-bottom: none;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-        }
-
-        .recent-posts ul li:hover {
-            background: rgba(100, 138, 108, 0.3);
-            transform:scale(1.02);
-        }
-
-        .recent-posts ul li a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            display: block;
-            font-size: 0.95em;
-        }
-
-        .recent-posts .post-date {
-            font-size: 0.70em;
-            color: rgba(0, 0, 0, 0.7);
-            margin-top: 1.5px;
-        }
-
-        .postbox h3 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
-        @media (max-width: 768px) {
-            .homepage-container {
-                grid-template-areas: 
-                    "slideshow"
-                    "instagram"
-                    "blog"
-                    "activities";
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .slideshow-container img {
-                margin-top: 40px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .homepage-container {
-                padding: 10px;
-            }
-
-            .instagram-feed, .slideshow-container, .boxed-by-ninja, .birthday-container {
-                padding: 15px;
-            }
-            .slideshow-container img {
-                margin-top: 45px;
-            }
-        }
-
-        @media (max-width: 540px) {
-            .instagram-feed {
-                max-width: 320px;
-                min-height: 500px;
-            }
-
-        }
-        
-        @media (max-width: 600px) {
-            .homepage-container {
-                grid-template-areas:
-                    "instagram"
-                    "slideshow"
-                    "blog"
-                    "activities";
-                grid-template-columns: 1fr;
-                gap: 10px;
-                padding: 10px;
-            }
-        }
+    }
     </style>
 </head>
 <body class="fade-out">
