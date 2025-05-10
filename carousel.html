@@ -159,7 +159,7 @@ function attachChapterNavigation(currentVolume, chapterIndex) {
       const nextChapterId = currentVolume.chapters[chapterIndex + 1].chapterId;
       const nextMeta = currentVolume.childChaptersMeta?.find(m => m.chapterId === nextChapterId);
       if (nextMeta?.["chapterfree?"] === "false") {
-        alert("Access Denied: Next chapter is not free.");
+        alert("Access Denied: Next chapter is not available.");
         return;
       }
       window.location.href = `carousel.html?chapterId=${nextChapterId}`;
@@ -173,7 +173,7 @@ function attachChapterNavigation(currentVolume, chapterIndex) {
       const prevChapterId = currentVolume.chapters[chapterIndex - 1].chapterId;
       const prevMeta = currentVolume.childChaptersMeta?.find(m => m.chapterId === prevChapterId);
       if (prevMeta?.["chapterfree?"] === "false") {
-        alert("Access Denied: Previous chapter is not free.");
+        alert("Access Denied: Previous chapter is not available.");
         return;
       }
       window.location.href = `carousel.html?chapterId=${prevChapterId}`;
