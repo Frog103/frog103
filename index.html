@@ -65,7 +65,7 @@
     }
     
     /* Additional Component Styles */
-    .boxed-by-po {
+    .portfolio-box {
         max-width: 850px;
         background-image: url(images/textureOne.jpeg);
         background-size: contain;
@@ -122,7 +122,6 @@
         width: 100%;
         margin: 0;
         border-radius: 10px 10px 0 0;
-        z-index: 2;
     }
     .slideshow-header h3 {
         margin: 0;
@@ -205,6 +204,7 @@
         max-height: 100%; 
         overflow: hidden;
         padding-top: 55px;
+        position: relative; /* Added to ensure proper positioning of .postbox */
     }
     .recent-posts ul {
         list-style: none;
@@ -223,6 +223,7 @@
         transition: all 0.3s ease;
         font-size: 0.85em; 
         min-height: 45px;
+        will-change: transform;
     }
     .recent-posts ul li:last-child {
         border-bottom: none;
@@ -317,7 +318,7 @@
             </nav>
         </div>
 
-        <div class="boxed-by-po">
+        <div class="portfolio-box">
             <div class="headertext">
                 <h2>About</h2>
                 <hr>
