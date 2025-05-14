@@ -21,6 +21,12 @@
         max-width: 1200px;
         margin: auto;
     }
+    .blog-activities-container {
+        display: grid;
+        grid-template-areas:
+        "blog activities";
+        grid-template-columns: 2fr 3fr;
+    }
     .headertext {
         background-color: rgba(255, 255, 255, 0.25);
         border-radius: 10px;
@@ -62,6 +68,12 @@
     .activities-postbox {
         grid-area: activities;
         text-align: center;
+    }
+    .blog-activities-container .boxed-by-ninja {
+    grid-area: blog;
+    }
+    .blog-activities-container .boxed-by-clix {
+    grid-area: activities;
     }
     
     /* Additional Component Styles */
@@ -418,6 +430,8 @@
                         Unable to load. Please try refreshing the page.
                     </div>
                 </div>
+
+            <div class="blog-activities-container">
                 <div class="boxed-by-ninja">
                     <div class="recent-posts">
                         <div class="postbox">
@@ -439,6 +453,7 @@
                         </ul>
                     </div>
                 </div>
+            </div>
 
 
             </main>
