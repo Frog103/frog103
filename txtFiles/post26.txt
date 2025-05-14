@@ -1,0 +1,6 @@
+<p> Not too long after the first practice I did, I attempted the style again, 
+this time with a bit more knowledge and a general idea of what I expected it to look like.
+Unlike last time I made sure to keep the stroke direction consistent, along with playing around with the spacing to get a better sense of 
+value and texture in the portrait.</p> 
+<p>The only issue I have is that it looks stiff compared to my first try, which is probably because there's too much stroke consistency, (And because I fudged the hair) 
+so I think a bit of asymmetry and randomness should work well, especially in the eyes.</p>
