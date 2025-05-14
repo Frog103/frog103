@@ -13,8 +13,9 @@
     .homepage-container {
         display: grid;
         grid-template-areas:
-        "blog activities" 
-        "instagram slideshow";
+        "blogContainer"
+        "contentContainer";
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 20px;
         max-width: 1200px;
@@ -22,12 +23,14 @@
     }
     .blog-activities-container {
         display: grid;
+        grid-area: blogContainer;
         grid-template-areas:
         "blog activities";
         grid-template-columns: 2fr 3fr;
     }
     .content-container {
         display: grid;
+        grid-area: contentContainer;
         grid-template-areas:
         "instagram slideshow";
         grid-template-columns: 1fr 1fr;
