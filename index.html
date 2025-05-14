@@ -15,7 +15,6 @@
         grid-template-areas:
         "blog activities" 
         "instagram slideshow";
-        grid-template-columns: 1fr 1fr;
         gap: 20px;
         padding: 20px;
         max-width: 1200px;
@@ -26,6 +25,12 @@
         grid-template-areas:
         "blog activities";
         grid-template-columns: 2fr 3fr;
+    }
+    .content-container {
+        display: grid;
+        grid-template-areas:
+        "instagram slideshow";
+        grid-template-columns: 1fr 1fr;
     }
     .headertext {
         background-color: rgba(255, 255, 255, 0.25);
@@ -403,6 +408,8 @@
                 <p>See below for samples.</p>
             </div>
             <main class="homepage-container">
+            
+            <div class="content-container">
                 <div class="instagram-feed">
                     <div class="instagram-account-card">
                         <h3>@stickybell</h3>
@@ -424,6 +431,7 @@
                         Unable to load. Please try refreshing the page.
                     </div>
                 </div>
+            </div>
 
                 <div class="blog-activities-container">
                 <div class="boxed-by-ninja">
