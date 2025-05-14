@@ -332,17 +332,25 @@
     }
 
 
-    
-    /* Updated Media Queries */
     @media (max-width: 768px) {
         .homepage-container {
             grid-template-areas: 
                 "blog"
                 "activities"
-                "slideshow"
-                "instagram";
+                "instagram"
+                "slideshow";
             grid-template-columns: 1fr;
             gap: 15px;
+        }
+        .content-container {
+            grid-template-areas:
+                "instagram"
+                "slideshow";
+        }
+        .blog-activities-container {
+            grid-template-areas:
+                "blog"
+                "activities";
         }
         .slideshow-container img {
             margin-top: 40px;
@@ -351,6 +359,9 @@
     @media (max-width: 600px) {
         .homepage-container {
             gap: 10px;
+            padding: 10px;
+        }
+        .header-nav-container {
             padding: 10px;
         }
     }
@@ -367,6 +378,7 @@
         .instagram-feed,
         .slideshow-container,
         .boxed-by-ninja,
+        .blog-activities-container,
         .birthday-container {
             padding: 15px;
         }
