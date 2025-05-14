@@ -215,6 +215,33 @@
             "date": "2024-04-30",
             "tags": ["Digital"],
             "showcase": "false"
+        },
+        {
+            "id": 25,
+            "title": "Hatching Practice",
+            "description": "txtFiles/post25.txt",
+            "image": "images/galleryImages/otherArt/hatching1.jpg",
+            "date": "2025-04-20",
+            "tags": ["Digital"],
+            "showcase": "false"
+        },
+        {
+            "id": 26,
+            "title": "Hatching Practice #2",
+            "description": "txtFiles/post26.txt",
+            "image": "images/galleryImages/otherArt/hatching2.jpg",
+            "date": "2025-04-22",
+            "tags": ["Digital"],
+            "showcase": "false"
+        },
+        {
+            "id": 27,
+            "title": "Hatching Practice #3",
+            "description": "txtFiles/post27.txt",
+            "image": "images/galleryImages/otherArt/hatching3.jpg",
+            "date": "2025-04-26",
+            "tags": ["Digital"],
+            "showcase": "true"
         }
     ]
 }
