@@ -331,18 +331,20 @@
         font-size: 0.95em;
     }
 
-
     @media (max-width: 768px) {
         .homepage-container {
-            grid-template-areas: "blog" "activities" "instagram" "slideshow";
             grid-template-columns: 1fr;
             gap: 15px;
         }
         .content-container {
-            grid-template-areas: "instagram" "slideshow";
+            grid-template-areas: 
+            "instagram" 
+            "slideshow";
         }
         .blog-activities-container {
-            grid-template-areas: "blog" "activities";
+            grid-template-areas: 
+            "blog" 
+            "activities";
         }
         .slideshow-container img {
             margin-top: 40px;
