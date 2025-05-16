@@ -184,8 +184,8 @@
             "id": 19,
             "title": "",
             "description": "txtFiles/post19.txt",
-            "image": "images/galleryImages/otherArt/etherHQ.jpg",
-            "thumbnail": "images/galleryImages/otherArt/ether.JPG",
+            "image": "images/galleryImages/otherArt/etherHQ.JPG",
+            "thumbnail": "images/galleryImages/otherArt/ether.jpg",
             "date": "2025-01-27",
             "tags": ["Character", "Digital"],
             "showcase": "true"
