@@ -96,7 +96,7 @@ function createSlide(imageSrc, index) {
         img.style.height = `${height}px`;
 
         // Ensure compatibility for smaller screens
-        if (window.innerWidth <= 600) {
+        if (window.innerWidth <= 768) {
             img.style.width = '100%';
             img.style.height = 'auto';
         }
