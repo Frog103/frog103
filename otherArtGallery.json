@@ -244,8 +244,8 @@
             "id": 25,
             "title": "Hatching Practice",
             "description": "txtFiles/post25.txt",
-            "image": "images/galleryImages/otherArt/hatching1.JPG",
-            "thumbnail": "images/galleryImages/otherArt/hatching1LQ.jpg",
+            "image": "images/galleryImages/otherArt/hatching1.jpg",
+            "thumbnail": "images/galleryImages/otherArt/hatching1LQ.JPG",
             "date": "2025-04-20",
             "tags": ["Digital"],
             "showcase": "false"
@@ -254,8 +254,8 @@
             "id": 26,
             "title": "Hatching Practice #2",
             "description": "txtFiles/post26.txt",
-            "image": "images/galleryImages/otherArt/hatching2.JPG",
-            "thumbnail": "images/galleryImages/otherArt/hatching2LQ.jpg",
+            "image": "images/galleryImages/otherArt/hatching2.jpg",
+            "thumbnail": "images/galleryImages/otherArt/hatching2LQ.JPG",
             "date": "2025-04-22",
             "tags": ["Digital"],
             "showcase": "false"
@@ -264,8 +264,8 @@
             "id": 27,
             "title": "Hatching Practice #3",
             "description": "txtFiles/post27.txt",
-            "image": "images/galleryImages/otherArt/hatching3.JPG",
-            "thumbnail": "images/galleryImages/otherArt/hatching3LQ.jpg",
+            "image": "images/galleryImages/otherArt/hatching3.jpg",
+            "thumbnail": "images/galleryImages/otherArt/hatching3LQ.JPG",
             "date": "2025-04-26",
             "tags": ["Digital"],
             "showcase": "true"
