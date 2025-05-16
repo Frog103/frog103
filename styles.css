@@ -398,51 +398,6 @@ main {
     padding: 20px 0;
     margin-top: 0;
 }
-
-
-.birthday-container {
-    border: 2px solid #4CAF50;
-    border-radius: 10px;
-    background-color: rgba(240, 255, 240, 0.8);
-    padding: 15px;
-    margin: 20px auto;
-    max-width: 800px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.birthday-banner {
-    margin-bottom: 10px;
-}
-
-.birthday-banner img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.birthday-container p {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #4CAF50;
-    margin: 10px 0;
-}
-
-.birthday-link-box a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.birthday-link-box a:hover {
-    background-color: #388E3C;
-}
-
 /*=========================================================================
   Additional Effects & Optimizations
 ==========================================================================*/
@@ -458,7 +413,7 @@ main {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-image: url(images/darkmode.jp);
+        background-image: url(images/darkmode.jpg);
         background-image: linear-gradient(45deg,rgba(0, 144, 14, 0.35),rgba(0, 67, 160, 0.35)), url(images/darkmode.jpg);
         background-size: cover;
         background-attachment: fixed;
@@ -480,12 +435,6 @@ main {
         background-size: cover;
         background-attachment: fixed;
     }
-}
-
-img {
-    content-visibility: auto;
-    contain: content;
-    will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
