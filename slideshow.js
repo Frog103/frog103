@@ -76,32 +76,7 @@ function createSlide(imageSrc, index) {
             errorElement.style.display = 'none';
         }
 
-        const containerWidth = container.clientWidth;
-        const containerHeight = container.clientHeight;
-        const imageRatio = img.naturalWidth / img.naturalHeight;
-        const containerRatio = containerWidth / containerHeight;
-
-        // Calculate dimensions to maintain aspect ratio
-        let width, height;
-        if (imageRatio > containerRatio) {
-            width = Math.min(containerWidth, img.naturalWidth);
-            height = width / imageRatio;
-        } else {
-            height = Math.min(containerHeight, img.naturalHeight);
-            width = height * imageRatio;
-        }
-
-        // Apply calculated dimensions
-        img.style.width = `${width}px`;
-        img.style.height = `${height}px`;
-
-        // Ensure compatibility for smaller screens
-        if (window.innerWidth <= 768) {
-            img.style.width = '100%';
-            img.style.height = 'auto';
-        }
-
-        slideDiv.style.opacity = '1';
+       
     };
     
     slideDiv.appendChild(img);
