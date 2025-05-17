@@ -32,11 +32,16 @@ body {
     background-image: url(images/background.jpeg);
     background-size: cover;
     background-attachment: fixed;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: dimica-light, sans-serif;
     -webkit-font-smoothing: antialiased;
     line-height: 1.6;
     opacity: 0;
     animation: fadeIn 0.7s ease-in-out forwards;
+}
+@font-face {
+    font-family: 'dimica-light';
+    src: url(dimica-light.otf) format('opentype');
+    font-weight: normal;
 }
 
 /*=========================================================================
