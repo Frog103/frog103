@@ -1,4 +1,4 @@
-const ITEMS_PER_PAGE = 16;
+const ITEMS_PER_PAGE = 15;
         let currentPage = 1;
         let filteredItems = [];
         let allItems = [];
