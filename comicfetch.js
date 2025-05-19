@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 });
 
-// Modularize repetitive code and improve readability
+
 function renderError(containerId, message) {
   document.getElementById(containerId).innerHTML = `<p>${message}</p>`;
 }
