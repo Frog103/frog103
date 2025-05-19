@@ -1,22 +1,38 @@
 document.addEventListener("DOMContentLoaded", function(){
+  // Dispatch functions based on detected container.
+  // Dependent on comic.html if 'bannerContainer' exists.
   if(document.getElementById("bannerContainer")){
     loadComic();
+  // Dependent on Projects.html if 'projectContainer' exists.
   } else if(document.getElementById("projectContainer")){
     loadProjects();
+  // Dependent on viewer.html if 'viewerContainer' exists.
   } else if(document.getElementById("viewerContainer")){
     loadViewer();
   }
 });
 
+// ====================
+// Section: comic.html dependent functions
+// ====================
 
+// Renders an error message into a given container.
 function renderError(containerId, message) {
   document.getElementById(containerId).innerHTML = `<p>${message}</p>`;
 }
 
+// Generates HTML buttons for each volume.
 function renderVolumeButtons(volumes) {
   return volumes.map((volume, index) => `<button class="volume-button" data-index="${index}">${volume.volumeTitle}</button>`).join('');
 }
 
+// Determines the appropriate icon for chapter accessibility.
+function getChapterIcon(meta) {
+  return (meta && meta["chapterfree?"] === "true") ? '👁️' : '🔒';
+}
+
+// Creates HTML layout for an individual chapter card.
+// Indicates if the chapter is freely accessible (👁️) or locked (🔒).
 function renderChapterCard(ch, meta) {
   const chapterIcon = (meta && meta["chapterfree?"] === "true") ? '👁️' : '🔒';
   return `
@@ -34,6 +50,7 @@ function renderChapterCard(ch, meta) {
   `;
 }
 
+// Renders all chapters for a given volume and attaches access control.
 function renderChapters(volume) {
   if (!volume || !Array.isArray(volume.chapters)) {
     renderError("chapterContainer", "No chapters available.");
@@ -63,9 +80,16 @@ function renderChapters(volume) {
   attachAccessControl();
 }
 
+// Loads comic data and populates the comic page.
+// Dependent on comic.html.
 function loadComic() {
   fetch('cradle.json')
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
     .then(data => {
       if (!data.comics || !data.comics.length) {
         console.error("No comics available in data.");
@@ -108,7 +132,7 @@ function loadComic() {
     });
 }
 
-// New function to attach access control to generated links.
+// Attaches event listeners to links for access control checking.
 function attachAccessControl() {
   document.querySelectorAll("#chapterContainer a[data-chapterfree]").forEach(anchor => {
     anchor.addEventListener("click", function(e) {
@@ -128,6 +152,12 @@ function attachAccessControl() {
   });
 }
 
+// ====================
+// Section: Projects.html dependent function
+// ====================
+
+// Loads project data and populates the project page.
+// Dependent on Projects.html.
 function loadProjects(){
   fetch('cradle.json')
     .then(res => res.json())
@@ -159,13 +189,19 @@ function loadProjects(){
     });
 }
 
+// ====================
+// Section: viewer.html dependent function
+// ====================
+
+// Loads viewer data and populates the chapter viewer page.
+// Dependent on viewer.html.
 function loadViewer(){
   const params = new URLSearchParams(window.location.search);
   const chapterId = params.get("chapterId");
   fetch('cradle.json')
     .then(res => res.json())
     .then(data => {
-      if(!data.comics || !data.comics.length) {
+      if (!data.comics || !data.comics.length) {
          document.getElementById("viewerContainer").innerHTML = "<p>No comic data available.</p>";
          return;
       }
@@ -176,15 +212,17 @@ function loadViewer(){
         comic.volumes.forEach(volume => {
           listHtml += `<h2>${volume.volumeTitle}</h2>`;
           // Ensure childChaptersMeta exists before iterating
-          if(Array.isArray(volume.childChaptersMeta)) {
+          if (Array.isArray(volume.childChaptersMeta)) {
             volume.childChaptersMeta.forEach(chMeta => {
-               listHtml += `
+              listHtml += `
               <div class="chapter-list-item">
                 <p>${chMeta.chapterTitle} (Released: ${chMeta.releaseDate})</p>
                 <a href="carousel.html?chapterId=${chMeta.chapterId}">View Carousel</a>
               </div>
-             `;
+              `;
             });
+          } else if (volume.childChaptersMeta) {
+            listHtml += `<p>Invalid chapters metadata format.</p>`;
           } else {
             listHtml += `<p>No chapters metadata available.</p>`;
           }
