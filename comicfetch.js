@@ -194,7 +194,7 @@ function loadProjects(){
                 <h2>${comic.comicTitle}</h2>
                 <p>${comic.comicExcerpt}</p>
                 <p><strong>Volumes:</strong> ${totalVolumes} | <strong>Chapters:</strong> ${totalChapters}</p>
-                <p><strong>Latest Upload:</strong> ${latestUpload}</p>
+                <p><strong>Last Update:</strong> ${latestUpload}</p>
                 <p><strong>Tags:</strong> ${tags}</p>
                 <button class="view-button" onclick="location.href='comic.html'">View Product</button>
               </div>
