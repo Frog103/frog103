@@ -168,13 +168,34 @@ function loadProjects(){
       }
       let projectsHtml = "";
       data.comics.forEach(comic => {
+        // Calculate additional details:
+        const totalVolumes = comic.volumes.length;
+        const totalChapters = comic.volumes.reduce((acc, volume) =>
+          acc + (Array.isArray(volume.chapters) ? volume.chapters.length : 0), 0);
+        let latestDate = null;
+        comic.volumes.forEach(volume => {
+          if(Array.isArray(volume.chapters)){
+            volume.chapters.forEach(chapter => {
+              let chapterDate = new Date(chapter.releaseDate);
+              if(!latestDate || chapterDate > latestDate){
+                latestDate = chapterDate;
+              }
+            });
+          }
+        });
+        const latestUpload = latestDate ? latestDate.toLocaleDateString() : "N/A";
+        const tags = comic.tags.join(", ");
+        
         projectsHtml += `
           <div class="project-card-container">
             <div class="project-card">
               <img src="${comic.coverImage}" alt="${comic.comicTitle} Cover">
               <div class="project-info">
                 <h2>${comic.comicTitle}</h2>
-                <p>${comic.comicDescription}</p>
+                <p>${comic.comicExcerpt}</p>
+                <p><strong>Volumes:</strong> ${totalVolumes} | <strong>Chapters:</strong> ${totalChapters}</p>
+                <p><strong>Latest Upload:</strong> ${latestUpload}</p>
+                <p><strong>Tags:</strong> ${tags}</p>
                 <button class="view-button" onclick="location.href='comic.html'">View Product</button>
               </div>
             </div>

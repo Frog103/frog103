@@ -3,12 +3,13 @@
       {
         "comicId": "1",
         "comicTitle": "Cradle Syndrome",
+        "comicExcerpt": "A gripping tale of survival and mystery.",
         "comicDescription": "Description Text",
         "productHeaderText": "Header Text",
         "credits": {
           "writer": "stickybell09",
           "artist": "stickybell09",
-          "extra": "Pop Smoke, NBA Youngboy"
+          "extra": "N/A"
         },
         "tags": ["Fantasy", "Horror", "Adventure"],
         "coverImage": "images/products/comics/cradle/cover.jpg",
