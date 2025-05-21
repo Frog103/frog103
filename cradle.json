@@ -25,19 +25,19 @@
               {
                 "chapterId": "1",
                 "chapterTitle": "Chapter 1: The Beginning",
-                "releaseDate": "2025-03-11",
+                "releaseDate": "2024-03-11",
                 "chapterfree?": "true"
               },
               {
                 "chapterId": "2",
                 "chapterTitle": "Chapter 2: The Middle",
-                "releaseDate": "2025-03-18",
+                "releaseDate": "2024-03-18",
                 "chapterfree?" : "false"
               },
               {
                 "chapterId": "3",
                 "chapterTitle": "Chapter 3: The End",
-                "releaseDate": "2025-03-25",
+                "releaseDate": "2024-03-25",
                 "chapterfree?":"false"
               }
             ],
@@ -45,7 +45,7 @@
               {
                 "chapterId": "1",
                 "chapterTitle": "Chapter 1: The Beginning",
-                "releaseDate": "2025-03-11",
+                "releaseDate": "2024-03-11",
                 "chapterImages": [
                   "images/products/comics/cradle/vol1/chapters/ch1/1.jpg",
                   "images/products/comics/cradle/vol1/chapters/ch1/2.jpg",
@@ -68,7 +68,7 @@
               {
                 "chapterId": "2",
                 "chapterTitle": "Chapter 2: The Middle",
-                "releaseDate": "2025-03-18",
+                "releaseDate": "2024-03-18",
                 "chapterImages": [
                   "images/products/comics/cradle/vol1/chapters/ch2/1.jpg",
                   "images/products/comics/cradle/vol1/chapters/ch2/2.jpg",
@@ -91,7 +91,7 @@
               {
                 "chapterId": "3",
                 "chapterTitle": "Chapter 3: The End",
-                "releaseDate": "2025-03-25",
+                "releaseDate": "2024-03-25",
                 "chapterImages": [
                   "images/products/comics/cradle/vol1/chapters/ch3/1.jpg",
                   "images/products/comics/cradle/vol1/chapters/ch3/2.jpg",
@@ -123,7 +123,7 @@
               {
                 "chapterId": "11",
                 "chapterTitle": "Chapter 11: A New Beginning",
-                "releaseDate": "2025-06-01",
+                "releaseDate": "2024-06-01",
                 "chapterfree?": "false"
               }
             ],
@@ -131,7 +131,7 @@
               {
                 "chapterId": "11",
                 "chapterTitle": "Chapter 11: A New Beginning",
-                "releaseDate": "2025-06-01",
+                "releaseDate": "2024-06-01",
                 "chapterImages": [
                   "images/products/comics/cradle/vol2/chapters/ch11/1.jpg",
                   "images/products/comics/cradle/vol2/chapters/ch11/2.jpg"
