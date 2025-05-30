@@ -1,4 +1,6 @@
-class ParticleSystem {
+
+
+/* class ParticleSystem {
     constructor() {
         // Check if device is mobile or screen is too small
         if (this.isMobileDevice() || window.innerWidth < 768) {
@@ -190,3 +192,4 @@ document.addEventListener('DOMContentLoaded', () => {
         new ParticleSystem();
     }
 });
+*/
