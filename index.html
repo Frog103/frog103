@@ -338,12 +338,13 @@
     }
 
     @media (max-width: 768px) {
-
         .homepage-container {
             grid-template-areas:
                 "blogContainer"
                 "contentContainer";
             grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 15px;
         }
 
         .blog-activities-container {
@@ -351,57 +352,63 @@
                 "blog"
                 "activities";
             grid-template-columns: 1fr;
+            gap: 15px;
         }
-    
+
         .content-container {
             grid-template-areas:
                 "instagram"
                 "slideshow";
             grid-template-columns: 1fr;
+            gap: 15px;
         }
-    
-        .instagram-feed, .slideshow-container {
+
+        .instagram-feed,
+        .slideshow-container {
             padding-top: 20px;
         }
+        
         .splash-container {
-            max-height: none; 
+            max-height: none;
         }
+        
         .slideshow-container {
             height: auto;
             min-height: 200px;
         }
+        
         .slideshow-container img {
             margin-top: 45px;
             max-height: none !important;
- 
-        }
-        .recent-posts ul li:nth-child(1) {
-            margin: 11px 0 0;
-        }
-        .activities-postbox ul li:nth-child(1) {
-            margin: 11px 0 0;
         }
         
-        .recent-posts, .activities-postbox {
+        .recent-posts ul li:nth-child(1),
+        .activities-postbox ul li:nth-child(1) {
+            margin-top: 11px;
+        }
+        
+        .recent-posts,
+        .activities-postbox {
             padding-top: 45px;
         }
     }
-    
+
     @media (max-width: 480px) {
         body {
             font-size: 0.9em;
         }
         
-        .headertext, .instagram-account-card, .postbox, .actbox {
+        .headertext,
+        .instagram-account-card,
+        .postbox,
+        .actbox {
             padding: 10px;
         }
-        .recent-posts ul li:nth-child(1) {
-            margin: 5px 0 0;
-        }
+        
+        .recent-posts ul li:nth-child(1),
         .activities-postbox ul li:nth-child(1) {
-            margin: 2px 0 0;
+            margin-top: 5px;
         }
-
     }
     </style>
 </head>
