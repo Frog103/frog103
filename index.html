@@ -337,37 +337,77 @@
         margin-bottom: 10px;
     }
     /* Responsive Media Queries */
-    @media (max-width: 768px) {
+        @media (max-width: 768px) {
         .homepage-container {
             grid-template-areas:
                 "blogContainer"
                 "contentContainer";
             grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 15px;
         }
+
         .blog-activities-container {
             grid-template-areas:
                 "blog"
                 "activities";
             grid-template-columns: 1fr;
+            gap: 15px;
         }
+
         .content-container {
             grid-template-areas:
                 "instagram"
                 "slideshow";
             grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .instagram-feed {
+            padding-top: 20px;
+        }
+        
+        .slideshow-container {
+            padding-top: 20px;
+            height: auto;
+            min-height: 200px;
+        }
+        
+        .splash-container {
+            max-height: none;
+        }
+        
+        .slideshow-container img {
+            margin-top: 45px;
+            max-height: none !important;
+        }
+        
+        .recent-posts ul li:nth-child(1),
+        .activities-postbox ul li:nth-child(1) {
+            margin-top: 11px;
+        }
+        
+        .recent-posts,
+        .activities-postbox {
+            padding-top: 45px;
         }
     }
+
     @media (max-width: 480px) {
-        header {
-            flex-direction: column;
-            align-items: center;
+        body {
+            font-size: 0.9em;
         }
-        nav ul {
-            flex-direction: column;
-            text-align: center;
+        
+        .headertext,
+        .instagram-account-card,
+        .postbox,
+        .actbox {
+            padding: 10px;
         }
-        .instagram-feed, .slideshow-container {
-            padding-top: 20px;
+        
+        .recent-posts ul li:nth-child(1),
+        .activities-postbox ul li:nth-child(1) {
+            margin-top: 5px;
         }
     }
 
