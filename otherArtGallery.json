@@ -269,6 +269,16 @@
             "date": "2025-04-26",
             "tags": ["Digital"],
             "showcase": "true"
+        },
+        {
+            "id": 28,
+            "title": "Render Practice",
+            "description": "txtFiles/post28.txt",
+            "image": "images/galleryImages/otherArt/renderPractice.jpg",
+            "thumbnail": "images/galleryImages/otherArt/renderPracticeLQ.jpg",
+            "date": "2025-06-08",
+            "tags": ["Digital"],
+            "showcase": "true"
         }
     ]
 }

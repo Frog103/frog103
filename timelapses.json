@@ -41,6 +41,12 @@
             "media_url": "images/timelapses/tetna.mp4",
             "thumbnail_url": "images/thumbnails/tetna.jpg",
             "caption": ""
+        },
+        {
+            "id": "8",
+            "media_url": "images/timelapses/renderPractice.mp4",
+            "thumbnail_url": "images/thumbnails/renderPracticeLQ.jpg",
+            "caption": ""
         }
     ]
 }
