@@ -29,7 +29,7 @@
       cursor: pointer;
     }
 
-    .post-summary {
+    .post-card {
       display: flex;
       gap: 15px;
       background-color: rgba(255, 255, 255, 0.9);
@@ -40,12 +40,12 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .post-summary:hover {
+    .post-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .post-summary img {
+    .post-card img {
       width: 150px;
       height: auto;
       border-radius: 5px;
@@ -230,14 +230,10 @@
         </div>
       </div>
     </main>
-
-
     <footer>
       Copyright &copy; 2024-2025 Frog103. All Rights Reserved.
       <p>For usage, licensing, or other inquiries, please contact me.</p>
     </footer>
-
-
     <script>
       const postsPerPage = 4;
       let posts = [];
@@ -304,7 +300,7 @@
 
         paginatedPosts.forEach(post => {
           const postElement = document.createElement('div');
-          postElement.classList.add('post-summary');
+          postElement.classList.add('post-card');
 
           const img = document.createElement('img');
           img.src = post.image || 'images/default-placeholder.jpg';
