@@ -251,11 +251,11 @@
             padding: 10px;
         }
 
-        .filter-container {
+        
+        .filter-sidebar {
             flex-direction: column;
             gap: 10px;
         }
-
 
         .post-card {
             flex-direction: column;
@@ -325,7 +325,7 @@
         <aside class="filter-sidebar" role="search">
           <h2>Filters</h2>
           <div class="filter-section">
-            <h3>FILTERS</h3>
+            <h3>Contains:</h3>
             <div class="filter-actions">
               <button data-filter="images"><i class="fas fa-image"></i></button>
               <button data-filter="videos"><i class="fas fa-film"></i></button>
@@ -334,7 +334,7 @@
             </div>
           </div>
             <div class="filter-section">
-            <h3>DATE</h3>
+            <h3>Date:</h3>
             <select id="date-limit">
               <option value="365" selected>ANYTIME</option>
               <option value="7">Last 7 days</option>
@@ -344,38 +344,16 @@
             </select>
             </div>
           <div class="filter-section">
-            <h3>SEARCH <span class="or-and">TITLE</span></h3>
+            <h3>Search:<span class="or-and">Title</span></h3>
             <input type="text" id="search-input" placeholder="Search titles...">
           </div>
           <div class="filter-section">
-            <h3>TAGS (MAX 10) <span class="or-and">OR / AND</span></h3>
+            <h3>Tags (Max 10) <span class="or-and">Or / And</span></h3>
             <select id="include-tags" multiple></select>
           </div>
           <div class="filter-section">
-            <h3>EXCLUDE TAGS (MAX 10)</h3>
+            <h3>Exclude Tags (Max 10)</h3>
             <select id="exclude-tags" multiple></select>
-          </div>
-          <div class="filter-section collapsible collapsed">
-            <h3>PREFIX: ENGINE</h3>
-            <div class="collapsible-content">
-              <label><input type="checkbox" value="Unity"> Unity</label>
-              <label><input type="checkbox" value="Unreal"> Unreal</label>
-              <label><input type="checkbox" value="Godot"> Godot</label>
-            </div>
-          </div>
-          <div class="filter-section collapsible collapsed">
-            <h3>PREFIX: OTHER</h3>
-            <div class="collapsible-content">
-              <label><input type="checkbox" value="Tutorial"> Tutorial</label>
-              <label><input type="checkbox" value="Announcement"> Announcement</label>
-            </div>
-          </div>
-          <div class="filter-section collapsible collapsed">
-            <h3>PREFIX: STATUS</h3>
-            <div class="collapsible-content">
-              <label><input type="checkbox" value="Draft"> Draft</label>
-              <label><input type="checkbox" value="Published"> Published</label>
-            </div>
           </div>
         </aside>
         <div class="dawg">
@@ -390,7 +368,7 @@
     </footer>
     <script>
       const postsPerPage = 4;
-      let posts = [], currentPage = 1;
+      let posts = [], currentPage = 1, isLoading = true;
       let activeCategory = null;
       let activeSort = 'date-desc';
       let dateLimitDays = 365;
@@ -398,10 +376,21 @@
       let includeTags = [];
       let excludeTags = [];
       let prefixes = { engine: [], other: [], status: [] };
-
+      
       fetch('posts.json')
         .then(r => r.json())
-        .then(data => { posts = data.posts; initFilters(); updatePosts(); });
+        .then(data => {
+          posts = data.posts;
+          isLoading = false;
+        const allTags = Array.isArray(posts) && posts.length > 0 
+          ? [...new Set(posts.flatMap(p => p.tags || []))]
+          : [];
+          updatePosts();
+        })
+        .catch(error => {
+          console.error('Error fetching posts:', error);
+          isLoading = false;
+        });
 
       function initFilters() {
         const allTags = [...new Set(posts.flatMap(p => p.tags))];
@@ -427,8 +416,6 @@
           });
         document.getElementById('date-limit').oninput = e => {
           dateLimitDays = +e.target.value;
-          document.getElementById('date-limit-display').textContent =
-            dateLimitDays===365 ? 'ANYTIME' : `Last ${dateLimitDays} days`;
           currentPage = 1; updatePosts();
         };
         document.getElementById('search-input').oninput = e => {
@@ -449,6 +436,10 @@
       }
 
       function updatePosts() {
+        if (isLoading) {
+          console.log('Posts are still loading...');
+          return;
+        }
         let list = posts.slice();
         if (activeCategory) list = list.filter(p => p.category === activeCategory);
         if (searchQuery) list = list.filter(p =>
@@ -457,7 +448,7 @@
         );
         if (dateLimitDays < 365) {
           const cutoff = Date.now() - dateLimitDays * 24 * 60 * 60 * 1000;
-          list = list.filter(p => new Date(p.date) >= cutoff);
+          list = list.filter(p => p.date && !isNaN(new Date(p.date)) && new Date(p.date) >= cutoff);
         }
         if (includeTags.length) {
           list = list.filter(p => includeTags.every(t => p.tags.includes(t)));
@@ -469,7 +460,11 @@
           const vals = prefixes[key];
           if (vals.length) list = list.filter(p => vals.includes(p.prefixes?.[key]));
         });
-        const [field, dir] = activeSort.split('-');
+          if (field==='date') {
+            const dateA = a.date && !isNaN(new Date(a.date)) ? new Date(a.date) : new Date(0);
+            const dateB = b.date && !isNaN(new Date(b.date)) ? new Date(b.date) : new Date(0);
+            diff = dateA - dateB;
+          }
         list.sort((a,b) => {
           let diff = 0;
           if (field==='date') diff = new Date(a.date) - new Date(b.date);
@@ -490,7 +485,7 @@
         out.innerHTML = '';
         arr.forEach(p => {
           const card = document.createElement('div');
-          card.className = 'post-card';
+          img.src = p.image || 'https://via.placeholder.com/150';
           const img = document.createElement('img');
           img.src = p.image || 'images/default-placeholder.jpg';
           img.alt = p.title;
