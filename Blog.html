@@ -7,6 +7,7 @@
   <title>Frog103 - Blog</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       box-sizing: border-box;
@@ -16,28 +17,105 @@
       max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
-      grid-template-columns: 1fr 4fr;
-      grid-template-areas: "filter posts";
       display: grid;
-      gap: 10px;
+      grid-template-columns: 250px 1fr;
+      gap: 20px;
     }
 
-    .filter-container {
-      grid-area: filter;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      justify-content: space-between;
-      align-items: center;
+    .filter-sidebar {
+      background: #2b2b2b;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-y: auto;
+      max-height: calc(100vh - 100px);
+    }
+
+    .filter-sidebar h2 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+    }
+
+    .filter-section {
       margin-bottom: 20px;
     }
 
-    .filter-container select, .filter-container button {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background: #fff;
+    .filter-section h3 {
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .filter-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-actions button {
+      background: #3a3a3a;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
       cursor: pointer;
     }
+
+    .filter-actions button.active { background: #4CAF50; }
+
+    .filter-section input[type="range"] {
+      width: 100%;
+    }
+
+    .filter-section input[type="text"],
+    .filter-section select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      background: #1e1e1e;
+      color: #fff;
+    }
+
+    .filter-section select[multiple] {
+      height: 100px;
+    }
+
+    .or-and {
+      float: right;
+      font-size: 0.75rem;
+      color: #777;
+    }
+
+    .collapsible h3 {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .collapsible h3::after {
+      content: '\f078';
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      right: 0;
+      transition: transform .2s;
+    }
+
+    .collapsible.collapsed h3::after {
+      transform: rotate(-90deg);
+    }
+
+    .collapsible-content {
+      margin-top: 8px;
+    }
+
+    .collapsible-content label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
+
     .dawg {
       grid-area: posts;
       background-image: url(images/textureOne.jpeg);
@@ -50,6 +128,7 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     .post-card {
       display: flex;
       width: 650px;
@@ -243,19 +322,72 @@
 
     <main class="content-wrap">
       <div class="blog-container">
-        <div class="filter-container" role="search">
-          <select id="tag-filter">
-            <option value="All">All Tags</option>
-          </select>
-          <button id="sort-button" data-order="desc">Sort by Date: Descending</button>
-          <div class="pagination" id="pagination">
+        <aside class="filter-sidebar" role="search">
+          <h2>Filters</h2>
+          <div class="filter-section">
+            <h3>CATEGORY</h3>
+            <div class="filter-actions">
+              <button data-filter="games"><i class="fas fa-gamepad"></i></button>
+              <button data-filter="images"><i class="fas fa-image"></i></button>
+              <button data-filter="videos"><i class="fas fa-film"></i></button>
+              <button data-filter="gifts"><i class="fas fa-gift"></i></button>
+              <button data-filter="drawing"><i class="fas fa-paint-brush"></i></button>
+            </div>
           </div>
-        </div>
+          <div class="filter-section">
+            <h3>SORTING</h3>
+            <div class="filter-actions">
+              <button data-sort="date"><i class="fas fa-clock"></i></button>
+              <button data-sort="likes"><i class="fas fa-thumbs-up"></i></button>
+              <button data-sort="views"><i class="fas fa-eye"></i></button>
+              <button data-sort="alpha"><i class="fas fa-sort-alpha-down"></i></button>
+              <button data-sort="featured"><i class="fas fa-star"></i></button>
+            </div>
+          </div>
+          <div class="filter-section">
+            <h3>DATE LIMIT</h3>
+            <input type="range" id="date-limit" min="0" max="365" value="365">
+            <div id="date-limit-display">ANYTIME</div>
+          </div>
+          <div class="filter-section">
+            <h3>SEARCH <span class="or-and">CREATOR / TITLE</span></h3>
+            <input type="text" id="search-input" placeholder="Search titles...">
+          </div>
+          <div class="filter-section">
+            <h3>TAGS (MAX 10) <span class="or-and">OR / AND</span></h3>
+            <select id="include-tags" multiple></select>
+          </div>
+          <div class="filter-section">
+            <h3>EXCLUDE TAGS (MAX 10)</h3>
+            <select id="exclude-tags" multiple></select>
+          </div>
+          <div class="filter-section collapsible collapsed">
+            <h3>PREFIX: ENGINE</h3>
+            <div class="collapsible-content">
+              <label><input type="checkbox" value="Unity"> Unity</label>
+              <label><input type="checkbox" value="Unreal"> Unreal</label>
+              <label><input type="checkbox" value="Godot"> Godot</label>
+            </div>
+          </div>
+          <div class="filter-section collapsible collapsed">
+            <h3>PREFIX: OTHER</h3>
+            <div class="collapsible-content">
+              <label><input type="checkbox" value="Tutorial"> Tutorial</label>
+              <label><input type="checkbox" value="Announcement"> Announcement</label>
+            </div>
+          </div>
+          <div class="filter-section collapsible collapsed">
+            <h3>PREFIX: STATUS</h3>
+            <div class="collapsible-content">
+              <label><input type="checkbox" value="Draft"> Draft</label>
+              <label><input type="checkbox" value="Published"> Published</label>
+            </div>
+          </div>
+        </aside>
         <div class="dawg">
-          <section id="blog-posts" aria-live="polite">
-          </section>
+          <section id="blog-posts" aria-live="polite"></section>
+          <div class="pagination" id="pagination"></div>
         </div>
-
       </div>
     </main>
     <footer>
@@ -264,140 +396,140 @@
     </footer>
     <script>
       const postsPerPage = 4;
-      let posts = [];
-      let currentPage = 1;
-      let currentOrder = 'desc';
-      let currentFilter = 'All';
+      let posts = [], currentPage = 1;
+      let activeCategory = null;
+      let activeSort = 'date-desc';
+      let dateLimitDays = 365;
+      let searchQuery = '';
+      let includeTags = [];
+      let excludeTags = [];
+      let prefixes = { engine: [], other: [], status: [] };
 
       fetch('posts.json')
-        .then(response => response.json())
-        .then(data => {
-          posts = data.posts;
-          populateTags();
-          updatePosts();
-        })
-        .catch(error => console.error('Error fetching posts:', error));
+        .then(r => r.json())
+        .then(data => { posts = data.posts; initFilters(); updatePosts(); });
 
-     
-      function populateTags() {
-        const tagFilter = document.getElementById('tag-filter');
-        const uniqueTags = new Set(posts.flatMap(post => post.tags));
-        uniqueTags.forEach(tag => {
-          const option = document.createElement('option');
-          option.value = tag;
-          option.textContent = tag;
-          tagFilter.appendChild(option);
+      function initFilters() {
+        const allTags = [...new Set(posts.flatMap(p => p.tags))];
+        allTags.forEach(tag => {
+          const o1 = new Option(tag, tag);
+          document.getElementById('include-tags').append(o1);
+          const o2 = new Option(tag, tag);
+          document.getElementById('exclude-tags').append(o2);
         });
-      }
-
-     
-      function updatePosts() {
-        const filteredPosts = filterPosts(currentFilter);
-        sortPosts(currentOrder);
-        const paginatedPosts = paginatePosts(filteredPosts, currentPage);
-        renderPosts(paginatedPosts);
-        setupPagination(filteredPosts.length);
-      }
-
-      function filterPosts(tag) {
-        if (tag === 'All') {
-          return posts;
-        }
-        return posts.filter(post => post.tags.includes(tag));
-      }
-
-      
-      function sortPosts(order) {
-        posts.sort((a, b) => {
-          const dateA = new Date(a.date);
-          const dateB = new Date(b.date);
-          return order === 'desc' ? dateB - dateA : dateA - dateB;
-        });
-      }
-
-      
-      function paginatePosts(filteredPosts, page) {
-        const startIndex = (page - 1) * postsPerPage;
-        return filteredPosts.slice(startIndex, startIndex + postsPerPage);
-      }
-
-      
-      function renderPosts(paginatedPosts) {
-        const blogPosts = document.getElementById('blog-posts');
-        blogPosts.innerHTML = '';
-
-        paginatedPosts.forEach(post => {
-          const postElement = document.createElement('div');
-          postElement.classList.add('post-card');
-
-          const img = document.createElement('img');
-          img.src = post.image || 'images/default-placeholder.jpg';
-          img.alt = post.title;
-
-          const info = document.createElement('div');
-          info.classList.add('post-info');
-
-          const title = document.createElement('a');
-          title.href = `post.html?id=${post.id}`;
-          title.textContent = post.title;
-          title.classList.add('post-title');
-
-          const date = document.createElement('p');
-          date.textContent = `Published on: ${post.date}`;
-          date.classList.add('post-date');
-
-          const excerpt = document.createElement('p');
-          excerpt.textContent = post.excerpt || 'No excerpt available.';
-          excerpt.classList.add('post-excerpt');
-
-          info.appendChild(title);
-          info.appendChild(date);
-          info.appendChild(excerpt);
-          postElement.appendChild(img);
-          postElement.appendChild(info);
-
-          blogPosts.appendChild(postElement);
-        });
-      }
-
-      
-      function setupPagination(totalPosts) {
-        const pagination = document.getElementById('pagination');
-        pagination.innerHTML = '';
-        const totalPages = Math.ceil(totalPosts / postsPerPage);
-
-        for (let i = 1; i <= totalPages; i++) {
-          const button = document.createElement('button');
-          button.textContent = i;
-          button.disabled = i === currentPage;
-          button.addEventListener('click', () => {
-            currentPage = i;
-            updatePosts();
+        document.querySelectorAll('.filter-actions button[data-filter]')
+          .forEach(btn => btn.onclick = () => {
+            activeCategory = btn.dataset.filter === activeCategory ? null : btn.dataset.filter;
+            document.querySelectorAll('button[data-filter]').forEach(b => b.classList.toggle('active', b===btn && activeCategory));
+            currentPage = 1; updatePosts();
           });
-          pagination.appendChild(button);
-        }
+        document.querySelectorAll('.filter-actions button[data-sort]')
+          .forEach(btn => btn.onclick = () => {
+            const key = btn.dataset.sort;
+            activeSort = (activeSort === key+'-desc') ? key+'-asc' : key+'-desc';
+            document.querySelectorAll('button[data-sort]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentPage = 1; updatePosts();
+          });
+        document.getElementById('date-limit').oninput = e => {
+          dateLimitDays = +e.target.value;
+          document.getElementById('date-limit-display').textContent =
+            dateLimitDays===365 ? 'ANYTIME' : `Last ${dateLimitDays} days`;
+          currentPage = 1; updatePosts();
+        };
+        document.getElementById('search-input').oninput = e => {
+          searchQuery = e.target.value.toLowerCase();
+          currentPage = 1; updatePosts();
+        };
+        document.getElementById('include-tags').onchange = e => {
+          includeTags = Array.from(e.target.selectedOptions).map(o => o.value).slice(0,10);
+          currentPage = 1; updatePosts();
+        };
+        document.getElementById('exclude-tags').onchange = e => {
+          excludeTags = Array.from(e.target.selectedOptions).map(o => o.value).slice(0,10);
+          currentPage = 1; updatePosts();
+        };
+        document.querySelectorAll('.collapsible h3').forEach(h => {
+          h.onclick = () => { h.parentElement.classList.toggle('collapsed'); };
+        });
       }
 
-      document.getElementById('sort-button').addEventListener('click', () => {
-        currentOrder = currentOrder === 'desc' ? 'asc' : 'desc';
-        updatePosts();
-        document.getElementById('sort-button').textContent = `Sort by Date: ${currentOrder === 'desc' ? 'Descending' : 'Ascending'}`;
-      });
+      function updatePosts() {
+        let list = posts.slice();
+        if (activeCategory) list = list.filter(p => p.category === activeCategory);
+        if (searchQuery) list = list.filter(p =>
+          p.title.toLowerCase().includes(searchQuery) ||
+          (p.creator && p.creator.toLowerCase().includes(searchQuery))
+        );
+        if (dateLimitDays < 365) {
+          const cutoff = Date.now() - dateLimitDays * 24 * 60 * 60 * 1000;
+          list = list.filter(p => new Date(p.date) >= cutoff);
+        }
+        if (includeTags.length) {
+          list = list.filter(p => includeTags.every(t => p.tags.includes(t)));
+        }
+        if (excludeTags.length) {
+          list = list.filter(p => excludeTags.every(t => !p.tags.includes(t)));
+        }
+        ['engine','other','status'].forEach(key => {
+          const vals = prefixes[key];
+          if (vals.length) list = list.filter(p => vals.includes(p.prefixes?.[key]));
+        });
+        const [field, dir] = activeSort.split('-');
+        list.sort((a,b) => {
+          let diff = 0;
+          if (field==='date') diff = new Date(a.date) - new Date(b.date);
+          if (field==='likes') diff = (a.likes||0) - (b.likes||0);
+          if (field==='views') diff = (a.views||0) - (b.views||0);
+          if (field==='alpha') diff = a.title.localeCompare(b.title);
+          return dir==='desc' ? -diff : diff;
+        });
+        const total = list.length;
+        const start = (currentPage - 1) * postsPerPage;
+        const pagePosts = list.slice(start, start + postsPerPage);
+        renderPosts(pagePosts);
+        renderPagination(Math.ceil(total / postsPerPage));
+      }
 
-      document.getElementById('tag-filter').addEventListener('change', (event) => {
-        currentFilter = event.target.value;
-        currentPage = 1;
-        updatePosts();
-      });
+      function renderPosts(arr) {
+        const out = document.getElementById('blog-posts');
+        out.innerHTML = '';
+        arr.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'post-card';
+          const img = document.createElement('img');
+          img.src = p.image || 'images/default-placeholder.jpg';
+          img.alt = p.title;
+          const info = document.createElement('div');
+          info.className = 'post-info';
+          info.innerHTML = `<a href="post.html?id=${p.id}" class="post-title">${p.title}</a>
+            <p class="post-date">Published on: ${p.date}</p>
+            <p class="post-excerpt">${p.excerpt || ''}</p>`;
+          const tagWrap = document.createElement('div');
+          tagWrap.className = 'post-tags';
+          (p.tags || []).forEach(t => {
+            const s = document.createElement('span');
+            s.className = 'tag';
+            s.textContent = t;
+            tagWrap.append(s);
+          });
+          info.append(tagWrap);
+          card.append(img, info);
+          out.append(card);
+        });
+      }
 
-    const tagsContainer = document.createElement('div');
-    tagsContainer.classList.add('post-tags');
-    post.tags.forEach(tag => {
-      const tagElement = document.createElement('span');
-      tagElement.textContent = tag;
-      tagElement.classList.add('tag');
-      tagsContainer.appendChild(tagElement);
-    });
+      function renderPagination(pages) {
+        const pag = document.getElementById('pagination');
+        pag.innerHTML = '';
+        for(let i = 1; i <= pages; i++){
+          const btn = document.createElement('button');
+          btn.textContent = i;
+          if(i === currentPage) btn.disabled = true;
+          btn.onclick = () => { currentPage = i; updatePosts(); };
+          pag.append(btn);
+        }
+      }
     </script>
     <script src="particles.js"></script>
     <script src="scripts.js"></script>
