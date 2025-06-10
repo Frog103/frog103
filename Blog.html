@@ -12,9 +12,14 @@
       max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
+      grid-template-columns: 1fr, 4fr;
+      grid-template-areas:"filter posts";
+      display: grid;
+      gap: 10px;
     }
 
     .filter-container {
+      grid-area: filter;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -29,6 +34,7 @@
       cursor: pointer;
     }
     .dawg {
+      grid-area: posts;
       background-image: url(images/textureOne.jpeg);
       background-size: contain;
       border: solid 1px white;
@@ -70,6 +76,7 @@
     }
 
     .post-title {
+      background-color: rgba(102, 126, 104, 0.873);
       text-decoration: none;
       font-size: 1.5rem;
       color: #4CAF50;
