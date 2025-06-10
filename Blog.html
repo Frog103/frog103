@@ -28,9 +28,20 @@
       background: #fff;
       cursor: pointer;
     }
-
+    .dawg {
+      background-image: url(images/textureOne.jpeg);
+      background-size: contain;
+      border: solid 1px white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .post-card {
       display: flex;
+      width: 650px;
       gap: 15px;
       background-color: rgba(255, 255, 255, 0.9);
       padding: 15px;
@@ -225,6 +236,9 @@
           <button id="sort-button" data-order="desc">Sort by Date: Descending</button>
         </div>
         <section id="blog-posts" aria-live="polite">
+          <div class="dawg">
+            
+          </div>
         </section>
         <div class="pagination" id="pagination">
         </div>
