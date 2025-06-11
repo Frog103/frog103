@@ -90,9 +90,8 @@
     }
    
     .include-tags {
-      display: flex;
-      flex-direction: column;
-      grid-template-columns: 1fr 1fr 1fr;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
       gap: 5px;
     }
 
