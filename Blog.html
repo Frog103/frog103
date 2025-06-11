@@ -134,7 +134,7 @@
       width: 650px;
       gap: 15px;
       background-color: rgb(255, 255, 255);
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.99), rgb(238, 255, 240));
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.99), rgba(238, 255, 240, 1));
       padding: 15px;
       margin-bottom: 20px;
       border-radius: 5px;
@@ -483,6 +483,7 @@
         out.innerHTML = '';
         arr.forEach(p => {
           const card = document.createElement('div');
+          card.className = 'post-card';
           const img = document.createElement('img');
           img.src = p.image || 'images/default-placeholder.jpg';
           img.alt = p.title;
