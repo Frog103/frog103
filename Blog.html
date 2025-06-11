@@ -328,7 +328,6 @@
           <h2>Filters</h2>
           <div class="filter-section">
             <h3>Contains:</h3>
-            <!--Dropdown for Filters, checks if post contains selected content-->
             <div class="filter-actions">
               <button data-filter="images"><i class="fas fa-image"></i></button>
               <button data-filter="videos"><i class="fas fa-film"></i></button>
@@ -337,17 +336,14 @@
           </div>
             <div class="filter-section">
             <h3>Date:</h3>
-            <!--Date Filter, checks if post was created at/before submitted date-->
             <input type="datetime-local" id="date-filter" name="date-filter">
             <input type="submit" value="Filter" id="filter-button">
             </div>
           <div class="filter-section">
-            <!--Search Filter, checks if post matches inputted text-->
             <h3>Search:<span class="or-and">Title</span></h3>
             <input type="text" id="search-input" placeholder="Search titles...">
           </div>
           <div class="filter-section">
-            <!--Dropdown selection for tags, checks if post contains selected tags-->
             <h3>Tags (Max 10) <span class="or-and">Or / And</span></h3>
             <select id="include-tags" multiple></select>
           </div>
@@ -395,10 +391,20 @@
 
   function updatePosts() {
     let filteredPosts = filterPosts();
+    if (filteredPosts.length === 0) {
+      displayNoPostsMessage();
+      setupPagination(0);
+      return;
+    }
     sortPosts(currentOrder);
     const paginatedPosts = paginatePosts(filteredPosts, currentPage);
     renderPosts(paginatedPosts);
     setupPagination(filteredPosts.length);
+  }
+
+  function displayNoPostsMessage() {
+    const blogPosts = document.getElementById('blog-posts');
+    blogPosts.innerHTML = '<p style="padding: 20px; text-align: center;">No posts found matching the selected criteria.</p>';
   }
 
   function filterPosts() {
