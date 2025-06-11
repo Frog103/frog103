@@ -86,7 +86,14 @@
     .or-and {
       float: right;
       font-size: 0.75rem;
-      color: #777;
+      color: #ffffff;
+    }
+   
+    .include-tags {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 5px;
     }
 
     .collapsible h3 {
@@ -355,12 +362,14 @@
             <h3>Search:<span class="or-and">Title</span></h3>
             <input type="text" id="search-input" placeholder="Search titles...">
           </div>
-            <div class="filter-section">
+            
+          <div class="filter-section">
             <h3>Tags <span class="or-and">Or / And</span></h3>
             <div id="include-tags">
+      
             </div>
-            </div>
-          <input type="reset" value="reset" id="reset-button">
+          </div>
+        <input type="reset" value="reset" id="reset-button">
         </aside>
         <div class="dawg">
           <section id="blog-posts" aria-live="polite"></section>
