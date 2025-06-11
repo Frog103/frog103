@@ -464,7 +464,7 @@
       postElement.classList.add('post-card');
 
       const img = document.createElement('img');
-      img.src = post.image || 'images/default-placeholder.jpg';
+      img.src = post.image || 'images/globalPageImages/frogBeeIcon.PNG'; // Default image if none provided
       img.alt = post.title;
 
       const info = document.createElement('div');
@@ -520,9 +520,7 @@
       pagination.appendChild(button);
     }
   }
-
-  // Event Listeners for new filters:
-
+  
   // Contains filter (buttons inside the filter-actions container)
   document.querySelectorAll('.filter-actions button').forEach(btn => {
     btn.addEventListener('click', () => {
