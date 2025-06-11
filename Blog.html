@@ -259,6 +259,10 @@
     @media (max-width: 768px) {
         .blog-container {
             padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            columns: 1;
         }
 
         
@@ -520,7 +524,7 @@
       pagination.appendChild(button);
     }
   }
-  
+
   // Contains filter (buttons inside the filter-actions container)
   document.querySelectorAll('.filter-actions button').forEach(btn => {
     btn.addEventListener('click', () => {
