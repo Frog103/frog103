@@ -392,13 +392,22 @@
     .catch(error => console.error('Error fetching posts:', error));
 
   function populateTags() {
-    const tagSelect = document.getElementById('include-tags');
+    const container = document.getElementById('include-tags');
+    container.innerHTML = ''; // Clear existing tags
     const uniqueTags = new Set(posts.flatMap(post => post.tags));
     uniqueTags.forEach(tag => {
-      const option = document.createElement('option');
-      option.value = tag;
-      option.textContent = tag;
-      tagSelect.appendChild(option);
+      const checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+      checkbox.value = tag;
+      checkbox.id = `tag-${tag}`;
+      checkbox.name = "include-tag";
+
+      const label = document.createElement('label');
+      label.htmlFor = `tag-${tag}`;
+      label.textContent = tag;
+
+      container.appendChild(checkbox);
+      container.appendChild(label);
     });
   }
 
@@ -558,11 +567,16 @@
     updatePosts();
   });
 
-  // Tags selection (multi-select)
+  // changed code: update tag selection listener to work with checkboxes
   document.getElementById('include-tags').addEventListener('change', (event) => {
-    currentTags = Array.from(event.target.selectedOptions).map(option => option.value);
-    currentPage = 1;
-    updatePosts();
+    if (event.target.type === "checkbox") {
+      const checkboxes = document.querySelectorAll('#include-tags input[type="checkbox"]');
+      currentTags = Array.from(checkboxes)
+        .filter(chk => chk.checked)
+        .map(chk => chk.value);
+      currentPage = 1;
+      updatePosts();
+    }
   });
 
   // Reset filters
@@ -575,8 +589,7 @@
     // Reset inputs
     document.getElementById('search-input').value = '';
     document.getElementById('date-filter').value = '';
-    const tagSelect = document.getElementById('include-tags');
-    Array.from(tagSelect.options).forEach(option => option.selected = false);
+    document.querySelectorAll('#include-tags input[type="checkbox"]').forEach(chk => chk.checked = false);
     // Remove active state from Contains buttons
     document.querySelectorAll('.filter-actions button').forEach(b => b.classList.remove('active'));
     updatePosts();
