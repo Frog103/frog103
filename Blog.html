@@ -28,7 +28,6 @@
       padding: 20px;
       border-radius: 8px;
       overflow-y: auto;
-      max-height: calc(100vh - 20px);
     }
 
     .filter-sidebar h2 {
@@ -142,6 +141,15 @@
       border-radius: 5px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .errorBox {
+      background-color: #000000;
+      border-radius: 5px;
+      border-color: #f3f3f3;
+      color: #ffffff;
+      padding: 20px; 
+      text-align: center; 
+      width: 620px;
     }
 
     .post-card:hover {
@@ -404,7 +412,7 @@
 
   function displayNoPostsMessage() {
     const blogPosts = document.getElementById('blog-posts');
-    blogPosts.innerHTML = '<p style="padding: 20px; text-align: center;">No posts found matching the selected criteria.</p>';
+    blogPosts.innerHTML = '<p class="errorBox">No posts found matching the selected criteria.</p>';
   }
 
   function filterPosts() {
