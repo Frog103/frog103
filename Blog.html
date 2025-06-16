@@ -315,6 +315,40 @@
         font-size: 0.75rem;
         padding: 4px 8px;
       }
+      @media (max-width: 390px) {
+        .blog-container {
+          padding: 5px;
+        }
+        .filter-sidebar {
+          padding: 15px;
+        }
+        .post-card {
+          width: 100%;
+          padding: 10px;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .post-card img {
+          width: 100%;
+          height: auto;
+        }
+        .post-info {
+          padding: 5px;
+        }
+        .post-title {
+          font-size: 1.3rem;
+        }
+        .post-date {
+          font-size: 0.8rem;
+        }
+        .post-excerpt {
+          font-size: 0.8rem;
+        }
+        .tag {
+          font-size: 0.65rem;
+          padding: 3px 6px;
+        }
+      }
     }
   </style>
 </head>
@@ -380,6 +414,7 @@
       Copyright &copy; 2024-2025 Frog103. All Rights Reserved.
       <p>For usage, licensing, or other inquiries, please contact me.</p>
     </footer>
+
     <script>
   const postsPerPage = 4;
   let posts = [];
