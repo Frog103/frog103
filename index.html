@@ -1,153 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sticky bell Portfolio">
-  <meta name="theme-color" content="#4CAF50">
-  <title>Sticky Bell - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
-  <style>
-    /* Custom Layout Overrides */
-    .main-content {
-      max-width: 1200px;
-      margin: 40px auto;
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
-      padding: 0 20px;
-    }
-    .hero {
-      background: var(--primary-color);
-      color: var(--text-light);
-      padding: 80px 20px;
-      text-align: center;
-      border-radius: var(--border-radius);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    .hero a {
-      display: inline-block;
-      padding: 12px 24px;
-      background: var(--secondary-color);
-      color: var(--text-light);
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      transition: var(--transition-standard);
-    }
-    .hero a:hover {
-      opacity: 0.9;
-    }
-    .featured-artworks h2 {
-      margin-bottom: 20px;
-      color: var(--text-dark);
-    }
-    .artwork-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .artwork-grid img {
-      width: 100%;
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-    }
-    .updates {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .update-panel {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--box-shadow);
-    }
-    .update-panel h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      color: var(--text-dark);
-    }
-    @media (max-width: 768px) {
-      .updates {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Frog103 - Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+    <style>
+    /* Layout & General Styles */
+    .homepage-container {
+        display: grid;
+        grid-template-areas:
+        "blogContainer"
+        "contentContainer";
         grid-template-columns: 1fr;
-      }
-      .artwork-grid {
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+    .blog-activities-container {
+        display: grid;
+        grid-area: blogContainer;
+        grid-template-areas:
+        "blog activities";
+        grid-template-columns: 2fr 3fr;
+        gap: 20px;
+    }
+    .content-container {
+        display: grid;
+        grid-area: contentContainer;
+        grid-template-areas:
+        "instagram slideshow";
         grid-template-columns: 1fr 1fr;
-      }
+        gap: 20px;
     }
+    .headertext {
+        background-color: rgba(255, 255, 255, 0.25);
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(151, 183, 154, 0.2));
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    /* Component Styles */
+    .instagram-feed, .slideshow-container, .boxed-by-ninja, .activities-postbox, .boxed-by-clix {
+        background: rgba(255, 255, 255, 0.5);
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(151, 183, 154, 0.5));
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+    }
+    .instagram-feed, .slideshow-container, .boxed-by-ninja, .recent-posts, .activities-postbox {
+        position: relative;
+    }
+    .instagram-feed {
+        grid-area: instagram;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+    }
+    .slideshow-container {
+        grid-area: slideshow;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 50px;
+    }
+    .boxed-by-ninja {
+        grid-area: blog;
+    }
+    .activities-postbox {
+        grid-area: activities;
+        text-align: center;
+    }
+    
+    /* Additional Component Styles */
+    .portfolio-box {
+        max-width: 1350px;
+        background-image: url(images/textureOne.jpeg);
+        background-size: contain;
+        border: solid 1px white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .postbox {
+        text-align: center;
+        background-color: rgba(102, 126, 104, 0.873);
+        color: white;
+        padding: 12px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+    }
+    .actbox {
+        text-align: center;
+        background-color: rgba(102, 126, 104, 0.873);
+        color: white;
+        padding: 12px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+    }
+    .random-reel {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        flex: 1;
+    }
+    
+    /* Slideshow Specific Styles */
+    .splash-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: calc(80vh - 60px); 
+        overflow: hidden;
+    }
+    .slideshow-header {
+        text-align: center;
+        background-color: rgba(102, 126, 104, 0.873);
+        color: white;
+        padding: 12px;
+        border-radius: 10px;
+        border-bottom: solid 1px rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+    }
+    .slideshow-header h3 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+    .slideshow-container img {
+        margin-top: 10px;
+        border-radius: 5px;
+        border: solid 1px rgba(255, 255, 255, 0.3);
+        max-width: 350px;
+        max-height: 500px;
+        width: auto; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    #slideshow-error {
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    
+    /* Instagram & Recent Posts Styles */
+    .instagram-account-card {
+        background-color: rgba(102, 126, 104, 0.873);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+        border-bottom: solid 1px rgb(255, 255, 255);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 10px 10px 0 0;
+        flex-shrink: 0; 
+    }
+    #random-reel {
+        padding: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+    #random-reel video {
+        width: 100%;
+        max-width: 360px;
+        height: calc(100% - 40px);
+        max-height: 620px;
+        object-fit: contain;
+        border-radius: 5px;
+    }
+    #random-reel p {
+        margin-top: 10px;
+        text-align: center;
+        color: black;
+        padding: 5px;
+        font-size: 0.9em;
+    }
+    .recent-posts {
+        margin: 0px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border: solid 1px white;
+        border-radius: 9px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        min-height: 160px; 
+        max-height: 100%; 
+        overflow: hidden;
+        padding-top: 55px;
+        position: relative;
+    }
+    .recent-posts ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        overflow-y: auto; 
+        scrollbar-width: thin;
+        scrollbar-color: rgba(102, 126, 104, 0.5) transparent; 
+    }
+    .recent-posts ul li {
+        margin: 0;
+        padding: 5.5px 11.5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-size: 0.85em; 
+        min-height: 45px;
+        will-change: transform;
+    }
+    .recent-posts ul li:last-child {
+        border-bottom: none;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .recent-posts ul li:hover {
+        background: rgba(100, 138, 108, 0.3);
+        transform:scale(1.02);
+    }
+    .recent-posts ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        display: block;
+        font-size: 0.95em;
+    }
+    .recent-posts .post-date {
+        font-size: 0.70em;
+        color: rgba(0, 0, 0, 0.7);
+        margin-top: 1.5px;
+    }
+    .postbox h3 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+    
+/* Activities Postbox */
+    .activities-postbox {
+        margin: 0px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border: solid 1px white;
+        border-radius: 9px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        min-height: 160px; 
+        max-height: 100%; 
+        overflow: hidden;
+        padding-top: 55px;
+        position: relative;
+    }
+    .activities-postbox ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        overflow-y: auto; 
+        scrollbar-width: thin;
+        scrollbar-color: rgba(102, 126, 104, 0.5) transparent; 
+    }
+    .activities-postbox ul li {
+        margin: 0;
+        padding: 5.5px 11.5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        font-size: 0.85em; 
+        min-height: 45px;
+        will-change: transform;
+    }
+    .activities-postbox ul li:last-child {
+        border-bottom: none;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .activities-postbox ul li:hover {
+        background: rgba(100, 138, 108, 0.3);
+        transform:scale(1.02);
+    }
+    .activities-postbox ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        display: block;
+        font-size: 0.95em;
+    }
+    hr {
+        margin-bottom: 10px;
+    }
+    /* Responsive Media Queries */
+        @media (max-width: 768px) {
+        .homepage-container {
+            grid-template-areas:
+                "blogContainer"
+                "contentContainer";
+            grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .blog-activities-container {
+            grid-template-areas:
+                "blog"
+                "activities";
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .content-container {
+            grid-template-areas:
+                "instagram"
+                "slideshow";
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .instagram-feed {
+            padding-top: 20px;
+        }
+        
+        .slideshow-container {
+            padding-top: 20px;
+            height: auto;
+            min-height: 200px;
+        }
+        
+        .splash-container {
+            max-height: none;
+        }
+        
+        .slideshow-container img {
+            margin-top: 45px;
+            max-height: none !important;
+        }
+        
+        .recent-posts ul li:nth-child(1),
+        .activities-postbox ul li:nth-child(1) {
+            margin-top: 11px;
+        }
+        
+        .recent-posts,
+        .activities-postbox {
+            padding-top: 45px;
+        }
+    }
+
     @media (max-width: 480px) {
-      .artwork-grid {
-        grid-template-columns: 1fr;
-      }
+        body {
+            font-size: 0.9em;
+        }
+        
+        .headertext,
+        .instagram-account-card,
+        .postbox,
+        .actbox {
+            padding: 10px;
+        }
+        
+        .recent-posts ul li:nth-child(1),
+        .activities-postbox ul li:nth-child(1) {
+            margin-top: 5px;
+        }
     }
-  </style>
+    @media (max-width: 450px) {
+        body {
+            font-size: 0.8em;
+        }
+        .header-nav-container header h1 {
+            font-size: 1.5em;
+        }
+        nav ul li {
+            margin: 5px 0;
+        }
+        .headertext,
+        .instagram-account-card,
+        .postbox,
+        .actbox {
+            padding: 8px;
+        }
+        .slideshow-container img {
+            max-width: 300px;
+        }
+    }
+
+
+    </style>
 </head>
 <body class="fade-out">
-  <div class="page-container">
-    <div class="header-nav-container">
-      <header>
-        <div class="icon">
-          <img src="images/frogBeeIcon.PNG" alt="Site Icon">
+    <div class="page-container">
+        <div class="header-nav-container">
+            <header>       
+                <div class="icon">
+                    <img src="images/frogBeeIcon.png" alt="Website Icon">
+                </div>
+                <div>
+                    <h1>Frog103</h1>
+                    <h3>Homepage</h3>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="Projects.html">Products</a></li>
+                    <li><a href="GalleryTopic.html">Gallery</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-          <h1>Sticky Bell</h1>
-          <h3>Portfolio</h3>
+
+        <div class="portfolio-box">
+            <div class="headertext">
+                <h2>About</h2>
+                <hr>
+                <p>This site is the personal portfolio and gallery of stickybell09.</p>
+                <p>Digital Illustration, Character Design, and Animation.</p>
+                <p>All content on this site is created by me, unless otherwise stated.</p>
+                <p>See below for samples.</p>
+            </div>
+            <main class="homepage-container">
+            
+            <div class="content-container">
+                <div class="instagram-feed">
+                    <div class="instagram-account-card">
+                        <h3>@stickybell</h3>
+                    </div>
+                    <div id="random-reel" style="text-align: center;">
+                        <p>Loading...</p>
+                    </div>
+                </div>
+                <div class="slideshow-container">
+                    <div class="slideshow-header">
+                        <h3>Gallery Highlights</h3>
+                    </div>
+                    <div class="splash-container">
+                        <div class="mySlides fade">
+                            <img src="images/splashing4.JPG" alt="Splash Image2">
+                        </div>
+                    </div>
+                    <div id="slideshow-error" style="display: none;">
+                        Unable to load. Please try refreshing the page.
+                    </div>
+                </div>
+            </div>
+
+                <div class="blog-activities-container">
+                <div class="boxed-by-ninja">
+                    <div class="recent-posts">
+                        <div class="postbox">
+                            <h3>Recent Blog Posts</h3>
+                        </div>
+                        <ul id="recent-post-list">
+                            <li>Loading...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="boxed-by-clix">
+                    <div class="activities-postbox">
+                        <div class="actbox">
+                            <h3>Recent Activities</h3>
+                        </div>
+                        <ul id="recent-act-list">
+                            <li>Coming Soon!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            </main>
         </div>
-      </header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="Projects.html">Projects</a></li>
-          <li><a href="GalleryTopic.html">Gallery</a></li>
-          <li><a href="Blog.html">Blog</a></li>
-          <li><a href="Contact.html">Contact</a></li>
-        </ul>
-      </nav>
+        <footer>
+            Copyright &copy; 2024-2025 Frog103. All Rights Reserved.
+            <p>For usage, licensing, or other inquiries, please contact me.</p>
+        </footer>
     </div>
-    <main class="main-content">
-      <section class="hero">
-        <h2>Art by Sticky Bell</h2>
-        <p>Digital Illustration • Character Design • Animation</p>
-        <a href="GalleryTopic.html">Explore Gallery</a>
-      </section>
-      <section class="featured-artworks">
-        <h2>Featured Artworks</h2>
-        <div class="artwork-grid">
-          <div><a href="#"><img src="images/sample1.jpg" alt="Artwork 1"></a></div>
-          <div><a href="#"><img src="images/sample2.jpg" alt="Artwork 2"></a></div>
-          <div><a href="#"><img src="images/sample3.jpg" alt="Artwork 3"></a></div>
-          <div><a href="#"><img src="images/sample4.jpg" alt="Artwork 4"></a></div>
-        </div>
-      </section>
-      <section class="updates">
-        <div class="update-panel">
-          <h3>Recent Blog Posts</h3>
-          <ul id="recent-post-list">
-            <li>Loading...</li>
-          </ul>
-        </div>
-        <div class="update-panel">
-          <h3>Instagram Feed</h3>
-          <div id="random-reel">
-            <p>Loading...</p>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      Copyright &copy; 2025 Sticky Bell. All Rights Reserved.
-      <p>For usage or licensing, please contact me.</p>
-    </footer>
-  </div>
-  <script src="scripts.js"></script>
-  <script src="particles.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="scripts.js"></script>
+    <script src="timelapse.js"></script>
+    <script src="particles.js"></script>
 </body>
 </html>
