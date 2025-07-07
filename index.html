@@ -1,170 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frog103 - Personal Portfolio and Gallery">
-    <meta name="theme-color" content="#4CAF50">
-    <title>Frog103 - Homepage</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
-    <style>
-        /* Hero Section */
-        .hero {
-            background: url('images/splashing4.JPG') center/cover no-repeat;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.7);
-        }
-        .hero-content {
-            background: rgba(0,0,0,0.5);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-        }
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-        }
-        .hero-content p {
-            font-size: 1.25rem;
-            font-weight: 300;
-        }
-        /* Featured Works */
-        .featured-gallery {
-            padding: 3rem 1rem;
-        }
-        .featured-gallery h2 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            color: var(--primary-color);
-        }
-        /* Two-column layout */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        .sidebar .widget {
-            margin-bottom: 2rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sticky bell Portfolio">
+  <meta name="theme-color" content="#4CAF50">
+  <title>Sticky Bell - Portfolio</n  	><link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+  <style>
+    /* Custom Layout Overrides */
+    .main-content {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      padding: 0 20px;
+    }
+    .hero {
+      background: var(--primary-color);
+      color: var(--text-light);
+      padding: 80px 20px;
+      text-align: center;
+      border-radius: var(--border-radius);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .hero a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--secondary-color);
+      color: var(--text-light);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      transition: var(--transition-standard);
+    }
+    .hero a:hover {
+      opacity: 0.9;
+    }
+    .featured-artworks h2 {
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+    .artwork-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .artwork-grid img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    .updates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .update-panel {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+    .update-panel h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+    @media (max-width: 768px) {
+      .updates {
+        grid-template-columns: 1fr;
+      }
+      .artwork-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .artwork-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body class="fade-out">
-    <div class="page-container">
-        <div class="header-nav-container">
-            <header>
-                <div class="icon">
-                    <img src="images/frogBeeIcon.PNG" alt="Website Icon">
-                </div>
-                <div>
-                    <h1>Frog103</h1>
-                    <h3>Homepage</h3>
-                </div>
-            </header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Projects.html">Projects</a></li>
-                    <li><a href="GalleryTopic.html">Gallery</a></li>
-                    <li><a href="Blog.html">Blog</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
-                </ul>
-            </nav>
+  <div class="page-container">
+    <div class="header-nav-container">
+      <header>
+        <div class="icon">
+          <img src="images/frogBeeIcon.PNG" alt="Site Icon">
         </div>
-        <main class="content-wrap">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Frog103</h1>
-                    <p>Digital Illustration, Character Design, Animation</p>
-                </div>
-            </section>
-            <section class="featured-gallery">
-                <h2>Featured Works</h2>
-                <div class="gallery-topics">
-                    <div class="gallery-topic">
-                        <a href="Projects.html#work1">
-                            <img src="images/featured1.jpg" alt="Work 1">
-                            <p>Work One</p>
-                        </a>
-                    </div>
-                    <div class="gallery-topic">
-                        <a href="Projects.html#work2">
-                            <img src="images/featured2.jpg" alt="Work 2">
-                            <p>Work Two</p>
-                        </a>
-                    </div>
-                    <div class="gallery-topic">
-                        <a href="Projects.html#work3">
-                            <img src="images/featured3.jpg" alt="Work 3">
-                            <p>Work Three</p>
-                        </a>
-                    </div>
-                    <div class="gallery-topic">
-                        <a href="Projects.html#work4">
-                            <img src="images/featured4.jpg" alt="Work 4">
-                            <p>Work Four</p>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <div class="main-grid">
-                <section class="blog-preview">
-                    <h2>Recent Blog Posts</h2>
-                    <div class="gallery-pictures">
-                        <div class="gallery-picture">
-                            <a href="Blog.html#post1">
-                                <img src="images/blog1.jpg" alt="Blog Post 1">
-                                <p>Exploring Composition Techniques</p>
-                            </a>
-                        </div>
-                        <div class="gallery-picture">
-                            <a href="Blog.html#post2">
-                                <img src="images/blog2.jpg" alt="Blog Post 2">
-                                <p>Color Theory in Fantasy Art</p>
-                            </a>
-                        </div>
-                        <div class="gallery-picture">
-                            <a href="Blog.html#post3">
-                                <img src="images/blog3.jpg" alt="Blog Post 3">
-                                <p>Designing Memorable Characters</p>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-                <aside class="sidebar">
-                    <div class="widget instagram-feed">
-                        <div class="instagram-account-card">
-                            <h3>@stickybell</h3>
-                        </div>
-                        <div id="random-reel" class="random-reel">
-                            <p>Loading...</p>
-                        </div>
-                    </div>
-                    <div class="widget activities-postbox">
-                        <div class="actbox">
-                            <h3>Recent Activities</h3>
-                        </div>
-                        <ul id="recent-act-list">
-                            <li>Coming Soon!</li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
-        </main>
-        <footer>
-            Copyright &copy; 2025 Frog103. All Rights Reserved.
-            <p>For usage or licensing, please contact me.</p>
-        </footer>
+        <div>
+          <h1>Sticky Bell</h1>
+          <h3>Portfolio</h3>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="GalleryTopic.html">Gallery</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <script src="scripts.js"></script>
-    <script src="particles.js"></script>
+    <main class="main-content">
+      <section class="hero">
+        <h2>Art by Sticky Bell</h2>
+        <p>Digital Illustration • Character Design • Animation</p>
+        <a href="GalleryTopic.html">Explore Gallery</a>
+      </section>
+      <section class="featured-artworks">
+        <h2>Featured Artworks</h2>
+        <div class="artwork-grid">
+          <div><a href="#"><img src="images/sample1.jpg" alt="Artwork 1"></a></div>
+          <div><a href="#"><img src="images/sample2.jpg" alt="Artwork 2"></a></div>
+          <div><a href="#"><img src="images/sample3.jpg" alt="Artwork 3"></a></div>
+          <div><a href="#"><img src="images/sample4.jpg" alt="Artwork 4"></a></div>
+        </div>
+      </section>
+      <section class="updates">
+        <div class="update-panel">
+          <h3>Recent Blog Posts</h3>
+          <ul id="recent-post-list">
+            <li>Loading...</li>
+          </ul>
+        </div>
+        <div class="update-panel">
+          <h3>Instagram Feed</h3>
+          <div id="random-reel">
+            <p>Loading...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      Copyright &copy; 2025 Sticky Bell. All Rights Reserved.
+      <p>For usage or licensing, please contact me.</p>
+    </footer>
+  </div>
+  <script src="scripts.js"></script>
+  <script src="particles.js"></script>
 </body>
 </html>
