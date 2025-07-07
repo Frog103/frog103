@@ -1,196 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frog103 - Modern Portfolio and Blog">
-  <meta name="theme-color" content="#4CAF50">
-  <title>Frog103 - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .hero {
-      padding: 100px 20px;
-      background-color: var(--primary-color);
-      color: var(--text-light);
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin: auto;
-    }
-    .featured-work {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .featured-work h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      text-align: center;
-      color: var(--text-dark);
-    }
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 30px;
-    }
-    .featured-card {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition-standard);
-    }
-    .featured-card img {
-      width: 100%;
-      display: block;
-    }
-    .featured-card h3 {
-      margin: 15px;
-      font-size: 1.5rem;
-      color: var(--text-dark);
-    }
-    .featured-card p {
-      margin: 0 15px 15px;
-      font-size: 1rem;
-      color: var(--text-dark);
-    }
-    .featured-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-    .blog-section {
-      padding: 60px 20px;
-      background: rgba(245,245,245,0.8);
-    }
-    .blog-section h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: var(--text-dark);
-    }
-    .blog-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .blog-item {
-      margin-bottom: 30px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 20px;
-    }
-    .blog-item h3 {
-      font-size: 1.75rem;
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
-    .blog-item time {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 10px;
-      display: block;
-    }
-    .blog-item p {
-      font-size: 1rem;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-    }
-    .more-posts {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .more-posts a {
-      display: inline-block;
-      padding: 10px 20px;
-      background: var(--primary-color);
-      color: var(--text-light);
-      border-radius: var(--border-radius);
-      transition: var(--transition-standard);
-      text-decoration: none;
-    }
-    .more-posts a:hover {
-      background: var(--secondary-color);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frog103 - Personal Portfolio and Gallery">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Frog103 - Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/globalPageImages/frogbee.ico">
+    <style>
+        /* Hero Section */
+        .hero {
+            background: url('images/splashing4.JPG') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+        }
+        .hero-content {
+            background: rgba(0,0,0,0.5);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+        /* Featured Works */
+        .featured-gallery {
+            padding: 3rem 1rem;
+        }
+        .featured-gallery h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        /* Two-column layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .sidebar .widget {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body class="fade-out">
-  <div class="page-container">
-    <div class="header-nav-container">
-      <header>
-        <div class="icon">
-          <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+    <div class="page-container">
+        <div class="header-nav-container">
+            <header>
+                <div class="icon">
+                    <img src="images/frogBeeIcon.PNG" alt="Website Icon">
+                </div>
+                <div>
+                    <h1>Frog103</h1>
+                    <h3>Homepage</h3>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Projects.html">Projects</a></li>
+                    <li><a href="GalleryTopic.html">Gallery</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <div>
-          <h1>Frog103</h1>
-          <h3>Portfolio</h3>
-        </div>
-      </header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="Projects.html">Products</a></li>
-          <li><a href="GalleryTopic.html">Gallery</a></li>
-          <li><a href="Blog.html">Blog</a></li>
-          <li><a href="Contact.html">Contact</a></li>
-        </ul>
-      </nav>
+        <main class="content-wrap">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Frog103</h1>
+                    <p>Digital Illustration, Character Design, Animation</p>
+                </div>
+            </section>
+            <section class="featured-gallery">
+                <h2>Featured Works</h2>
+                <div class="gallery-topics">
+                    <div class="gallery-topic">
+                        <a href="Projects.html#work1">
+                            <img src="images/featured1.jpg" alt="Work 1">
+                            <p>Work One</p>
+                        </a>
+                    </div>
+                    <div class="gallery-topic">
+                        <a href="Projects.html#work2">
+                            <img src="images/featured2.jpg" alt="Work 2">
+                            <p>Work Two</p>
+                        </a>
+                    </div>
+                    <div class="gallery-topic">
+                        <a href="Projects.html#work3">
+                            <img src="images/featured3.jpg" alt="Work 3">
+                            <p>Work Three</p>
+                        </a>
+                    </div>
+                    <div class="gallery-topic">
+                        <a href="Projects.html#work4">
+                            <img src="images/featured4.jpg" alt="Work 4">
+                            <p>Work Four</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <div class="main-grid">
+                <section class="blog-preview">
+                    <h2>Recent Blog Posts</h2>
+                    <div class="gallery-pictures">
+                        <div class="gallery-picture">
+                            <a href="Blog.html#post1">
+                                <img src="images/blog1.jpg" alt="Blog Post 1">
+                                <p>Exploring Composition Techniques</p>
+                            </a>
+                        </div>
+                        <div class="gallery-picture">
+                            <a href="Blog.html#post2">
+                                <img src="images/blog2.jpg" alt="Blog Post 2">
+                                <p>Color Theory in Fantasy Art</p>
+                            </a>
+                        </div>
+                        <div class="gallery-picture">
+                            <a href="Blog.html#post3">
+                                <img src="images/blog3.jpg" alt="Blog Post 3">
+                                <p>Designing Memorable Characters</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <aside class="sidebar">
+                    <div class="widget instagram-feed">
+                        <div class="instagram-account-card">
+                            <h3>@stickybell</h3>
+                        </div>
+                        <div id="random-reel" class="random-reel">
+                            <p>Loading...</p>
+                        </div>
+                    </div>
+                    <div class="widget activities-postbox">
+                        <div class="actbox">
+                            <h3>Recent Activities</h3>
+                        </div>
+                        <ul id="recent-act-list">
+                            <li>Coming Soon!</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </main>
+        <footer>
+            Copyright &copy; 2025 Frog103. All Rights Reserved.
+            <p>For usage or licensing, please contact me.</p>
+        </footer>
     </div>
-    <main class="content-wrap">
-      <section class="hero">
-        <div>
-          <h1>sticky bell</h1>
-          <p>Digital Illustration. Character Design. Animation.</p>
-        </div>
-      </section>
-      <section class="featured-work">
-        <h2>Featured Work</h2>
-        <div class="featured-grid">
-          <div class="featured-card">
-            <img src="images/featured1.jpg" alt="Featured Project 1">
-            <h3>Project Title One</h3>
-            <p>Brief description highlighting style and role.</p>
-          </div>
-          <div class="featured-card">
-            <img src="images/featured2.jpg" alt="Featured Project 2">
-            <h3>Project Title Two</h3>
-            <p>Brief description highlighting style and role.</p>
-          </div>
-          <div class="featured-card">
-            <img src="images/featured3.jpg" alt="Featured Project 3">
-            <h3>Project Title Three</h3>
-            <p>Brief description highlighting style and role.</p>
-          </div>
-        </div>
-      </section>
-      <section class="blog-section">
-        <h2>Latest Posts</h2>
-        <div class="blog-list">
-          <article class="blog-item">
-            <h3><a href="Blog.html#post1">Blog Post Title One</a></h3>
-            <time datetime="2025-06-15">June 15, 2025</time>
-            <p>Introductory excerpt providing context for this post.</p>
-          </article>
-          <article class="blog-item">
-            <h3><a href="Blog.html#post2">Blog Post Title Two</a></h3>
-            <time datetime="2025-05-30">May 30, 2025</time>
-            <p>Introductory excerpt providing context for this post.</p>
-          </article>
-        </div>
-        <div class="more-posts">
-          <a href="Blog.html">View All Posts</a>
-        </div>
-      </section>
-    </main>
-    <footer>
-      Copyright &copy; 2025 Frog103. All Rights Reserved.
-      <p>For usage or licensing, please contact me.</p>
-    </footer>
-  </div>
-  <script src="scripts.js"></script>
-  <script src="particles.js"></script>
+    <script src="scripts.js"></script>
+    <script src="particles.js"></script>
 </body>
 </html>
