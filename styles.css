@@ -29,7 +29,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: url(images/background.jpeg);
+    background-image: url(images/globalPageImages/background.jpeg);
     background-size: cover;
     background-attachment: fixed;
     font-family: dimica-light, sans-serif;
