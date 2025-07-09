@@ -29,8 +29,8 @@ function renderVolumeButtons(volumes) {
 // Determines the appropriate icon for chapter accessibility.
 function getChapterIcon(meta) {
   return (meta && meta["chapterfree?"] === "true")
-    ? '<i class="fa-solid fa-eye"></i>'
-    : '<i class="fa-solid fa-lock"></i>';
+    ? '<i class="fa-solid fa-eye" style="color:#000000;"></i>'
+    : '<i class="fa-solid fa-lock" style="color:#000000;"></i>';
 }
 
 // Creates HTML layout for an individual chapter card.
