@@ -2,7 +2,7 @@
   "characters": [
     {
       "characterId": 1,
-      "showcase": "true",
+      "showcase": "false",
       "name": "Corraine",
       "excerpt": "test text",
       "tags": ["Backyard"],
@@ -225,7 +225,86 @@
           }
         ]
       }
+    },
+     {
+      "characterId": 1,
+      "showcase": "True",
+      "name": "Test Character",
+      "excerpt": "test text",
+      "tags": ["Test Story"],
+      "credits": {
+        "artists": ["stickybell09"],
+        "extra": ["Pop Smoke", "NBA Youngboy"]
+      },
+      "postImage": "images/galleryImages/characterDesigns/corraine.png",
+      "introTextFile": "txtFiles/corraineIntro.txt",
+      "pageDetails": {
+        "characterBanners": [
+          {
+            "image": "images/galleryImages/characterDesigns/corraine.png",
+            "tag": "Volume 1"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/corraine2.png",
+            "tag": "Volume 2"
+          },
+          {
+            "image": "images/galleryImages/characterDesigns/corraine3.png",
+            "tag": "Volume 3"
+          }
+        ],
+        "characterInfo": {
+          "name": "Test Character",
+          "age": "27",
+          "gender": "Male",
+          "height": "6'3\"",
+          "weight": "273 lbs",
+          "dateOfBirth": "04-06-1997"
+        },
+        "images": [
+          {
+            "imageId": 1,
+            "image": "images/galleryImages/characterDesigns/cModelSheet3.jpg",
+            "description": "Test Character's inital design iterations.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-07"
+          },
+          {
+            "imageId": 2,
+            "image": "images/galleryImages/characterDesigns/cModelSheet3.jpg",
+            "description": "Test Characters's current model sheet design.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-07"
+          },
+          {
+            "imageId": 3,
+            "image": "images/galleryImages/characterDesigns/corraine3.png",
+            "description": "Test Character's Expression Sheet.",
+            "artist": "stickybell09",
+            "timeOfUpload": "2025-04-06"
+          }
+        ],
+        "history": [
+          {
+            "historyId": 1,
+            "title": "Test Character's Conception",
+            "textFile": "txtFiles/corraineHistory.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ],
+        "trivia": [
+          {
+            "triviaId": 1,
+            "title": "Inspirations",
+            "textFile": "txtFiles/corraineTrivia.txt",
+            "timeOfUpload": "2025-04-06",
+            "relatedImageIds": [1]
+          }
+        ]
+      }
     }
+    
 
 
 
