@@ -228,7 +228,7 @@
     },
      {
       "characterId": 4,
-      "showcase": "True",
+      "showcase": "true",
       "name": "Test Character",
       "excerpt": "test text",
       "tags": ["Test Story"],
