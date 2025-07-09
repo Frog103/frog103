@@ -28,13 +28,15 @@ function renderVolumeButtons(volumes) {
 
 // Determines the appropriate icon for chapter accessibility.
 function getChapterIcon(meta) {
-  return (meta && meta["chapterfree?"] === "true") ? '👁️' : '🔒';
+  return (meta && meta["chapterfree?"] === "true")
+    ? '<i class="fa-solid fa-eye"></i>'
+    : '<i class="fa-solid fa-lock"></i>';
 }
 
 // Creates HTML layout for an individual chapter card.
-// Indicates if the chapter is freely accessible (👁️) or locked (🔒).
+// Indicates if the chapter is freely accessible (fa-eye) or locked (fa-lock).
 function renderChapterCard(ch, meta) {
-  const chapterIcon = (meta && meta["chapterfree?"] === "true") ? '👁️' : '🔒';
+  const chapterIcon = getChapterIcon(meta);
   return `
     <div class="chapter-card">
       <div class="card-text">
@@ -65,7 +67,9 @@ function renderChapters(volume) {
   document.getElementById("chapterContainer").innerHTML = chaptersHtml;
 
   if (volume.pdf) {
-    const pdfIcon = (volume["pdffree?"] === "true") ? '👁️' : '🔒';
+    const pdfIcon = (volume["pdffree?"] === "true")
+      ? '<i class="fa-solid fa-eye"></i>'
+      : '<i class="fa-solid fa-lock"></i>';
     document.getElementById("pdfContainer").innerHTML = `
       <div class="card-button">
         <a href="${volume.pdf}" data-pdffree="${(volume["pdffree?"] === "true") ? "true" : "false"}">
