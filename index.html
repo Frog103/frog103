@@ -12,26 +12,31 @@
     /* Layout & General Styles */
     .homepage-container {
         display: grid;
-        grid-template-columns: 3fr 3fr 3fr 2fr;
-        grid-template-areas: "instagram blog activities slideshow";
-        gap: 10px;
+        grid-template-areas:
+        "blogContainer"
+        "contentContainer";
+        grid-template-columns: 1fr;
+        gap: 20px;
         padding: 20px;
-        max-width: 1300px;
+        max-width: 1200px;
         margin: auto;
     }
-
-    /* Flatten the intermediate containers */
-    .content-container, 
     .blog-activities-container {
-        display: contents;
+        display: grid;
+        grid-area: blogContainer;
+        grid-template-areas:
+        "blog activities";
+        grid-template-columns: 2fr 3fr;
+        gap: 20px;
     }
-
-    /* Ensure each content box occupies the correct grid area */
-    .instagram-feed   { grid-area: instagram; }
-    .boxed-by-ninja   { grid-area: blog; }
-    .boxed-by-clix    { grid-area: activities; }
-    .slideshow-container { grid-area: slideshow; }
-
+    .content-container {
+        display: grid;
+        grid-area: contentContainer;
+        grid-template-areas:
+        "instagram slideshow";
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
     .headertext {
         background-color: rgba(255, 255, 255, 0.25);
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(151, 183, 154, 0.2));
@@ -68,7 +73,6 @@
         align-items: center;
         justify-content: center;
         padding-top: 50px;
-        height: 600px;
     }
     .boxed-by-ninja {
         grid-area: blog;
@@ -80,7 +84,7 @@
     
     /* Additional Component Styles */
     .portfolio-box {
-        max-width: 1550px;
+        max-width: 1350px;
         background-image: url(images/textureOne.jpeg);
         background-size: contain;
         border: solid 1px white;
@@ -336,28 +340,61 @@
     /* Responsive Media Queries */
         @media (max-width: 768px) {
         .homepage-container {
-            grid-template-columns: 1fr 1fr;
             grid-template-areas:
-                "instagram blog"
-                "activities slideshow";
+                "blogContainer"
+                "contentContainer";
+            grid-template-columns: 1fr;
             gap: 15px;
             padding: 15px;
         }
-        .instagram-feed,
-        .slideshow-container { padding-top: 20px; }
+
+        .blog-activities-container {
+            grid-template-areas:
+                "blog"
+                "activities";
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .content-container {
+            grid-template-areas:
+                "instagram"
+                "slideshow";
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .instagram-feed {
+            padding-top: 20px;
+        }
+        
+        .slideshow-container {
+            padding-top: 20px;
+            height: auto;
+            min-height: 200px;
+        }
+        
+        .splash-container {
+            max-height: none;
+        }
+        
+        .slideshow-container img {
+            margin-top: 45px;
+            max-height: none !important;
+        }
+        
+        .recent-posts ul li:nth-child(1),
+        .activities-postbox ul li:nth-child(1) {
+            margin-top: 11px;
+        }
+        
         .recent-posts,
-        .activities-postbox  { padding-top: 45px; }
+        .activities-postbox {
+            padding-top: 45px;
+        }
     }
 
     @media (max-width: 480px) {
-        .homepage-container {
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "instagram"
-                "blog"
-                "activities"
-                "slideshow";
-        }
         body {
             font-size: 0.9em;
         }
@@ -424,56 +461,61 @@
             <div class="headertext">
                 <h2>Welcome</h2>
                 <hr>
-                <p>Digital Illustration - Comics - Animation.</p>
+                <p>Digital Illustration, Character Design, and Animation.</p>
                 <p>All content on this site is created by me, unless otherwise stated.</p>
                 <p>See below for samples.</p>
             </div>
             <main class="homepage-container">
-                <div class="content-container">
-                    <div class="instagram-feed">
-                        <div class="instagram-account-card">
-                            <h3>@stickybell</h3>
-                        </div>
-                        <div id="random-reel" style="text-align: center;">
-                            <p>Loading...</p>
-                        </div>
+            
+            <div class="content-container">
+                <div class="instagram-feed">
+                    <div class="instagram-account-card">
+                        <h3>@stickybell</h3>
                     </div>
-                    <div class="slideshow-container">
-                        <div class="slideshow-header">
-                            <h3>Gallery Highlights</h3>
-                        </div>
-                        <div class="splash-container">
-                            <div class="mySlides fade">
-                                <img src="images/splashing4.JPG" alt="Splash Image2">
-                            </div>
-                        </div>
-                        <div id="slideshow-error" style="display: none;">
-                            Unable to load. Please try refreshing the page.
-                        </div>
+                    <div id="random-reel" style="text-align: center;">
+                        <p>Loading...</p>
                     </div>
                 </div>
+                <div class="slideshow-container">
+                    <div class="slideshow-header">
+                        <h3>Gallery Highlights</h3>
+                    </div>
+                    <div class="splash-container">
+                        <div class="mySlides fade">
+                            <img src="images/splashing4.JPG" alt="Splash Image2">
+                        </div>
+                    </div>
+                    <div id="slideshow-error" style="display: none;">
+                        Unable to load. Please try refreshing the page.
+                    </div>
+                </div>
+            </div>
+
                 <div class="blog-activities-container">
-                    <div class="boxed-by-ninja">
-                        <div class="recent-posts">
-                            <div class="postbox">
-                                <h3>Recent Blog Posts</h3>
-                            </div>
-                            <ul id="recent-post-list">
-                                <li>Loading...</li>
-                            </ul>
+                <div class="boxed-by-ninja">
+                    <div class="recent-posts">
+                        <div class="postbox">
+                            <h3>Recent Blog Posts</h3>
                         </div>
-                    </div>
-                    <div class="boxed-by-clix">
-                        <div class="activities-postbox">
-                            <div class="actbox">
-                                <h3>Recent Activities</h3>
-                            </div>
-                            <ul id="recent-act-list">
-                                <li>Coming Soon!</li>
-                            </ul>
-                        </div>
+                        <ul id="recent-post-list">
+                            <li>Loading...</li>
+                        </ul>
                     </div>
                 </div>
+
+                <div class="boxed-by-clix">
+                    <div class="activities-postbox">
+                        <div class="actbox">
+                            <h3>Recent Activities</h3>
+                        </div>
+                        <ul id="recent-act-list">
+                            <li>Coming Soon!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
             </main>
         </div>
         <footer>
