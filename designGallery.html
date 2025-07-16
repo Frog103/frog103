@@ -22,7 +22,7 @@
       margin-bottom: 20px;
     }
 
-    .filter-container select, .filter-container button {
+    .filter-container select, .filter-container button, .filter-container input {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -256,6 +256,7 @@
             <select id="tag-filter">
               <option value="All">All Titles</option>
             </select>
+            <input type="text" id="search-input" placeholder="Search titles...">
             <button id="sort-button" data-order="desc">Sort by Date: Descending</button>
           </div>
           <section id="blog-posts" aria-live="polite">
@@ -276,6 +277,7 @@
   let currentPage = 1;
   let currentOrder = 'desc';
   let currentFilter = 'All';
+  let searchText = '';
 
   // Fetch using the modified JSON structure.
   fetch('characterDesignGallery.json')
@@ -307,8 +309,11 @@
   }
 
   function filterPosts(tag) {
-    if (tag === 'All') return posts;
-    return posts.filter(character => character.tags.includes(tag));
+    let result = tag === 'All' ? posts : posts.filter(character => character.tags.includes(tag));
+    if(searchText){
+      result = result.filter(ch => ch.name.toLowerCase().includes(searchText.toLowerCase()));
+    }
+    return result;
   }
 
   // Sort by name instead of date.
@@ -430,6 +435,15 @@
     currentPage = 1;
     updatePosts();
   });
+
+  const searchInput = document.getElementById('search-input');
+  if(searchInput){
+    searchInput.addEventListener('input', (e) => {
+      searchText = e.target.value;
+      currentPage = 1;
+      updatePosts();
+    });
+  }
 
   function getLatestUpload(character) {
     let dates = [];

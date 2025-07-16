@@ -1,0 +1,9 @@
+{
+  "name": "frog103",
+  "version": "1.0.0",
+  "description": "Static site for the Frog103 portfolio and blog",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "license": "MIT"
+}

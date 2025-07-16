@@ -90,6 +90,19 @@
       transform: scale(1.05);
     }
 
+    .search-container {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .search-container input {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
     @media (max-width: 768px) {
       .project-container {
         grid-template-columns: 1fr;
@@ -163,6 +176,9 @@
     </div>
     <main class="content-wrap">
       <div class="dawg">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search titles...">
+        </div>
         <div class="project-container" id="projectContainer">
           <!--Content is loaded by script-->
         </div>
