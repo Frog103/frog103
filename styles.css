@@ -320,11 +320,7 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    .header-nav-container, footer {
-        padding: 15px;
-    }
-    
+@media (max-width: 768px) {    
     .content-wrap {
         padding-bottom: 15px;
     }
