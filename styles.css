@@ -102,12 +102,12 @@ nav ul li {
     margin: 0;
 }
 nav :nth-child(1) {
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 nav :nth-last-child(1) {
-    border-bottom-left-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 nav ul li a {
     display: block;
