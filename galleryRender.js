@@ -2,6 +2,7 @@ const ITEMS_PER_PAGE = 15;
         let currentPage = 1;
         let filteredItems = [];
         let allItems = [];
+        let searchText = '';
 
         function updatePagination(totalItems) {
             const paginationDiv = document.getElementById('pagination');
@@ -88,7 +89,9 @@ const ITEMS_PER_PAGE = 15;
             const sortDirection = document.getElementById('dateSort').value;
 
             filteredItems = allItems.filter(item => {
-                return !tagFilter || (item.tags && item.tags.includes(tagFilter));
+                const tagMatch = !tagFilter || (item.tags && item.tags.includes(tagFilter));
+                const searchMatch = !searchText || item.title.toLowerCase().includes(searchText.toLowerCase());
+                return tagMatch && searchMatch;
             });
 
             filteredItems = sortByDate(filteredItems, sortDirection);
@@ -100,6 +103,8 @@ const ITEMS_PER_PAGE = 15;
         function resetFilters() {
             document.getElementById('tagFilter').value = '';
             document.getElementById('dateSort').value = 'desc';
+            document.getElementById('searchInput').value = '';
+            searchText = '';
             filteredItems = sortByDate(allItems, 'desc');
             currentPage = 1;
             displayItems(filteredItems, currentPage);
@@ -118,9 +123,13 @@ const ITEMS_PER_PAGE = 15;
                 setupFilters(allItems);
                 displayItems(filteredItems, currentPage);
 
-               
+
                 document.getElementById('tagFilter').addEventListener('change', filterItems);
                 document.getElementById('dateSort').addEventListener('change', filterItems);
+                document.getElementById('searchInput').addEventListener('input', (e) => {
+                    searchText = e.target.value;
+                    filterItems();
+                });
             } catch (error) {
                 console.error('Error loading gallery:', error);
                 document.getElementById('gallery-container').innerHTML = 
