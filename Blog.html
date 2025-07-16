@@ -31,6 +31,12 @@
       display: flex;
       flex-direction: column;
     }
+    .backcolor {
+      background-color: rgba(255, 255, 255, 0.8);
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(238, 255, 240, 0.5));
+      padding: 10px;
+      border-radius: 8px;
+    }
 
     .filter-sidebar h2 {
       margin-top: 0;
@@ -436,6 +442,7 @@
     <main class="content-wrap">
       <div class="blog-container">
         <aside class="filter-sidebar" role="search">
+          <div class="backcolor">
           <h2>Filters</h2>
           <div class="filter-section">
             <h3>Contains:</h3>
@@ -462,6 +469,7 @@
             </div>
           </div>
         <input type="reset" value="RESET" id="reset-button">
+          </div>
         </aside>
         <div class="dawg">
           <section id="blog-posts" aria-live="polite"></section>
