@@ -173,8 +173,8 @@
         <p>For usage, licensing, or other inquiries, please contact me.</p>
       </footer>
     </div>
-    <script src="scripts.js"></script>
-    <script src="particles.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/particles.js"></script>
     <script>
         const ITEMS_PER_PAGE = 4;
         let currentPage = 1;
@@ -296,7 +296,7 @@
 
         async function initializeGallery() {
             try {
-                const response = await fetch('animationGallery.json');
+                const response = await fetch('json/animationGallery.json');
                 if (!response.ok) throw new Error('Network response was not ok');
                 
                 const data = await response.json();

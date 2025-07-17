@@ -506,8 +506,8 @@
       <p>For usage, licensing, or other inquiries, please contact me.</p>
     </footer>
 
-  <script src="particles.js" defer></script>
-  <script src="scripts.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/scripts.js" defer></script>
   <script defer>
     const postsPerPage = 4;
     const FALLBACK_IMAGE_PATH = 'images/globalPageImages/frogBeeIcon.PNG';
@@ -519,7 +519,7 @@
     let currentDate = '';
     let currentTags = []; // from multi-select "#include-tags"
 
-    fetch('posts.json')
+    fetch('json/posts.json')
       .then(response => response.json())
       .then(data => {
         if (Array.isArray(data.posts)) {

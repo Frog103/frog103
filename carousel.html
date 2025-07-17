@@ -188,7 +188,7 @@ function initializeCarousel() {
   let images = [];
   let currentIndex = 0;
 
-  fetch('cradle.json')
+  fetch('json/cradle.json')
     .then(res => res.json())
     .then(data => {
       const comic = data.comics[0];

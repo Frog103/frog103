@@ -280,7 +280,7 @@
   let searchText = '';
 
   // Fetch using the modified JSON structure.
-  fetch('characterDesignGallery.json')
+  fetch('json/characterDesignGallery.json')
     .then(response => response.json())
     .then(data => {
       posts = data.characters;
@@ -460,8 +460,8 @@
     return latest.toLocaleDateString('en-US', { timeZone: 'UTC' });
   }
 </script>
-    <script src="scripts.js"></script>
-    <script src="particles.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/particles.js"></script>
     <noscript>Please enable JavaScript to view blog posts.</noscript>
 </body>
 </html>

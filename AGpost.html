@@ -241,10 +241,10 @@
         <p>For usage, licensing, or other inquiries, please contact me.</p>
       </footer>
     </div>
-    <script src="scripts.js"></script>
-    <script src="particles.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/particles.js"></script>
     <script>
-        fetch('animationGallery.json')
+        fetch('json/animationGallery.json')
           .then(response => response.json())
           .then(data => {
             const itemId = new URLSearchParams(window.location.search).get('id');
