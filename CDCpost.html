@@ -323,8 +323,8 @@
             <button id="modalReturnBtn">Return to Gallery</button>
         </div>
     </div>
-    <script src="scripts.js" defer></script>
-    <script src="particles.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/particles.js" defer></script>
     <script>
     //fetch JSON, and initialize dynamic content
     document.addEventListener('DOMContentLoaded', function(){
@@ -360,7 +360,7 @@
             return processed;
         }
     
-        fetch('characterDesignGallery.json')
+        fetch('json/characterDesignGallery.json')
             .then(res => res.json())
             .then(data => {
                 const character = data.characters.find(c => c.characterId === charId);

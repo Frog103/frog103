@@ -4,7 +4,7 @@ let galleryImages = [];
 // Fetch and initialize gallery images
 async function initializeSlideshow() {
     try {
-        const response = await fetch('otherArtGallery.json');
+        const response = await fetch('json/otherArtGallery.json');
         const data = await response.json();
         console.log('Received data:', data);
 

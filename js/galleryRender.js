@@ -112,7 +112,7 @@ const ITEMS_PER_PAGE = 15;
 
         async function initializeGallery() {
             try {
-                const response = await fetch('otherArtGallery.json');
+                const response = await fetch('json/otherArtGallery.json');
                 if (!response.ok) throw new Error('Network response was not ok');
                 
                 const data = await response.json();

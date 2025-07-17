@@ -33,7 +33,7 @@ function attachVolumeListeners(comic) {
 }
 
 function loadComic() {
-  fetch('cradle.json')
+  fetch('json/cradle.json')
     .then(res => res.json())
     .then(data => {
       if (!data.comics || !data.comics.length) {

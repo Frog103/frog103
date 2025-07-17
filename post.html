@@ -194,7 +194,7 @@
       let post;
 
       // Fetch the post data
-      fetch('posts.json')
+      fetch('json/posts.json')
         .then(response => response.json())
         .then(data => {
           post = data.posts.find(p => p.id == postId);

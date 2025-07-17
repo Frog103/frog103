@@ -8,8 +8,10 @@ This repository contains the static files for the **Frog103** website. The site 
 - `Blog.html` – blog with search functionality
 - `Projects.html` – listing of comic projects
 - `designGallery.html`, `animationGallery.html`, `otherArtGallery.html` – gallery pages with filtering and search
-- JavaScript helpers for loading data (e.g. `comicfetch.js`, `galleryRender.js`)
-- Data files in JSON (`*.json`) and text posts under `txtFiles`
+- JavaScript helpers for loading data are located in the `js/` folder
+  (e.g. `comicfetch.js`, `galleryRender.js`)
+- Data files in JSON are kept in the `json/` folder and text posts under
+  `txtFiles`
 
 ## Development
 

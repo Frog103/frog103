@@ -1,7 +1,7 @@
 async function loadRandomReel() {
     try {
         // Fetch the JSON file
-        const response = await fetch('timelapses.json');
+        const response = await fetch('json/timelapses.json');
         const data = await response.json();
 
         const reels = data.reels;
@@ -37,7 +37,7 @@ async function loadRandomReel() {
 // -- Post Functions --
 async function loadRecentPosts() {
     try {
-        const response = await fetch('posts.json');
+        const response = await fetch('json/posts.json');
         const data = await response.json();
         // Sort posts by date descending then select the 5 most recent
         const posts = data.posts

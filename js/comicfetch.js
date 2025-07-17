@@ -93,7 +93,7 @@ function renderChapters(volume) {
 // Loads comic data and populates the comic page.
 // Dependent on comic.html.
 function loadComic() {
-  fetch('cradle.json')
+  fetch('json/cradle.json')
     .then(res => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
@@ -169,7 +169,7 @@ function attachAccessControl() {
 // Loads project data and populates the project page.
 // Dependent on Projects.html.
 function loadProjects(){
-  fetch('cradle.json')
+  fetch('json/cradle.json')
     .then(res => res.json())
     .then(data => {
       if(!data.comics || !data.comics.length) {
@@ -246,7 +246,7 @@ function renderProjects(projects){
 function loadViewer(){
   const params = new URLSearchParams(window.location.search);
   const chapterId = params.get("chapterId");
-  fetch('cradle.json')
+  fetch('json/cradle.json')
     .then(res => res.json())
     .then(data => {
       if (!data.comics || !data.comics.length) {
