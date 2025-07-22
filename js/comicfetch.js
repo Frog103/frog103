@@ -74,8 +74,8 @@ function renderChapters(volume) {
 
   if (volume.pdf) {
     const pdfIcon = (volume["pdffree?"] === "true")
-      ? '<p><i class="fa-solid fa-eye"></i></p>'
-      : '<p><i class="fa-solid fa-lock"></i></p>';
+      ? '<i class="fa-solid fa-eye"></i>'
+      : '<i class="fa-solid fa-lock"></i>';
     document.getElementById("pdfContainer").innerHTML = `
       <div class="card-button">
         <a href="${volume.pdf}" data-pdffree="${(volume["pdffree?"] === "true") ? "true" : "false"}">
