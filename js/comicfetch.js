@@ -51,7 +51,7 @@ function renderChapterCard(ch, meta) {
       </div>
       <div class="card-button">
         <a href="viewer.html?chapterId=${ch.chapterId}" data-chapterfree="${(meta && meta["chapterfree?"] === "true") ? "true" : "false"}">
-          View <span class="free-icon">${chapterIcon}</span>
+          View <p><span class="free-icon">${chapterIcon}</p></span>
         </a>
       </div>
     </div>
